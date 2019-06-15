@@ -1,0 +1,16 @@
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+/config/excel.php
+/config/database.php
+/storage/app/*
+/storage/logs/*
+/storage/framework/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*

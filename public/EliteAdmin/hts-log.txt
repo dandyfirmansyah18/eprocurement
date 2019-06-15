@@ -1,0 +1,36 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 30 Mar 2019 23:21:43 at http://eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html -%L "test text" -O1 "E:\KERJA\TEMPLATE\EliteAdmin" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+23:21:43	Error: 	Could not include URL list: test text
+23:25:59	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/login.html (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html)
+23:26:29	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/app-ticket.html (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html)
+23:27:09	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-progressbar.html (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html)
+23:27:16	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-bootstrap-switch.html (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html)
+23:28:11	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/table-data-table.html (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index.html)
+23:28:41	Warning: 	Retry after error -4 (Incorrect length (1049160 Bytes, 1177408 expected)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/fonts/icomoon.ttf?-rdmvgc (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/style.min.css)
+23:28:42	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/fonts/fontawesome-webfont.ttf?v=4.7.0 (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/style.min.css)
+23:28:44	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/vectormap/jquery-jvectormap-2.0.2.css (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index2.html)
+23:28:44	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/assets/images/browser/opera-logo.png (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/index2.html)
+23:28:45	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/pages/contact-app-page.css (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/app-contact.html)
+23:28:45	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/dist/css/pages/footable-page.css (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/app-contact.html)
+23:28:46	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/nestable/jquery.nestable.js (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-nestable.html)
+23:28:50	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/ion-rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-range-slider.html)
+23:28:52	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/session-timeout/idle/session-timeout-idle-init.js (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-session-ideal-timeout.html)
+23:28:54	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/assets/images/users/1.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-list-media.html)
+23:28:54	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/assets/images/users/2.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-list-media.html)
+23:28:54	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/assets/images/users/3.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-list-media.html)
+23:28:54	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/assets/images/users/4.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-list-media.html)
+23:28:54	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/assets/images/big/img1.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/ui-list-media.html)
+23:29:00	Warning: 	Retry after error -4 (No data (connection closed)) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/cropped.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/form-img-cropper.html)
+23:29:01	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/cropper/cropper-init.js (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/form-img-cropper.html)
+23:29:14	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/bt4/assets/node_modules/datatables/media/js/dataTables.bootstrap.js (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/table-editable-table.html)
+23:29:14	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/www.youtube.com/watch?v=sK7riqg2mr4 (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/pages-lightbox-popup.html)
+23:29:30	Error: 	"Not Found" (404) at link eliteadmin.themedesigner.in/demos/bt4/eliteadmin/cropped.jpg (from eliteadmin.themedesigner.in/demos/bt4/eliteadmin/form-img-cropper.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 7 minutes 47 seconds : 497 links scanned, 472 files written (22479792 bytes overall) [15822588 bytes received at 33881 bytes/sec], 9942098 bytes transferred using HTTP compression in 225 files, ratio 30%, 11.8 requests per connection
+(11 errors, 14 warnings, 0 messages)
