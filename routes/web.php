@@ -53,7 +53,7 @@ Route::middleware(['log'])->group(function(){
 
 		// Perencanaan
 		Route::get('/perencanaan/daftar', 'PlanningController@main_list');
-		Route::get('/perencanaan/daftar-calon', 'PlanningController@draft_list');
+		Route::post('/perencanaan/daftar-calon', 'PlanningController@draft_list');
 		Route::post('/perencanaan/tambah', 'PlanningController@add_new');
 		Route::get('/perencanaan/ubah/{id}', 'PlanningController@update_data');
 		Route::post('/perencanaan/simpan', 'PlanningController@save_data')->name('preprocurement_save');
