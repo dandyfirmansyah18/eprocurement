@@ -74,6 +74,9 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/upload/procurement', 'AttachmentController@procurement_entity_upload');
 		Route::post('/upload/certificate', 'AttachmentController@certificate_entity_upload');
 
+		// registrasi
+		Route::get('/daftar', 'RegistrationController@form')->name('registration_form');
+
 
 	});
 });
