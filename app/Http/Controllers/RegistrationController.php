@@ -694,7 +694,6 @@ class RegistrationController extends Controller
         $role_user = $request->role_user;
         $unit_id = $request->userunitlist;
         // print_r($password);die();
-
         $user_exists = User::where('email', $email)->first();
         if($user_exists != null) {
             return response()->json([

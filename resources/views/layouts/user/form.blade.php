@@ -31,7 +31,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="form_daftarpegawai" class="form floating-label form-validation form-validate" action="save_pegawai" method="POST" role="form" novalidate="novalidate">
+                    <form id="form_daftarpegawai" class="form floating-label form-validation form-validate" action="daftar/save_pegawai" method="POST" role="form" novalidate="novalidate">
                         <div class="card-body floating-label">
                             <!-- <div class="judulformtop">
                                 <i class="fa fa-file-text"></i> Data User Pegawai
