@@ -49,12 +49,12 @@ class ProcurementController extends Controller
 
     public function main_list()
     {
-        return view('pengadaan.daftar');
+        return view('layouts.pengadaan.daftar');
     }
 
     public function myproc_list()
     {
-        return view('pengadaan.daftarmyproc');
+        return view('layouts.pengadaan.daftarmyproc');
     }
 
     public function add_new(Request $request)
@@ -466,7 +466,7 @@ class ProcurementController extends Controller
             $log_p_result  = FileLog::where('attachment_id', $file_p_result->id)->get();
         }
 
-        return view('pengadaan.detail', [
+        return view('layouts.pengadaan.detail', [
             'now'                   => $now,
             'procurement'           => $item,
             'enrollments'           => $enrollments,
@@ -553,7 +553,7 @@ class ProcurementController extends Controller
                                         ->get()
                                         ->toArray();
 
-        return view('pengadaan.daftarcalon', [
+        return view('layouts.pengadaan.daftarcalon', [
             'procurements'   => $procurements,
             'user'           => $user
         ]);

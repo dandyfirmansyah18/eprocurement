@@ -1,25 +1,36 @@
-@extends('layouts.main')
-@section('title', 'Tabel Daftar Pengajuan Perencanaan Pengadaan')
-
-@push('csspage')
-<link rel="stylesheet" href="{{ URL::asset('js/libs/DataTables/datatables.min.css') }}"  type="text/css"/>
-<link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}"  type="text/css"/>
-@endpush
-
-@section('content')
-  <!-- BEGIN content SECTION -->
-	<section class="style-default-bright">
-		<div class="noheader section-header">
-
-		</div>
-		<div class="section-body">
-			<!-- BEGIN DATATABLE  -->
-			<div class="row">
-
-				<div class="col-lg-12">
-					<div class="table-responsive">
-						<table id="tabelperencanaan" class="table table-bordered order-column hover">
-					        <thead>
+<div class="container-fluid">
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Daftar User</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Daftar Pengajuan Perencanaan</li>
+            </ol>
+            <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Daftar User</h4>
+                <!-- <h6 class="card-subtitle"></h6> -->
+                <div class="table-responsive m-t-40">
+                    <table id="tabelperencanaan" class="table table-bordered table-striped">
+					<thead>
 					            <tr>
 					                <th>No</th>
 					                <th>Nama Pekerjaan</th>
@@ -110,22 +121,14 @@
 					        </tr>
 					        @endforeach
 					        </tbody>
-						</table>
-						<em><i class="fa fa-user fa-lg text-success"></i>: sudah disetujui <br>
-						<i class="fa fa-user fa-lg"></i>: belum disetujui</em>
-					</div><!--end .table-responsive -->
-				</div><!--end .col -->
-			</div><!--end .row -->
-			<!-- END DATATABLE 2 -->
-
-		</div><!--end .section-body -->
-	</section>
-  <!-- END content SECTION -->
-@endsection
-
-
-@push('jspage')
-<script type="text/javascript" src="{{ URL::asset('js/libs/DataTables/jszip.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/libs/DataTables/datatables.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jsqb-tabel-perencanaan.js') }}"></script>
-@endpush
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+</div>
+<script type="text/javascript" src="{{ asset('js/jsqb-tabel-perencanaan.js') }}"></script>

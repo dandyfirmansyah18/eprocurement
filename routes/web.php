@@ -66,6 +66,22 @@ Route::middleware(['log'])->group(function(){
 		Route::get('/perencanaan/detail/{id}', 'PlanningController@detail');
 		Route::get('/perencanaan/upload', 'PlanningController@upload');
 
+		// Pengadaan
+		Route::post('/pengadaan/daftar', 'ProcurementController@main_list');
+		Route::post('/pengadaan/daftar-calon', 'ProcurementController@draft_list');
+		/*Route::get('/pengadaan/tambah/{id}', 'ProcurementController@add_new');*/
+		Route::post('/pengadaan/tambah', 'ProcurementController@add_new')->name('procurement_save');
+		Route::get('/pengadaan/detail/{id}', 'ProcurementController@detail');
+		Route::get('/pengadaan/drafts', 'ProcurementController@proposed_list');
+		Route::get('/pengadaan/listed', 'ProcurementController@listed_list');
+		Route::post('/pengadaan/evaluasi_scoring', 'ProcurementController@eval_scoring');
+		Route::post('/pengadaan/ubahrks/{id}', 'ProcurementController@ubahrks');
+		Route::post('/pengadaan/ubahrksadmin/{id}', 'ProcurementController@ubahrksadmin');
+		Route::post('/pengadaan/evaluasi_nonscoring', 'ProcurementController@eval_nonscoring');
+		Route::post('/pengadaan/pemenang', 'ProcurementController@state_winner');
+		Route::post('/pengadaan/mulai', 'ProcurementController@start_list');
+		Route::post('/pengadaan/selesai', 'ProcurementController@finish');
+
 		// upload file attactment
 		Route::post('/upload/company', 'AttachmentController@company_entity_upload');
 		Route::post('/file/delete', 'AttachmentController@remove_by_path');

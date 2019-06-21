@@ -1,5 +1,3 @@
-@extends('layouts.main')
-@section('title','Pengajuan Perencanaan Pengadaan')
 @push('csspage')
 <link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
 <link rel="stylesheet" href="{{ URL::asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
@@ -7,41 +5,56 @@
 
 @endpush
 
-@section('content')
-    <!-- BEGIN content SECTION -->
-    <section class="style-default-bright">
-        <div class="section-header">
-            <h3>
-                <span class="">{{ $data['title']}} &nbsp;
-                    <button type="button" class="btn btn-xs ink-reaction btn-floating-action btn-warning"  data-toggle="tooltip" data-placement="top" title="Proses Persetujuan">
-                        <i class="fa fa-pencil"></i>
-                    </button>
-                </span>
-            </h3>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Detail Perencanaan</h4>
         </div>
-        <div class="section-body mt0">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card tabs style-default-light">
-                        <ul class="card-head nav nav-tabs" data-toggle="tabs">
-                            <li class="active">
-                                <a href="#first5">
-                                    <i class="fa fa-file-text"></i> &nbsp; Detail Perencanaan &nbsp;
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="pt0 card-body tab-content style-default-bright">
-                            @include('perencanaan.parts.approval.infoutama')
-                            @include('perencanaan.parts.approval.atasan')
-                        </div>
-                    </div><!--end .card-body -->
-                </div><!--end .card -->
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Detail Perencanaan</li>
+                </ol>
+                <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
             </div>
         </div>
-    </section>
-    <!-- END content SECTION -->
-@endsection
-
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+    <h3>
+        <span class="">{{ $data['title']}} &nbsp;
+            <button type="button" class="btn btn-xs ink-reaction btn-floating-action btn-warning"  data-toggle="tooltip" data-placement="top" title="Proses Persetujuan">
+                <i class="fa fa-pencil"></i>
+            </button>
+        </span>
+    </h3>
+        <div class="col-md-12">
+            <div class="card tabs style-default-light">
+                <ul class="card-head nav nav-tabs" data-toggle="tabs">
+                    <li class="active">
+                        <a href="#first5">
+                            <i class="fa fa-file-text"></i> &nbsp; Detail Perencanaan &nbsp;
+                        </a>
+                    </li>
+                </ul>
+                <div class="pt0 card-body tab-content style-default-bright">
+                    @include('layouts.perencanaan.parts.approval.infoutama')
+                    @include('layouts.perencanaan.parts.approval.atasan')
+                </div>
+            </div><!--end .card-body -->
+        </div><!--end .card -->
+    </div>
+</div>
 
 @push('jspage')
 <script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script>

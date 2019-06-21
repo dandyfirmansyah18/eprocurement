@@ -119,7 +119,7 @@ class PlanningController extends Controller
 
             $pseudo_id      = 0;
 
-            return view('perencanaan.tambah', [
+            return view('layouts.perencanaan.tambah', [
                             'user'              => $user,
                             'unit'              => $user->unit,
                             'data'              => $preprocurement,
@@ -199,7 +199,7 @@ class PlanningController extends Controller
             $stage  = $this->get_stage($preprocurement['planning_stage']);
             $method = $this->get_method($preprocurement['procurement_method']);
 
-            return view('perencanaan.detail', [
+            return view('layouts.perencanaan.detail', [
                             'data'          => $preprocurement,
                             'user'          => $user,
                             'verification'  => $verification,
@@ -221,6 +221,7 @@ class PlanningController extends Controller
     public function draft_list()
     {
         $user = Auth::user();
+        // $user = 6;
         if($user != null)
         {
             $items = PreProcurement::with(
@@ -257,7 +258,7 @@ class PlanningController extends Controller
 
             $items = $items->orderBy('id', 'desc')->get()->toArray();
 
-            return view('perencanaan.daftarcalon', [
+            return view('layouts.perencanaan.daftarcalon', [
                             'preprocurements'   => $items,
                             'user'              => $user
                 ]);
