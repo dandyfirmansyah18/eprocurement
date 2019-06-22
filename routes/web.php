@@ -91,7 +91,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/upload/certificate', 'AttachmentController@certificate_entity_upload');
 
 		// registrasi
-		Route::get('/daftar', 'RegistrationController@form')->name('registration_form');
+		Route::post('/daftar', 'RegistrationController@form')->name('registration_form');
 
 
 	});

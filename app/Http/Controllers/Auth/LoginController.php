@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Input;
 use Auth, Hash, Redirect, Session, Mail, Log, Request, DB;
-use App\User;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -60,13 +60,11 @@ class LoginController extends Controller
 
     public function postLogin()
     {
-
         $email = Input::get('email');
         $password = Input::get('password');
         $credentials = array('email' => $email, 'password' => $password);
 
         $cek_email = User::where('email', '=', $email)->first();
-        
         if(!$cek_email)
         {
             return 'MSG#ERR#Login gagal. Email tidak terdaftar.';

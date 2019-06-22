@@ -44,6 +44,7 @@
     <!-- Dashboard 1 Page CSS -->
     <link href="{{ asset('EliteAdmin/dist/css/pages/dashboard1.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sweetalert.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('EliteAdmin/assets/node_modules/wizard/steps.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,6 +66,7 @@
     <script src="{{ asset('EliteAdmin/assets/node_modules/sparkline/jquery.sparkline.min.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('EliteAdmin/dist/js/custom.min.js') }}"></script>
+    <script src="{{ asset('EliteAdmin/assets/node_modules/moment/moment.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap-filestyle.js') }}" type="text/javascript"></script>
@@ -101,12 +103,15 @@
     <script src="{{ asset('EliteAdmin/assets/node_modules/dff/dff.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('EliteAdmin/assets/node_modules/multiselect/js/jquery.multi-select.js') }}"></script>
     <script type="text/javascript" src="{{ asset('EliteAdmin/assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    
+    <!-- Wizard -->
+    <script src="{{ asset('EliteAdmin/assets/node_modules/wizard/jquery.steps.min.js') }}"></script>
+    <script src="{{ asset('EliteAdmin/assets/node_modules/wizard/jquery.validate.min.js') }}"></script>
+    <!-- End Wizard -->
 
     <script type="text/javascript" src="{{ asset('js/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/libs/dropzone/dropzone.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/libs/inputmask/jquery.inputmask.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/libs/wizard/jquery.bootstrap.wizard.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/libs/wizard/DemoFormWizard.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/libs/typeahead/typeahead.bundle.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jsqbc-functions.js') }}"></script>
 </head>

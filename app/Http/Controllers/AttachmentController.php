@@ -20,7 +20,6 @@ class AttachmentController extends Controller
         // print_r($request->file); die();
     	$result_id     = 0;
     	$company_id    = CompanyHelper::touch($request->user_id);
-
     	if($company_id > 0) {
     		$uploaded_files         = $request->file('files');
 	    	if ($uploaded_files != null && count($uploaded_files) > 0) {

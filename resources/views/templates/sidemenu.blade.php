@@ -28,6 +28,7 @@
                         <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
                     </ul>
                 </li>
+                
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-shopping-cart-full"></i><span class="hide-menu">Pengadaan Barang / Jasa</span></a>
                     <ul aria-expanded="false" class="collapse">
                     @if(Auth::user()->role_level == 3)
@@ -38,6 +39,8 @@
                     @endif
                     </ul>
                 </li>
+
+                @if(Auth::user()->role_level == 0)
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Management User</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void(0)" onclick="call('<?= url('user/register'); ?>','_content_','Register User')">Register User</a></li>
@@ -45,8 +48,9 @@
                         <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
                     </ul>
                 </li>
+                @endif
                 
-                <li> <a href="javascript:void(0)" onclick="" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Registrasi Vendor</span></a>
+                <li> <a href="javascript:void(0)" onclick="call('<?= url('daftar'); ?>','_content_','Register User')" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Registrasi Vendor</span></a>
                 </li>
                 <!--<li class="nav-small-cap">--- FORMS, TABLE &amp; WIDGETS</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Forms</span></a>

@@ -311,7 +311,6 @@ class CompanyHelper
     public static function touch($user_id)
     {
         $user           = User::find($user_id);
-
         if($user != null) {
             $company    = Company::where('user_id', $user_id)->first();
 

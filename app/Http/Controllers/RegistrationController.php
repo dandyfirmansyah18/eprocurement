@@ -151,17 +151,8 @@ class RegistrationController extends Controller
     }
 
     public function form($param='')
-    {
-        if (Auth::check()){
-            return redirect('/');
-        }
-        
-        $paramfix = base64_decode($param);
-        // dd($paramfix);
-        list($companyemail, $companyphone, $paramsend) = explode('~', $paramfix);
-        // $user = Auth::user();
-        // $user = User::where('email', $companyemail)->where('telp', $companyphone)->first();
-        $user = User::where('email', $companyemail)->first();
+    {   
+        $user = Auth::user();
         if($user != null && ($user->state == 0 || $user->state == 4)) {
             $company                = new Company;
             $contact                = new CompanyContact;
@@ -390,8 +381,7 @@ class RegistrationController extends Controller
             $not_session = 'not_session';
             // End Add By Dandy Firmansyah 07 05 2019
 
-
-            return view('daftar.daftar', [
+            return view('layouts.daftar.daftar', [
                             'user'                                 => $user,
                             'company'                              => $company,
                             'contact'                              => $contact,
