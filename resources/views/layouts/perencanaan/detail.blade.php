@@ -1,10 +1,3 @@
-@push('csspage')
-<link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
-<link rel="stylesheet" href="{{ URL::asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
-<link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}"  type="text/css"/>
-
-@endpush
-
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -56,7 +49,6 @@
     </div>
 </div>
 
-@push('jspage')
 <script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/rating/star-rating.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/dropzone/dropzone.min.js') }}"></script>
@@ -214,5 +206,4 @@ $(document).ready(function() {
     });
 });
 </script>
-<script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-@endpush
+<script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>\

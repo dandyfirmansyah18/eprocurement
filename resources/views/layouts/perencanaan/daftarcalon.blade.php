@@ -51,9 +51,7 @@
 							<tr>
 					            <td>{{ $no+1 }}</td>
 					            <td>
-					            <a href="<?php echo url('perencanaan/detail/'); ?>/{{ $data['id'] }}">
-					            	{{ ucwords($data['title']) }}
-					            </a>
+									<a href="javascript:void(0)" onclick="call('<?= url('perencanaan/detail'); ?>/{{ $data['id'] }}','_content_','Tambah Baru')">{{ ucwords($data['title']) }}</a>
 					            <br>
 					            @if (array_key_exists(2, $data['approvals']) && $user->role_level == 3 && !$data['proposed'])
 					            <form class="form" id="procurement_{{ $data['id'] }}" role="form" action="/pengadaan/tambah" method="POST" >
