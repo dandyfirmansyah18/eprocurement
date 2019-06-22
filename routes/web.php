@@ -92,7 +92,7 @@ Route::middleware(['log'])->group(function(){
 
 		// registrasi
 		Route::post('/daftar', 'RegistrationController@form')->name('registration_form');
-
+		Route::post('/daftar/simpan', 'RegistrationController@save_data')->name('registration_save');
 
 	});
 });

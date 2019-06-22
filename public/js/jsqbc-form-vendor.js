@@ -27,7 +27,7 @@ function page_ready() {
                 },
                 error: function(error){
                     console.log(error);
-                    alert("Failed. Something went wrong, please try again later.");
+                    swal("","Failed. Something went wrong, please try again later.","error");
                 }
             });
         } else {

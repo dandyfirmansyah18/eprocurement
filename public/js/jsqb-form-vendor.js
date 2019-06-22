@@ -79,7 +79,8 @@ $(document).ready(function() {
     });
 
     $(".select2-list").select2({
-			allowClear: true
+      allowClear: true,
+      width: '100%'
 		});
 
     $('#statuslokasi').on('change', function() {

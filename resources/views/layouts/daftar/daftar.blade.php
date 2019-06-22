@@ -44,7 +44,7 @@
                         @endphp
                     </h6>
                     <div id="rootwizard2">
-                        <form class="validation-wizard wizard-circle" action="/daftar/simpan" method="POST" id="form_registration" enctype="multipart/form-data">
+                        <form class="validation-wizard form-validation wizard-circle" action="/daftar/simpan" method="POST" id="form_registration" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" id="currently_disabled" value="{{ $readonly }}">
                             <!-- Step 1 -->
@@ -69,6 +69,24 @@
                             </section>
                         </form>
                     </div>
+                    <hr>
+                    <div class="card-actionbar">
+                        <div class="card-actionbar-row">
+                            @if($user->state == 0)
+                                <a href="#" id="trg_savedata" class="btn btn-info">
+                                    <i class="fa fa-save"></i>&nbsp;Simpan
+                                </a>
+                            @endif
+                            <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#verifikasi">
+                                <i class="fa fa-check"></i>&nbsp;
+                                @if($user->state == 0)
+                                    Kirim Pendaftaran Penyedia
+                                @elseif($user->state == 4)
+                                    Kirim Update Data Pendaftaran
+                                @endif
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,9 +105,9 @@
             </div>
             <div class="modal-body">
                 <p class="textcenter">
-                    <img id="saved_loader" src="{{ URL::asset('img/cog_spinner.gif') }}" alt="Loading.." />
+                    <img id="saved_loader" src="{{ asset('img/cog_spinner.gif') }}" alt="Loading.." />
                     <span id="saved_registration" class="hidden-block">
-                        <span class="textkonfirm"><b>PENYIMPANAN BERHASIL!</b></span>
+                        <h5 class="textkonfirm"><b>PENYIMPANAN BERHASIL!</b></h5>
                         <br>
                         Anda dapat kembali melakukan perubahan data dengan login menggunakan email dan pin pendaftaran.
                         Proses perubahan data dapat dilakukan sampai pendaftaran dikirimkan (klik tombol "kirim pendaftaran penyedia").
@@ -112,9 +130,9 @@
             </div>
             <div class="modal-body" style="overflow-y: auto;height: 300px;">
                 <p class="textcenter">
-                    <img id="registration_loader" src="{{ URL::asset('img/cog_spinner.gif') }}" alt="Loading.." />
+                    <img id="registration_loader" src="{{ asset('img/cog_spinner.gif') }}" alt="Loading.." />
                     <span id="failed_registration" class="hidden-block">
-                        <span class="textkonfirm">Pendaftaran Gagal!</span>
+                        <h5 style="color:red;" class="textkonfirm">Pendaftaran Gagal!</h5>
                         <br>
                         <span id="failed_message"></span>
                     </span>
@@ -132,8 +150,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="formModalLabel">Konfirmasi Kirim Pendaftaran Penyedia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <p>*Dengan ini menyatakan bahwa seluruh dokumen yg kami upload adalah benar sah dan masih berlaku. Dan kami siap menerima sanksi blacklist apabila terbukti ada yg tidak benar/pemalsuan
@@ -397,7 +415,7 @@
             </div>
             <div class="modal-body">
                 <div id="cert_loader">
-                    <img src="{{ URL::asset('img/cog_spinner.gif') }}" alt="Loading.." />
+                    <img src="{{ asset('img/cog_spinner.gif') }}" alt="Loading.." />
                 </div>
                 <form id="form_cert" class="form form-validation form-validate hidden-block" role="form" action="/daftar/save_certification" method="POST">
                     {{ csrf_field() }}
@@ -595,8 +613,8 @@
         <input type="hidden" id="delete_id" name="id" />
     </form>
 </div>
-<script type="text/javascript" src="{{ asset('js/form-wizard-daftar.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jsqb-form-vendor.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/form-wizard-daftar.js') }}"></script>
 @if($user->state != 2)
     <script type="text/javascript" src="{{ asset('js/jsqbc-form-vendor.js') }}"></script>
 @else
