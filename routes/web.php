@@ -81,7 +81,11 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/pemenang', 'ProcurementController@state_winner');
 		Route::post('/pengadaan/mulai', 'ProcurementController@start_list');
 		Route::post('/pengadaan/selesai', 'ProcurementController@finish');
-
+        
+        // Monitoring Pekerjaan
+        Route::post('/monitor/daftar', 'MonitoringController@main_list');
+        Route::get('/monitor/detail/{id}', 'MonitoringController@detail');
+        
 		// upload file attactment
 		Route::post('/upload/company', 'AttachmentController@company_entity_upload');
 		Route::post('/file/delete', 'AttachmentController@remove_by_path');
