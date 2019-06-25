@@ -1,13 +1,13 @@
-<div class="tab-pane" id="laporankerja">
+<div class="tab-pane" id="laporankerja" role="tabpanel">
   <!-- BEGIN kepemilikan saham TABLE -->
 	<br>
-  <div class="row">
+    <div class="row">
 		<div class="col-md-3">
 			<article class="margin-bottom-xxl">
 				<a href="#" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#tambahlaporankerja"><i class="fa fa-plus"></i> Tambah Laporan Pekerjaan</a>
 			</article>
 		</div><!--end .col -->
-		<div class="col-md-9">
+		<div class="col-md-12">
 			<div class="card">
 				<div class="card-body">
 					<table class="table no-margin">
@@ -55,49 +55,47 @@
 </div>
 
 <!--Modal -->
-<div class="modal fade" id="tambahlaporankerja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content mtr-tight-modal">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="formModalLabel">Tambah Laporan Pekerjaan</h4>
-			</div>
+<div id="tambahlaporankerja" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><a href="#">Tambah Laporan Pekerjaan</a></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
 			<div class="modal-body">
 				<form id="form_mtrlaporankerja" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/monitor/laporankerja" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="procurement_id" id="procurement_id" value="{{ $procurements['id'] }}" />
 					<input type="hidden" name="monitoring[id]" id="laporankerja_id" value="" />
 					{{ csrf_field() }}
 					<div class="form-group floating-label">
-						<input type="text" class="form-control" name="monitoring[notes]" value="">
 						<label for="regular2">Catatan Perkembangan</label>
+						<input type="text" class="form-control" name="monitoring[notes]" value="">
 					</div>
 					<div class="form-group">
 						<div class="input-group date" id="tanggal_laporankerja">
 							<div class="input-group-content">
-								<input type="text" class="form-control" name="monitoring[ba_date]" />
 								<label>Tanggal BA</label>
+								<input type="text" class="form-control" name="monitoring[ba_date]" />
 								<p class="help-block">tanggal/bulan/tahun</p>
 							</div>
-							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 						</div>
 					</div>
 					<div class="form-group floating-label">
-						<input type="text" class="form-control" name="monitoring[ba_number]" />
 						<label for="regular2">No. BA</label>
+						<input type="text" class="form-control" name="monitoring[ba_number]" />
 					</div>
 					<div class="form-group floating-label">
-						<input type="file" class="form-control" name="monitoring_ba_doc" />
 						<p class="help-block">Upload BA Serah Terima Perkembangan Pekerjaan</p>
+						<input type="file" class="form-control" name="monitoring_ba_doc" />
 					</div>
 					<div class="form-group floating-label">
-						<input type="text" class="form-control" name="monitoring[percentage]" />
 						<label for="regular2">Prosentase Pekerjaan Selesai (%)</label>
+						<input type="text" class="form-control" name="monitoring[percentage]" />
 					</div>
+                    <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan">   
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-				<button id="trg_laporanpekerjaan" type="button" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div>

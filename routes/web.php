@@ -85,6 +85,12 @@ Route::middleware(['log'])->group(function(){
         // Monitoring Pekerjaan
         Route::post('/monitor/daftar', 'MonitoringController@main_list');
         Route::get('/monitor/detail/{id}', 'MonitoringController@detail');
+        Route::get('/monitor/list', 'MonitoringController@worked_list');
+        Route::post('/monitor/kontrak', 'MonitoringController@contract_monitoring');
+        Route::post('/monitor/jaminan', 'MonitoringController@warranty_monitoring');
+        Route::post('/monitor/laporankerja', 'MonitoringController@work_monitoring');
+        Route::post('/monitor/laporanbayar', 'MonitoringController@payment_monitoring');
+        Route::post('/monitor/rating', 'MonitoringController@rating');
         
 		// upload file attactment
 		Route::post('/upload/company', 'AttachmentController@company_entity_upload');

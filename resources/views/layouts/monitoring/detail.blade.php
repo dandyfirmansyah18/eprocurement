@@ -39,7 +39,7 @@
                         </a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#kontrak" role="tab">
                             <span class="hidden-sm-up">
                                 <i class="ti-file"></i>
                             </span> 
@@ -47,28 +47,28 @@
                         </a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#jaminan" role="tab">
                             <span class="hidden-sm-up">
                                 <i class="ti-hummer"></i>
                             </span> 
                             <span class="hidden-xs-down">Jaminan Pekerjaan</span></a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#laporankerja" role="tab">
                             <span class="hidden-sm-up">
                                 <i class="ti-agenda"></i>
                             </span> 
                             <span class="hidden-xs-down">Laporan Pekerjaan</span></a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#laporanbayar" role="tab">
                             <span class="hidden-sm-up">
                                 <i class="ti-wallet"></i>
                             </span> 
                             <span class="hidden-xs-down">Laporan Pembayaran</span></a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#evaluasi" role="tab">
                             <span class="hidden-sm-up">
                                 <i class="ti-check-box"></i>
                             </span> 
@@ -78,6 +78,11 @@
                                 <!-- Tab panes -->
                 <div class="tab-content tabcontent-border">
                     @include('layouts.monitoring.parts.detail.infoutama')
+                    @include('layouts.monitoring.parts.detail.kontrak')
+                    @include('layouts.monitoring.parts.detail.jaminan')
+                    @include('layouts.monitoring.parts.detail.laporankerja')
+                    @include('layouts.monitoring.parts.detail.laporanbayar')
+                    @include('layouts.monitoring.parts.detail.evaluasi')
                 </div>
             </div>
         </div>
