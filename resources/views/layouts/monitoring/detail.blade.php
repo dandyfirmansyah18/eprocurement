@@ -8,7 +8,7 @@
 <!-- BEGIN content SECTION -->
 <div class="container-fluid">
 <!-- ============================================================== -->
-<!-- Bread crumb and right sidebar toggle -->
+<!-- Bread crumb as and right sidebar toggle -->
 <!-- ============================================================== -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
