@@ -1,3 +1,10 @@
+@push('csspage')
+<link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
+<link rel="stylesheet" href="{{ URL::asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
+<link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}"  type="text/css"/>
+
+@endpush
+
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->

@@ -36,7 +36,7 @@
                         <!-- <div class="judulformtop">
                             <i class="fa fa-file-text"></i> Data Pengajuan
                         </div> -->
-                        <h4 class="card-title">Register User</h4>
+                        <h4 class="card-title">Register Perencanaan</h4>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -260,7 +260,7 @@
                         <!-- <div class="judulform">
                             <i class="fa fa-file-text-o"></i> Catatan dan justifikasi
                         </div> -->
-                        <h4 class="card-title">Register User</h4>
+                        <h4 class="card-title">Catatan dan Justifikasi</h4>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
