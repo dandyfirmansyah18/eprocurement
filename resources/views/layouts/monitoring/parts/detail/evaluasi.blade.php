@@ -22,7 +22,7 @@
                 <label class="control-label"><b>Delivery time </b></label>
                 <div class="radio">
                     <?php
-                    //tes
+                    //
                     $checkdel1 = ($rating->delivery == 1)?"checked":"";
                     $checkdel2 = ($rating->delivery == 2)?"checked":"";
                     $checkdel3 = ($rating->delivery == 3)?"checked":"";
