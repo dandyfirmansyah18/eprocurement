@@ -81,7 +81,7 @@ $(document).ready(function() {
     $(".select2-list").select2({
       allowClear: true,
       width: '100%'
-		});
+    });
 
     $('#statuslokasi').on('change', function() {
       if ( this.value == '1')
@@ -323,60 +323,115 @@ $(document).ready(function() {
 });
 
 /** Add By Dandy Firmansyah 22 Maret 2019 **/
-const operational_postal_code = document.getElementById('lainnya_operational_postal_code')
-operational_postal_code.addEventListener('change', (event) => {
-  if (event.target.checked) {
+function operational_postal_code_change(){
+  if (document.getElementById('lainnya_operational_postal_code').checked) 
+  {
     $('#span_operational_postal_code').hide();
     $('#span_operational_postal_code_other').show();
   } else {
     $('#span_operational_postal_code').show();
     $('#span_operational_postal_code_other').hide();
   }
-})
+}
 
-const branch_postal_code = document.getElementById('lainnya_branch_postal_code')
-branch_postal_code.addEventListener('change', (event) => {
-  if (event.target.checked) {
+function branch_postal_code_change(){
+  if (document.getElementById('lainnya_branch_postal_code').checked) 
+  {
     $('#span_branch_postal_code').hide();
     $('#span_branch_postal_code_other').show();
   } else {
     $('#span_branch_postal_code').show();
     $('#span_branch_postal_code_other').hide();
   }
-})
+}
 
-const postal_code = document.getElementById('lainnya_postal_code')
-postal_code.addEventListener('change', (event) => {
-  if (event.target.checked) {
-    $('#span_postal_code').hide();
-    $('#span_postal_code_other').show();
+function postal_code_change(){
+  if (document.getElementById('lainnya_postal_code').checked) 
+  {
+    $('#postal_code').hide();
+    $('#postal_code_other').show();
   } else {
-    $('#span_postal_code').show();
-    $('#span_postal_code_other').hide();
+    $('#postal_code').show();
+    $('#postal_code_other').hide();
   }
-})
+}
 
-const sub_business_siup = document.getElementById('sub_business_siup_other_cb')
-sub_business_siup.addEventListener('change', (event) => {
-  if (event.target.checked) {
+function sub_business_siup_change(){
+  if (document.getElementById('sub_business_siup_other_cb').checked) 
+  {
     $('#span_sub_business_siup').hide();
     $('#span_sub_business_siup_other').show();
   } else {
     $('#span_sub_business_siup').show();
     $('#span_sub_business_siup_other').hide();
   }
-})
+}
 
-const sub_business_iujk = document.getElementById('sub_business_iujk_other_cb')
-sub_business_iujk.addEventListener('change', (event) => {
-  if (event.target.checked) {
+function sub_business_iujk_change(){
+  if (document.getElementById('sub_business_iujk_other_cb').checked) 
+  {
     $('#span_sub_business_iujk').hide();
     $('#span_sub_business_iujk_other').show();
   } else {
     $('#span_sub_business_iujk').show();
     $('#span_sub_business_iujk_other').hide();
   }
-})
+}
+
+// var operational_postal_code1 = document.getElementById('lainnya_operational_postal_code');
+// operational_postal_code1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     $('#span_operational_postal_code').hide();
+//     $('#span_operational_postal_code_other').show();
+//   } else {
+//     $('#span_operational_postal_code').show();
+//     $('#span_operational_postal_code_other').hide();
+//   }
+// })
+
+// var branch_postal_code1 = document.getElementById('lainnya_branch_postal_code');
+// branch_postal_code1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     $('#span_branch_postal_code').hide();
+//     $('#span_branch_postal_code_other').show();
+//   } else {
+//     $('#span_branch_postal_code').show();
+//     $('#span_branch_postal_code_other').hide();
+//   }
+// })
+
+// var postal_code1 = document.getElementById('lainnya_postal_code');
+// postal_code1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     $('#span_postal_code').hide();
+//     $('#span_postal_code_other').show();
+//   } else {
+//     $('#span_postal_code').show();
+//     $('#span_postal_code_other').hide();
+//   }
+// })
+
+// var sub_business_siup1 = document.getElementById('sub_business_siup_other_cb');
+// sub_business_siup1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     $('#span_sub_business_siup').hide();
+//     $('#span_sub_business_siup_other').show();
+//   } else {
+//     $('#span_sub_business_siup').show();
+//     $('#span_sub_business_siup_other').hide();
+//   }
+// })
+
+// var sub_business_iujk1 = document.getElementById('sub_business_iujk_other_cb');
+// sub_business_iujk1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     $('#span_sub_business_iujk').hide();
+//     $('#span_sub_business_iujk_other').show();
+//   } else {
+//     $('#span_sub_business_iujk').show();
+//     $('#span_sub_business_iujk_other').hide();
+//   }
+// })
 
 
 /** End Add By Dandy Firmansyah 22 Maret 2019 **/

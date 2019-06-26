@@ -96,7 +96,8 @@ $('#tabelcalonvendor').DataTable( {
         {
             data: 'name', name: 'name',
             render: function (data, type, row, meta) {
-                return "<a href='/vendor/detail/" + row.id + "'>" + data + "</a>";
+                var urlbro = "{{ url('vendor/detail') }}" + row.id;
+                return '<a href="javascript:void(0)" onclick="call(\''+urlbro+'\')">' + data + '</a>';
             }
         },
         {

@@ -73,7 +73,7 @@
                     <div class="card-actionbar">
                         <div class="card-actionbar-row">
                             @if($user->state == 0)
-                                <a href="#" id="trg_savedata" class="btn btn-info">
+                                <a href="#" id="trg_savedata" onclick="savedata()" class="btn btn-info">
                                     <i class="fa fa-save"></i>&nbsp;Simpan
                                 </a>
                             @endif
@@ -105,6 +105,7 @@
             </div>
             <div class="modal-body">
                 <p class="textcenter">
+                    <center>
                     <img id="saved_loader" src="{{ asset('img/cog_spinner.gif') }}" alt="Loading.." />
                     <span id="saved_registration" class="hidden-block">
                         <h5 class="textkonfirm"><b>PENYIMPANAN BERHASIL!</b></h5>
@@ -112,6 +113,7 @@
                         Anda dapat kembali melakukan perubahan data dengan login menggunakan email dan pin pendaftaran.
                         Proses perubahan data dapat dilakukan sampai pendaftaran dikirimkan (klik tombol "kirim pendaftaran penyedia").
                     </span>
+                    </center>
                 </p>
             </div>
             <div class="modal-footer hidden-block" id="saved_btn">
@@ -130,12 +132,14 @@
             </div>
             <div class="modal-body" style="overflow-y: auto;height: 300px;">
                 <p class="textcenter">
+                <center>
                     <img id="registration_loader" src="{{ asset('img/cog_spinner.gif') }}" alt="Loading.." />
                     <span id="failed_registration" class="hidden-block">
                         <h5 style="color:red;" class="textkonfirm">Pendaftaran Gagal!</h5>
                         <br>
                         <span id="failed_message"></span>
                     </span>
+                <center>
                 </p>
             </div>
             <div class="modal-footer hidden-block" id="failed_btn">
@@ -162,7 +166,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button id="trg_registration" type="button" class="btn btn-primary ink-reaction btn-loading-state" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Loading...">
+                <button id="trg_registration" onclick="registration();" type="button" class="btn btn-primary ink-reaction btn-loading-state" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Loading...">
                     <i class="fa fa-check"></i> Kirim Pendaftaran Penyedia
                 </button>
             </div>

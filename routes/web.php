@@ -93,6 +93,8 @@ Route::middleware(['log'])->group(function(){
 		// registrasi
 		Route::post('/daftar', 'RegistrationController@form')->name('registration_form');
 		Route::post('/daftar/simpan', 'RegistrationController@save_data')->name('registration_save');
+		Route::get('/get_city/{province_id}', 'RegistrationController@get_city');
+		Route::get('/get_postalcode/{city_name}', 'RegistrationController@get_postalcode');
 
 	});
 });

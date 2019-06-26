@@ -142,7 +142,7 @@
         else
             $checked_branch_postal_code = 'checked';
         ?>
-        <input type="checkbox" name="company[lainnya_branch_postal_code]" value="1" id="lainnya_branch_postal_code" {{$checked_branch_postal_code}} > <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
+        <input type="checkbox" name="company[lainnya_branch_postal_code]" value="1" onclick="branch_postal_code_change()" id="lainnya_branch_postal_code" {{$checked_branch_postal_code}} > <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
         <div class="form-group floating-label">
             <span id="span_branch_postal_code">
                 <label>Kecamatan-Kelurahan-Kode Pos Domisili</label>
@@ -157,8 +157,8 @@
                 </select>
             </span>
             <span id="span_branch_postal_code_other">
-                <input type="text" class="form-control" id="span_branch_postal_code_other" name="company[branch_postal_code_other]" value="{{ $branch_postal_code_other }}" {{ $readonly }}>
                 <label for="gelardepan">Kode Pos Domisili Lainnya</label>
+                <input type="text" class="form-control" id="span_branch_postal_code_other" name="company[branch_postal_code_other]" value="{{ $branch_postal_code_other }}" {{ $readonly }}>
                 <small id="emailHelp" class="form-text text-muted">Cantumkan dengan format <strong>Kecamatan-Kelurahan-KodePos</strong></small>
             </span>
         </div>
@@ -251,7 +251,7 @@
         else
             $checked_operational_postal_code = 'checked';
         ?>
-        <input type="checkbox" name="company[lainnya_operational_postal_code]" value="1" id="lainnya_operational_postal_code" {{$checked_operational_postal_code}}> <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
+        <input type="checkbox" name="company[lainnya_operational_postal_code]" value="1" onclick="operational_postal_code_change()" id="lainnya_operational_postal_code" {{$checked_operational_postal_code}}> <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
         <div class="form-group floating-label">
             <span id="span_operational_postal_code">
                 <label>Kecamatan-Kelurahan-Kode Pos Operasional</label>
@@ -320,7 +320,7 @@
             else
                 $checked_postal_code = 'checked';
             ?>
-            <input type="checkbox" name="company[lainnya_postal_code]" value="1" id="lainnya_postal_code" {{$checked_postal_code}}> <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
+            <input type="checkbox" name="company[lainnya_postal_code]" value="1" onclick="postal_code_change()" id="lainnya_postal_code" {{$checked_postal_code}}> <span style="font-size: 12px; font-style: italic; font-weight: bold;">Apakah Kode Pos Anda tidak tersedia dibawah ? Centang untuk masukkan lainnya.</span>
             <div class="form-group floating-label">
                 <span id="span_postal_code">
                     <label>Kecamatan-Kelurahan-Kode Pos Kantor Pusat</label>
