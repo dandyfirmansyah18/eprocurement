@@ -37,13 +37,13 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">E-Proc</p>
+            <p class="loader__label">Elite admin</p>
         </div>
     </div>
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../img/dash.jpg);">
+    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../EliteAdmin/assets/images/background/login-register.jpg);">
         <div class="login-box card">
             <div class="card-body">
                 <form class="form-horizontal form-material text-center" id="loginform" action="postlogin" method="POST">
@@ -76,14 +76,14 @@
                             <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded" onclick="act_login();return false;">Log In</button>
                         </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
                             <div class="social">
                                 <button class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </button>
                                 <button class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </button>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
                             Don't have an account? <a href="{{ url('/signup') }}" class="text-primary m-l-5"><b>Sign Up</b></a>

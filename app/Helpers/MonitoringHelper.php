@@ -176,9 +176,10 @@ class MonitoringHelper
             $item->procurement_id   = $procurement_id;
         }
 
-        $delivery                   = intval($data['delivery']);
-        $quality                    = intval($data['quality']);
-        $case                       = intval($data['case']);
+        
+        $delivery                   = $data['delivery'];
+        $quality                    = $data['quality'];
+        $case                       = $data['case'];
         $rate                       = ($delivery + $quality + $case) / 3;
 
         $item->delivery             = $delivery;

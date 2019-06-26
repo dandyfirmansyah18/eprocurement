@@ -63,7 +63,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/perencanaan/approval/{id}','PlanningController@approval')->name('preprocurement_approval');
 		Route::post('/perencanaan/reject','PlanningController@reject')->name('preprocurement_reject');
 		Route::post('/perencanaan/chats','PlanningController@chats')->name('preprocurement_chat');
-		Route::get('/perencanaan/detail/{id}', 'PlanningController@detail');
+		Route::post('/perencanaan/detail/{id}', 'PlanningController@detail');
 		Route::get('/perencanaan/upload', 'PlanningController@upload');
 
 		// Pengadaan
@@ -71,7 +71,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/daftar-calon', 'ProcurementController@draft_list');
 		/*Route::get('/pengadaan/tambah/{id}', 'ProcurementController@add_new');*/
 		Route::post('/pengadaan/tambah', 'ProcurementController@add_new')->name('procurement_save');
-		Route::get('/pengadaan/detail/{id}', 'ProcurementController@detail');
+		Route::post('/pengadaan/detail/{id}', 'ProcurementController@detail');
 		Route::get('/pengadaan/drafts', 'ProcurementController@proposed_list');
 		Route::get('/pengadaan/listed', 'ProcurementController@listed_list');
 		Route::post('/pengadaan/evaluasi_scoring', 'ProcurementController@eval_scoring');
@@ -81,7 +81,17 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/pemenang', 'ProcurementController@state_winner');
 		Route::post('/pengadaan/mulai', 'ProcurementController@start_list');
 		Route::post('/pengadaan/selesai', 'ProcurementController@finish');
-
+        
+        // Monitoring Pekerjaan
+        Route::post('/monitor/daftar', 'MonitoringController@main_list');
+        Route::get('/monitor/detail/{id}', 'MonitoringController@detail');
+        Route::get('/monitor/list', 'MonitoringController@worked_list');
+        Route::post('/monitor/kontrak', 'MonitoringController@contract_monitoring');
+        Route::post('/monitor/jaminan', 'MonitoringController@warranty_monitoring');
+        Route::post('/monitor/laporankerja', 'MonitoringController@work_monitoring');
+        Route::post('/monitor/laporanbayar', 'MonitoringController@payment_monitoring');
+        Route::post('/monitor/rating', 'MonitoringController@rating');
+        
 		// upload file attactment
 		Route::post('/upload/company', 'AttachmentController@company_entity_upload');
 		Route::post('/file/delete', 'AttachmentController@remove_by_path');

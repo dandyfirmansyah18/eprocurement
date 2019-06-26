@@ -39,7 +39,14 @@
                     @endif
                     </ul>
                 </li>
-
+                
+                <li> 
+                    <a href="javascript:void(0)" onclick="call('<?= url('/monitor/daftar'); ?>','_content_','Monitoring Pekerjaan')" aria-expanded="false">
+                        <i class="ti-desktop"></i>
+                        <span class="hide-menu">Monitoring Pekerjaan</span>
+                    </a>
+                </li>
+                
                 @if(Auth::user()->role_level == 0)
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Management User</span></a>
                     <ul aria-expanded="false" class="collapse">

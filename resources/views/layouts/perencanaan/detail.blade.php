@@ -56,7 +56,6 @@
     </div>
 </div>
 
-@push('jspage')
 <script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/rating/star-rating.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/dropzone/dropzone.min.js') }}"></script>
@@ -214,5 +213,4 @@ $(document).ready(function() {
     });
 });
 </script>
-<script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-@endpush
+<script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>\

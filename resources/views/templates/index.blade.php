@@ -123,7 +123,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Elite admin</p>
+            <p class="loader__label">E-Proc</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -152,7 +152,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div id="_content_">
-                {!!$_content_!!}
+                @yield('content')
             </div>
             
             <!-- ============================================================== -->

@@ -15,7 +15,7 @@ class ChatHelper
         $message->sender_id    = $data['sender_id'];
         $message->recipient_id = $data['recipient_id'];
         $message->message      = $data['message'];
-
+        
     	$message->save();
 
     	return $message->id;
