@@ -20,11 +20,11 @@ class MonitoringHelper
         }
 
         if($data['ba_date'] != null) {
-            $ba_date = explode('/', $data['ba_date']);
+            $ba_date = explode('-', $data['ba_date']);
             if(count($ba_date) > 1){
-                $r_year         = $ba_date[2];
+                $r_year         = $ba_date[0];
                 $r_month        = $ba_date[1];
-                $r_day          = $ba_date[0];
+                $r_day          = $ba_date[2];
                 $item->ba_date  = Carbon::create($r_year, $r_month, $r_day, 0, 0, 0);
             }
         }
@@ -48,11 +48,11 @@ class MonitoringHelper
         }
 
         if($data['ba_date'] != null) {
-            $ba_date = explode('/', $data['ba_date']);
+            $ba_date = explode('-', $data['ba_date']);
             if(count($ba_date) > 1){
-                $r_year         = $ba_date[2];
+                $r_year         = $ba_date[0];
                 $r_month        = $ba_date[1];
-                $r_day          = $ba_date[0];
+                $r_day          = $ba_date[2];
                 $item->ba_date  = Carbon::create($r_year, $r_month, $r_day, 0, 0, 0);
             }
         }
@@ -77,21 +77,21 @@ class MonitoringHelper
         }
 
         if($data['start_date'] != null) {
-            $start_date = explode('/', $data['start_date']);
+            $start_date = explode('-', $data['start_date']);
             if(count($start_date) > 1){
-                $r_year             = $start_date[2];
+                $r_year             = $start_date[0];
                 $r_month            = $start_date[1];
-                $r_day              = $start_date[0];
+                $r_day              = $start_date[2];
                 $item->start_date   = Carbon::create($r_year, $r_month, $r_day, 0, 0, 0);
             }
         }
 
         if($data['end_date'] != null) {
-            $end_date = explode('/', $data['end_date']);
+            $end_date = explode('-', $data['end_date']);
             if(count($end_date) > 1){
-                $e_year             = $end_date[2];
+                $e_year             = $end_date[0];
                 $e_month            = $end_date[1];
-                $e_day              = $end_date[0];
+                $e_day              = $end_date[2];
                 $item->end_date     = Carbon::create($e_year, $e_month, $e_day, 0, 0, 0);
             }
         }
@@ -126,33 +126,33 @@ class MonitoringHelper
             $item                   = new MonitoringContract;
             $item->procurement_id   = $procurement_id;
         }
-
+        //echo $data['doc_date'];
         if($data['doc_date'] != null) {
-            $doc_date = explode('/', $data['doc_date']);
+            $doc_date = explode('-', $data['doc_date']);
             if(count($doc_date) > 1){
-                $d_year             = $doc_date[2];
+                $d_year             = $doc_date[0];
                 $d_month            = $doc_date[1];
-                $d_day              = $doc_date[0];
+                $d_day              = $doc_date[2];
                 $item->doc_date     = Carbon::create($d_year, $d_month, $d_day, 0, 0, 0);
             }
         }
 
         if($data['start_date'] != null) {
-            $start_date = explode('/', $data['start_date']);
+            $start_date = explode('-', $data['start_date']);
             if(count($start_date) > 1){
-                $r_year             = $start_date[2];
+                $r_year             = $start_date[0];
                 $r_month            = $start_date[1];
-                $r_day              = $start_date[0];
+                $r_day              = $start_date[2];
                 $item->start_date   = Carbon::create($r_year, $r_month, $r_day, 0, 0, 0);
             }
         }
 
         if($data['end_date'] != null) {
-            $end_date = explode('/', $data['end_date']);
+            $end_date = explode('-', $data['end_date']);
             if(count($end_date) > 1){
-                $e_year             = $end_date[2];
+                $e_year             = $end_date[0];
                 $e_month            = $end_date[1];
-                $e_day              = $end_date[0];
+                $e_day              = $end_date[2];
                 $item->end_date     = Carbon::create($e_year, $e_month, $e_day, 0, 0, 0);
             }
         }

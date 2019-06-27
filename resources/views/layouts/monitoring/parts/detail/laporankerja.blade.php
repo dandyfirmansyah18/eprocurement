@@ -75,7 +75,7 @@
 						<div class="input-group date" id="tanggal_laporankerja">
 							<div class="input-group-content">
 								<label>Tanggal BA</label>
-								<input type="text" class="form-control" name="monitoring[ba_date]" />
+								<input type="date" class="form-control" name="monitoring[ba_date]" />
 								<p class="help-block">tanggal/bulan/tahun</p>
 							</div>
 						</div>
