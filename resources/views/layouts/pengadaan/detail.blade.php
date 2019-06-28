@@ -1,7 +1,3 @@
-@extends('layouts.main')
-
-@section('title','Halaman Detail Pengadaan')
-
 @push('csspage')
     <link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
     <link rel="stylesheet" href="{{ URL::asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
@@ -11,137 +7,137 @@
 @endpush
 
 @section('content')
-<!-- BEGIN content SECTION -->
-<section class="style-default-bright">
-    <div class="section-header">
-        <h3>
-            <span class="">{{ ucwords($procurement['title']) }}&nbsp;</span>
-            <small>
-                <i class="fa fa-circle" style="color:orange"></i>:&nbsp;Sudah dilaksanakan&nbsp;;&nbsp;
-                <i class="fa fa-circle-o"></i>:&nbsp;sedang berlangsung&nbsp;
-            </small>
-        </h3>
-    </div>
-    <div class="section-body mt0">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card tabs-left style-default-light">
-                    <ul class="card-head nav nav-tabs" data-toggle="tabs">
-                        <li class="active">
-                            <a href="#first1">
-                                <i class="fa fa-file-text"></i> &nbsp; Detail Pengadaan &nbsp;
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#first2">
-                                <i class="fa fa-users"></i> &nbsp; Daftar Peserta &nbsp;
-                            </a>
-                        </li>
-                        @if($procurement->procurement_qualification == 1)
-                            <li>
-                                <a href="#pra">
-                                    {!! $procurement->render_stage_icon(1) !!}&nbsp;Prakualifikasi
-                                </a>
-                            </li>
-                        @endif
-                        <li>
-                            <a href="#start">
-                                {!! $procurement->render_stage_icon(2) !!}&nbsp;1. Pengumuman/Undangan
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#dok">
-                                {!! $procurement->render_stage_icon(3) !!}&nbsp;2. Download Dokumen
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#aanwizing">
-                                {!! $procurement->render_stage_icon(4) !!}&nbsp;3. Aanwizing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#tawareval">
-                                {!! $procurement->render_stage_icon(5) !!}&nbsp;4. Upload Penawaran
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#buka">
-                                {!! $procurement->render_stage_icon(6) !!}&nbsp;5. Pembukaan Penawaran
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#eval">
-                                {!! $procurement->render_stage_icon(7) !!}&nbsp;6. Evaluasi Penawaran
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#nego">
-                                {!! $procurement->render_stage_icon(10) !!}&nbsp;7. Negosiasi
-                            </a>
-                        </li>
-                        @if($procurement->procurement_method != 5)
-                        <li>
-                            <a href="#calonpem">
-                                {!! $procurement->render_stage_icon(6) !!}&nbsp;8. Pengusulan Calon Pemenang
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#evalpengumuman">
-                                {!! $procurement->render_stage_icon(7) !!}&nbsp;9. Penetapan dan Pengumuman Pemenang
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#sanggah">
-                                {!! $procurement->render_stage_icon(8) !!}&nbsp;10. Sanggahan
-                            </a>
-                        </li>
-                        @endif
-                        <li>
-                            <a href="#kontrak">
-                                {!! $procurement->render_stage_icon(9) !!}&nbsp;11. SK Penetapan Pemenang
-                            </a>
-                        </li>
-
-                    </ul>
-                    <div class="pt0 card-body tab-content style-default-bright">
-                        @include('pengadaan.parts.detail.infoutama')
-
-                        @include('pengadaan.parts.detail.penyedia')
-
-                        @if($procurement->procurement_qualification == 1)
-                            @include('pengadaan.parts.detail.pra')
-                        @endif
-
-                        @include('pengadaan.parts.detail.start')
-
-                        @include('pengadaan.parts.detail.dok')
-
-                        @include('pengadaan.parts.detail.aanwizing')
-
-                        @include('pengadaan.parts.detail.tawareval')
-
-                        @include('pengadaan.parts.detail.buka')
-
-                        @include('pengadaan.parts.detail.eval')
-
-                        @include('pengadaan.parts.detail.nego')
-
-                        @include('pengadaan.parts.detail.calonpem')
-
-                        @include('pengadaan.parts.detail.evalpengumuman')
-
-                        @include('pengadaan.parts.detail.sanggah')
-
-                        @include('pengadaan.parts.detail.kontrak')
-                    </div><!--end .card-body -->
-                </div><!--end .card -->
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Tambah Baru</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Tambah Baru</li>
+                </ol>
+                <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
             </div>
-
         </div>
     </div>
-</section>
-<!-- END content SECTION -->
-@endsection
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card tabs-left style-default-light">
+                <ul class="card-head nav nav-tabs" data-toggle="tabs">
+                    <li class="active">
+                        <a href="#first1">
+                            <i class="fa fa-file-text"></i> &nbsp; Detail Pengadaan &nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#first2">
+                            <i class="fa fa-users"></i> &nbsp; Daftar Peserta &nbsp;
+                        </a>
+                    </li>
+                    @if($procurement->procurement_qualification == 1)
+                        <li>
+                            <a href="#pra">
+                                {!! $procurement->render_stage_icon(1) !!}&nbsp;Prakualifikasi
+                            </a>
+                        </li>
+                    @endif
+                    <li>
+                        <a href="#start">
+                            {!! $procurement->render_stage_icon(2) !!}&nbsp;1. Pengumuman/Undangan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dok">
+                            {!! $procurement->render_stage_icon(3) !!}&nbsp;2. Download Dokumen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#aanwizing">
+                            {!! $procurement->render_stage_icon(4) !!}&nbsp;3. Aanwizing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tawareval">
+                            {!! $procurement->render_stage_icon(5) !!}&nbsp;4. Upload Penawaran
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#buka">
+                            {!! $procurement->render_stage_icon(6) !!}&nbsp;5. Pembukaan Penawaran
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#eval">
+                            {!! $procurement->render_stage_icon(7) !!}&nbsp;6. Evaluasi Penawaran
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#nego">
+                            {!! $procurement->render_stage_icon(10) !!}&nbsp;7. Negosiasi
+                        </a>
+                    </li>
+                    @if($procurement->procurement_method != 5)
+                    <li>
+                        <a href="#calonpem">
+                            {!! $procurement->render_stage_icon(6) !!}&nbsp;8. Pengusulan Calon Pemenang
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#evalpengumuman">
+                            {!! $procurement->render_stage_icon(7) !!}&nbsp;9. Penetapan dan Pengumuman Pemenang
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sanggah">
+                            {!! $procurement->render_stage_icon(8) !!}&nbsp;10. Sanggahan
+                        </a>
+                    </li>
+                    @endif
+                    <li>
+                        <a href="#kontrak">
+                            {!! $procurement->render_stage_icon(9) !!}&nbsp;11. SK Penetapan Pemenang
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="pt0 card-body tab-content style-default-bright">
+                    @include('layouts.pengadaan.parts.detail.infoutama')
+
+                    @include('layouts.pengadaan.parts.detail.penyedia')
+
+                    @if($procurement->procurement_qualification == 1)
+                        @include('layouts.pengadaan.parts.detail.pra')
+                    @endif
+
+                    @include('layouts.pengadaan.parts.detail.start')
+
+                    @include('layouts.pengadaan.parts.detail.dok')
+
+                    @include('layouts.pengadaan.parts.detail.aanwizing')
+
+                    @include('layouts.pengadaan.parts.detail.tawareval')
+
+                    @include('layouts.pengadaan.parts.detail.buka')
+
+                    @include('layouts.pengadaan.parts.detail.eval')
+
+                    @include('layouts.pengadaan.parts.detail.nego')
+
+                    @include('layouts.pengadaan.parts.detail.calonpem')
+
+                    @include('layouts.pengadaan.parts.detail.evalpengumuman')
+
+                    @include('layouts.pengadaan.parts.detail.sanggah')
+
+                    @include('layouts.pengadaan.parts.detail.kontrak')
+                </div><!--end .card-body -->
+            </div><!--end .card -->
+        </div>
+
+    </div>
+</div>
 
 @push('modal')
     <!--Modal -->

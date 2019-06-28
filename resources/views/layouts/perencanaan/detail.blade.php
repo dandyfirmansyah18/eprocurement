@@ -1,5 +1,6 @@
 @push('csspage')
-<link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
+<!-- <link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/> -->
+<link rel="stylesheet" href="{{ URL::asset('EliteAdmin/assets/node_modules/summernote/dist/summernote-bs4.css') }}"  type="text/css"/>
 <link rel="stylesheet" href="{{ URL::asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
 <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}"  type="text/css"/>
 
@@ -56,7 +57,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script> -->
+<script type="text/javascript" src="{{ URL::asset('EliteAdmin/assets/node_modules/summernote/dist/summernote-bs4.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/rating/star-rating.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/dropzone/dropzone.min.js') }}"></script>
 <script type="text/javascript">
@@ -74,6 +76,24 @@ $(document).ready(function() {
     });
 
     $("#input-2-xs").rating();
+    $('.summernote').summernote({
+        height: 350, // set editor height
+        minHeight: null, // set minimum height of editor
+        maxHeight: null, // set maximum height of editor
+        focus: false // set focus to editable area after initializing summernote
+    });
+
+    $('.inline-editor').summernote({
+        airMode: true
+    });
+    window.edit = function() {
+            $(".click2edit").summernote()
+        },
+        window.save = function() {
+            $(".click2edit").summernote('destroy');
+        }
+
+
     $('#summernote0').summernote({
         height: 150,
         placeholder: 'tulis pesan',
@@ -87,7 +107,7 @@ $(document).ready(function() {
             ['insert', ['link', 'table', 'hr']]
         ]
     });
-    $('#summernote').summernote({
+    $('#summernote01010').summernote({
         height: 150,
         placeholder: 'tulis pesan',
         toolbar: [

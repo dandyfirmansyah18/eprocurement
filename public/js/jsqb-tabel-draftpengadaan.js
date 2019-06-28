@@ -56,7 +56,7 @@ $('#tabeldraftpengadaan').DataTable( {
             data: 'title',
             name: 'title',
             render: function(data, type, row) {
-                return "<a href=\"\\javascript:void(0)\"\\ onclick=\"\\call('<?= url('pengadaan/draft/"+ row.id +"'); ?>\"\\,'_content_','Daftar Draft Pengadaan')">"+ data +"</a>";
+                return "<a href=\"\\javascript:void(0)\"\\ onclick=\"\\call('<?= url('pengadaan/draft/"+ row.id +"'); ?>\"\\,'_content_','Daftar Draft Pengadaan')\"\\>"+ data +"</a>";
             }
         },
         {
