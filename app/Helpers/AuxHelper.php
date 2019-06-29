@@ -41,6 +41,27 @@ class AuxHelper
             return $day . '/' . $month . '/' . $parsed_date->year;
         }
     }
+    
+    public static function render_date_monitoring($date)
+    {
+        if($date == null || $date == '00/00/0000') {
+            return '';
+        } else {
+            $parsed_date = Carbon::parse($date);
+
+            $day = $parsed_date->day;
+            if($day < 10) {
+                $day = '0' . $day;
+            }
+
+            $month = $parsed_date->month;
+            if($month < 10) {
+                $month = '0' . $month;
+            }
+
+            return $parsed_date->year . '-' . $month . '-' . $day ;
+        }
+    }
 
     public static function render_date_long($date)
     {

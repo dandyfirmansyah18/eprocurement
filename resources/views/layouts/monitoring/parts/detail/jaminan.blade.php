@@ -89,7 +89,7 @@
           <div class="input-group date" id="tanggal_jaminanstart">
             <div class="input-group-content">
               <label>Tanggal Mulai Jaminan</label>
-              <input type="text" class="form-control" name="monitoring[start_date]" value="{{ \App\Helpers\AuxHelper::render_date($assurance->start_date) }}" />
+              <input type="date" class="form-control" name="monitoring[start_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($assurance->start_date) }}" />
               <p class="help-block">tanggal/bulan/tahun</p>
             </div>
           </div>
@@ -101,7 +101,7 @@
           <div class="input-group date" id="tanggal_jaminanend">
             <div class="input-group-content">
               <label>Tanggal Selesai Jaminan</label>
-              <input type="text" class="form-control" name="monitoring[end_date]" value="{{ \App\Helpers\AuxHelper::render_date($assurance->end_date) }}" />
+              <input type="date" class="form-control" name="monitoring[end_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($assurance->end_date) }}" />
               <p class="help-block">tanggal/bulan/tahun</p>
             </div>
           </div>

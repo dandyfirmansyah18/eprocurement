@@ -11,7 +11,7 @@
                     </ul>
                 </li>
                 <li class="nav-small-cap">--- PERSONAL</li>
-                <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i>  <span class="hide-menu">Dashboard </span></a>
+                <li> <a href="javascript:void(0)" aria-expanded="false" onclick="call('<?= url('dashboard'); ?>','_content_','Dashboard')"><i class="icon-speedometer"></i>  <span class="hide-menu">Dashboard </span></a>
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">
                 Penyedia</span></a>

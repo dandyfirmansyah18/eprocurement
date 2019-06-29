@@ -57,12 +57,12 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <div class="input-group date" id="tanggal_kontrakdoc">
+                                <div class="input-group date" id="tanggal_kontrakdocs">
                                     <div class="input-group-content">
-                                        <label>Tanggal Dokumen</label>
-                                        <input type="text" class="form-control" name="monitoring[doc_date]" value="{{ \App\Helpers\AuxHelper::render_date($contract->doc_date) }}" />
+                                        <label>Tanggal Dokumen </label>
+                                        <input type="date" class="form-control" name="monitoring[doc_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($contract->doc_date) }}" />
                                     
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <p class="help-block">bulan/tanggal/tahun</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                                 <div class="input-group date" id="tanggal_kontrakstart">
                                     <div class="input-group-content">
                                         <label>Tanggal Mulai Pekerjaan</label>
-                                        <input type="text" class="form-control" name="monitoring[start_date]" value="{{ \App\Helpers\AuxHelper::render_date($contract->start_date) }}" />
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <input type="date" class="form-control" name="monitoring[start_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($contract->start_date) }}" />
+                                        <p class="help-block">bulan/tanggal/tahun</p>
                                     </div>
                                 </div>
                             </div>
@@ -83,8 +83,8 @@
                                   <div class="input-group date" id="tanggal_kontrakend">
                                         <div class="input-group-content">
                                               <label>Tanggal Selesai Pekerjaan</label>
-                                              <input type="text" class="form-control" name="monitoring[end_date]" value="{{ \App\Helpers\AuxHelper::render_date($contract->end_date) }}" />
-                                              <p class="help-block">tanggal/bulan/tahun</p>
+                                              <input type="date" class="form-control" name="monitoring[end_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($contract->end_date) }}" />
+                                              <p class="help-block">bulan/tanggal/tahun</p>
                                         </div>
                                   </div>
                                 </div>

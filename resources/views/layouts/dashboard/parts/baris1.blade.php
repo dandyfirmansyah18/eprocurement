@@ -150,7 +150,7 @@
                             <h5 class="card-title">Vendor Aktif</h5>
                             <div class="row">
                                 <div class="col-6  m-t-30">
-                                    <h1 class="text-white">129</h1>
+                                    <h1 class="text-white">120</h1>
                                     <p class="light_op_text">JUNI 2019</p>
                                     <b class="text-white"></b> </div>
                                 <div class="col-6">
@@ -164,7 +164,6 @@
             </div>
         </div>
     </div>
-    
     <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Seluruh Pengadaan Barang dan Jasa</h4>
