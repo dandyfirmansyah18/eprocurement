@@ -71,7 +71,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/daftar-calon', 'ProcurementController@draft_list');
 		/*Route::get('/pengadaan/tambah/{id}', 'ProcurementController@add_new');*/
 		Route::post('/pengadaan/tambah', 'ProcurementController@add_new')->name('procurement_save');
-		Route::post('/pengadaan/detail/{id}', 'ProcurementController@detail');
+		Route::get('/pengadaan/detail/{id}', 'ProcurementController@detail');
 		Route::get('/pengadaan/drafts', 'ProcurementController@proposed_list');
 		Route::get('/pengadaan/listed', 'ProcurementController@listed_list');
 		Route::post('/pengadaan/evaluasi_scoring', 'ProcurementController@eval_scoring');

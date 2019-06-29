@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Auth, DB;
 
+use App\Models\PreProcurement;
+
+use App\Helpers\DataTableHelper;
+
 class DashboardController extends Controller
 {
     // public function __construct(ManagementUserController $_user)

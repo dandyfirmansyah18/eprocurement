@@ -56,7 +56,8 @@ $('#tabelpengadaan').DataTable( {
             data: 'title',
             name: 'title',
             render: function(data, type, row) {
-                return "<a href=\"\\javascript:void(0)\"\\ onclick=\"\\call('<?= url('pengadaan/detail/"+ row.id +"'); ?>\"\\,'_content_','Daftar Aktif')>"+ data +"</a>";
+                return "<a href='/pengadaan/detail/" + row.id + "'>" + data + "</a>";
+                // return "<a href=\"\\javascript:void(0)\"\\ onclick=\"\\call('<?= url('pengadaan/detail/"+ row.id +"'); ?>\"\\,'_content_','Daftar Aktif')>"+ data +"</a>";
             }
         },
         {
