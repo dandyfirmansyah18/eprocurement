@@ -441,6 +441,8 @@ class RegistrationController extends Controller
                             'postal_code_other_fix'                => $postal_code_other_fix,
                             'not_session'                          => $not_session
                   ]);
+        } else if ($user->state == 2) {
+            return view('layouts.daftar.menunggu_verifikasi');
         } else {
             Auth::logout();
             return redirect('/');

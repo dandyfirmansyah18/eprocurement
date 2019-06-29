@@ -45,6 +45,10 @@
     <link href="{{ asset('EliteAdmin/dist/css/pages/dashboard1.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sweetalert.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('EliteAdmin/assets/node_modules/wizard/steps.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('EliteAdmin/dist/css/pages/error-pages.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('js/libs/rating/star-rating.min.css') }}"  type="text/css"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -111,8 +115,13 @@
 
     <script type="text/javascript" src="{{ asset('js/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/libs/dropzone/dropzone.min.js') }}"></script>
+    <script type="text/javascript">// Immediately after the js include
+        Dropzone.autoDiscover = false;
+    </script>
     <script type="text/javascript" src="{{ asset('js/libs/inputmask/jquery.inputmask.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/libs/typeahead/typeahead.bundle.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/libs/summernote/summernote.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/libs/rating/star-rating.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jsqbc-functions.js') }}"></script>
 </head>
 

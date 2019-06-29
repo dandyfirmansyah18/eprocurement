@@ -174,6 +174,25 @@
     </div>
 </div>
 
+<!--Modal Terimakasih Pendaftaran-->
+<div class="modal fade" id="terimakasih_pendaftaran" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="formModalLabel">Pengiriman Pendaftaran Penyedia Berhasil!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="font21">Terima kasih telah mendaftar sebagai penyedia barang dan jasa di PT EDI Indonesia.<br>
+                Untuk langkah selanjutnya, Admin akan melakukan verifikasi data Anda dan memberi tahukan status verifikasi melalui email yang telah didaftarkan sebelumnya.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="terimakasih_pendaftaran_accept()">Lanjut!</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+
 <!--Modal -->
 <div class="modal fade" id="tambahpengurus" tabindex="-1" role="dialog" aria-labelledby="employeeModalLabel">
     <div class="modal-dialog" role="document">
@@ -187,18 +206,17 @@
                     {{ csrf_field() }}
                     <input type="hidden" id="pengurus_id" name="pengurus[id]" />
                     <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}" />
-
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="pengurus_name" name="pengurus[name]" required>
                         <label for="regular2">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="pengurus_name" name="pengurus[name]" required>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="pengurus_nationalid" name="pengurus[national_id]">
                         <label for="regular2">No. KTP</label>
+                        <input type="text" class="form-control" id="pengurus_nationalid" name="pengurus[national_id]">
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="pengurus_jobtitle" name="pengurus[job_title]">
                         <label for="regular2">Jabatan dalam perusahaan</label>
+                        <input type="text" class="form-control" id="pengurus_jobtitle" name="pengurus[job_title]">
                     </div>
                 </form>
             </div>
@@ -226,24 +244,24 @@
                     <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}" />
 
                     <div class="form-group floating-label">
+                        <label for="regular2">Nama Pemilik Saham</label>
                         <input type="text" class="form-control" id="holder_name" name="holder[name]" required>
-                            <label for="regular2">Nama Pemilik Saham</label>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="holder_nationalid" name="holder[national_id]" required>
                         <label for="regular2">No. Identitas</label>
+                        <input type="text" class="form-control" id="holder_nationalid" name="holder[national_id]" required>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="holder_nationality" name="holder[nationality]" required>
                         <label for="regular2">Kewarganegaraan</label>
+                        <input type="text" class="form-control" id="holder_nationality" name="holder[nationality]" required>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="holder_address" name="holder[address]" required>
                         <label for="regular2">Alamat</label>
+                        <input type="text" class="form-control" id="holder_address" name="holder[address]" required>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="holder_percentage" name="holder[percentage]" required>
                         <label for="regular2">%</label>
+                        <input type="text" class="form-control" id="holder_percentage" name="holder[percentage]" required>
                     </div>
                 </form>
             </div>
@@ -270,34 +288,34 @@
                     <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}" />
 
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="person_name" name="person[name]" required>
                         <label for="regular2">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="person_name" name="person[name]" required>
                     </div>
                     <div class="form-group">
                         <div class="input-group date" id="tanggallahirpersonalia">
                             <div class="input-group-content">
-                                <input type="text" class="form-control" id="person_birthdate" name="person[birth_date]">
                                 <label>Tanggal Lahir</label>
-                                <p class="help-block">tanggal/bulan/tahun</p>
+                                <input type="text" class="form-control" id="person_birthdate" name="person[birth_date]">
+                                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                             </div>
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="person_education" name="person[education]">
                         <label for="regular2">Pendidikan</label>
+                        <input type="text" class="form-control" id="person_education" name="person[education]">
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="person_jobtitle" name="person[job_title]">
                         <label for="regular2">Jabatan dalam pekerjaan</label>
+                        <input type="text" class="form-control" id="person_jobtitle" name="person[job_title]">
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="person_experience" name="person[experience]">
                         <label for="regular2">Pengalaman Kerja</label>
+                        <input type="text" class="form-control" id="person_experience" name="person[experience]">
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="person_expertise" name="person[expertise]">
                         <label for="regular2">Profesi/keahlian</label>
+                        <input type="text" class="form-control" id="person_expertise" name="person[expertise]">
                     </div>
                 </form>
             </div>
@@ -314,8 +332,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="formModalLabel">Tambah Pengalaman Perusahaan</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="form_exp" class="form form-validation form-validate" role="form" action="/daftar/save_experience" method="POST">
@@ -325,22 +343,22 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_name" name="exp[name]" required>
                                 <label for="regular2">Nama Paket Pekerjaan</label>
+                                <input type="text" class="form-control" id="exp_name" name="exp[name]" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_field" name="exp[field]" required>
                                 <label for="regular2">Bidang/Sub Bidang</label>
+                                <input type="text" class="form-control" id="exp_field" name="exp[field]" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_location" name="exp[location]" required>
                                 <label for="regular2">Lokasi</label>
+                                <input type="text" class="form-control" id="exp_location" name="exp[location]" required>
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -348,28 +366,28 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_clientname" name="exp[client_name]" required>
                                 <label for="regular2">Nama Pemberi Tugas/Pengguna Jasa</label>
+                                <input type="text" class="form-control" id="exp_clientname" name="exp[client_name]" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_clientphone" name="exp[client_phone]" required>
                                 <label for="regular2">No Telp Pemberi Tugas/Pengguna Jasa</label>
+                                <input type="text" class="form-control" id="exp_clientphone" name="exp[client_phone]" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_contractnumber" name="exp[contract_number]" required>
                                 <label for="regular2">No. Kontrak/Tanggal</label>
+                                <input type="text" class="form-control" id="exp_contractnumber" name="exp[contract_number]" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="exp_contractvalue" name="exp[contract_value]" required>
                                 <label for="regular2">Nilai Kontrak</label>
+                                <input type="text" class="form-control" id="exp_contractvalue" name="exp[contract_value]" required>
                             </div>
                         </div>
                     </div>
@@ -378,9 +396,9 @@
                             <div class="form-group">
                                 <div class="input-group date" id="tanggalpersonalia_mulai">
                                     <div class="input-group-content">
-                                        <input type="text" class="form-control" id="exp_contractdue" name="exp[contract_due]">
                                         <label>Tanggal Selesai berdasarkan kontrak</label>
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <input type="text" class="form-control" id="exp_contractdue" name="exp[contract_due]">
+                                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                                     </div>
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
@@ -390,9 +408,9 @@
                             <div class="form-group">
                                 <div class="input-group date" id="tanggalpersonalia_selesai">
                                     <div class="input-group-content">
-                                        <input type="text" class="form-control" id="exp_handover" name="exp[hand_over]">
                                         <label>Tanggal Selesai berdasarkan BA Serah terima</label>
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <input type="text" class="form-control" id="exp_handover" name="exp[hand_over]">
+                                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                                     </div>
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
@@ -429,27 +447,26 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group floating-label">
-
+                                <label for="regular2">Jenis Surat</label>
                                 <select class="form-control" id="cert_type" name="cert[type]" required=>
                                     <option value="sertifikat">Sertifikat</option>
                                     <option value="principal">Principal</option>
                                     <option value="lainnya">Lainnya</option>
                                 </select>
-                                <label for="regular2">Jenis Surat</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="cert_number" name="cert[number]" required>
                                 <label for="regular2">Nomor Surat/Sertifikasi</label>
+                                <input type="text" class="form-control" id="cert_number" name="cert[number]" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="cert_title" name="cert[title]" required>
                                 <label for="regular2">Nama Surat/Sertifikasi</label>
+                                <input type="text" class="form-control" id="cert_title" name="cert[title]" required>
                             </div>
                         </div>
                     </div>
@@ -458,9 +475,9 @@
                             <div class="form-group">
                                 <div class="input-group date" id="cert_release_date_block">
                                     <div class="input-group-content">
-                                        <input type="text" class="form-control" id="cert_release_date" name="cert[release_date]">
                                         <label>Tanggal Diterbitkan</label>
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <input type="text" class="form-control" id="cert_release_date" name="cert[release_date]">
+                                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                                     </div>
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
@@ -470,9 +487,9 @@
                             <div class="form-group">
                                 <div class="input-group date" id="cert_expired_date_block">
                                     <div class="input-group-content">
-                                        <input type="text" class="form-control" id="cert_expired_date" name="cert[expired_date]">
                                         <label>Tanggal Habis Berlaku</label>
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <input type="text" class="form-control" id="cert_expired_date" name="cert[expired_date]">
+                                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                                     </div>
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
@@ -482,8 +499,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group floating-label">
-                                <input type="text" class="form-control" id="cert_author" name="cert[author]" required>
                                 <label for="regular2">Institusi</label>
+                                <input type="text" class="form-control" id="cert_author" name="cert[author]" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -501,7 +518,7 @@
                                     </div>
                                 </div>
                                 <div class="clear"></div>
-                                <p class="help-block">Unggah Surat/Sertifikat</p>
+                                <small id="emailHelp" class="form-text text-muted">Unggah Surat/Sertifikat</small>
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -588,7 +605,7 @@
                                     <div class="input-group-content">
                                         <input type="text" class="form-control" id="job_lastprogress" name="job[last_progress]">
                                         <label>Tanggal Progres terakhir</label>
-                                        <p class="help-block">tanggal/bulan/tahun</p>
+                                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                                     </div>
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>

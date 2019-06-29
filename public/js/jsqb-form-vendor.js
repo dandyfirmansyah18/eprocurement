@@ -16,16 +16,16 @@ $(document).ready(function() {
     $('#tanggalnpwpend').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#tanggalsiupstart').datepicker({
+    $('#siup_release_date').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#tanggalsiupend').datepicker({
+    $('#siup_expired_date').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#tanggaliujkstart').datepicker({
+    $('#iujk_release_date').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#tanggaliujkend').datepicker({
+    $('#iujk_expired_date').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
     $('#tanggalsiuistart').datepicker({
@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#tanggalsiuiend').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#tanggaltdpstart').datepicker({
+    $('#registration_release_date').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
     $('#tanggaltdpend').datepicker({
@@ -42,10 +42,10 @@ $(document).ready(function() {
     });
 
     // Akta Perusahaan
-    $('#dtf_deed_released').datepicker({
+    $('#tanggal_dikeluarkan_akta').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
-    $('#dtf_deed_confirmed').datepicker({
+    $('#tanggal_pengesahan_akta').datepicker({
       autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
     });
     $('#dtf_deed_renewaled').datepicker({

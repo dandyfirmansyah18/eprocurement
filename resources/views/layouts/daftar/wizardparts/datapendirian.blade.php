@@ -24,14 +24,9 @@ use \App\Helpers\FormHelper;
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <div class="input-group date" id="dtf_deed_released">
-                    <div class="input-group-content">
-                        <label>Tanggal Dikeluarkan Akta *</label>
-                        <input type="text" class="form-control is_req" name="deeds[released]" id="tanggal_dikeluarkan_akta" value="{{ DateHelper::datepicker($deed->released) }}" required {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Dikeluarkan Akta *</label>
+                <input type="text" class="form-control is_req" name="deeds[released]" id="tanggal_dikeluarkan_akta" value="{{ DateHelper::datepicker($deed->released) }}" required {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-6">
@@ -76,14 +71,9 @@ use \App\Helpers\FormHelper;
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <div class="input-group date" id="dtf_deed_renewaled">
-                    <div class="input-group-content">
-                        <label>Tanggal Dikeluarkan Akta Perubahan</label>
-                        <input type="text" class="form-control" name="deeds[renewaled]" value="{{ DateHelper::datepicker($deed->renewaled) }}" {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Dikeluarkan Akta Perubahan</label>
+                <input type="text" class="form-control" id="dtf_deed_renewaled" name="deeds[renewaled]" value="{{ DateHelper::datepicker($deed->renewaled) }}" {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-6">
@@ -126,14 +116,9 @@ use \App\Helpers\FormHelper;
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="dtf_deed_confirmed">
-                    <div class="input-group-content">
-                        <label>Tanggal Pengesahan Akta *</label>
-                        <input type="text" class="form-control is_req" id="tanggal_pengesahan_akta" name="deeds[confirmed]" value="{{ DateHelper::datepicker($deed->confirmed) }}" {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Pengesahan Akta *</label>
+                <input type="text" class="form-control is_req" id="tanggal_pengesahan_akta" name="deeds[confirmed]" value="{{ DateHelper::datepicker($deed->confirmed) }}" {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-4">
@@ -170,14 +155,9 @@ use \App\Helpers\FormHelper;
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="dtf_deed_renewal_confirmed">
-                    <div class="input-group-content">
-                        <label>Tanggal Pengesahan Akta Perubahan</label>
-                        <input type="text" class="form-control" name="deeds[renewal_confirmed]" value="{{ DateHelper::datepicker($deed->renewal_confirmed) }}" {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Pengesahan Akta Perubahan</label>
+                <input type="text" class="form-control" id="dtf_deed_renewal_confirmed" name="deeds[renewal_confirmed]" value="{{ DateHelper::datepicker($deed->renewal_confirmed) }}" {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-4">
@@ -273,26 +253,16 @@ use \App\Helpers\FormHelper;
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="tanggalsiupstart">
-                    <div class="input-group-content">
-                        <label>Tanggal Dikeluarkan Izin Usaha</label>
-                        <input type="text" class="form-control permit_req is_req" id="siup_release_date" name="siup[release_date]" value="{{ DateHelper::datepicker($siup->release_date) }}" required {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Dikeluarkan Izin Usaha</label>
+                <input type="text" class="form-control permit_req is_req" id="siup_release_date" name="siup[release_date]" value="{{ DateHelper::datepicker($siup->release_date) }}" required {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="tanggalsiupend">
-                    <div class="input-group-content">
-                        <label>Tanggal Habis Berlaku Izin Usaha</label>
-                        <input type="text" class="form-control is_req" id="siup_expired_date" name="siup[expired_date]" value="{{ DateHelper::datepicker($siup->expired_date) }}" required {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Habis Berlaku Izin Usaha</label>
+                <input type="text" class="form-control is_req" id="siup_expired_date" name="siup[expired_date]" value="{{ DateHelper::datepicker($siup->expired_date) }}" required {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
     </div>
@@ -403,26 +373,16 @@ use \App\Helpers\FormHelper;
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="tanggaliujkstart">
-                    <div class="input-group-content">
-                        <label>Tanggal Dikeluarkan Izin Usaha</label>
-                        <input type="text" class="form-control" id="iujk_release_date" name="iujk[release_date]" value="{{ DateHelper::datepicker($iujk->release_date) }}" {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Dikeluarkan Izin Usaha</label>
+                <input type="text" class="form-control" id="iujk_release_date" name="iujk[release_date]" value="{{ DateHelper::datepicker($iujk->release_date) }}" {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <div class="input-group date" id="tanggaliujkend">
-                    <div class="input-group-content">
-                        <label>Tanggal Habis Berlaku Izin Usaha</label>
-                        <input type="text" class="form-control" id="iujk_expired_date" name="iujk[expired_date]" value="{{ DateHelper::datepicker($iujk->expired_date) }}" {{ $readonly }}>
-                        <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                    </div>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                </div>
+                <label>Tanggal Habis Berlaku Izin Usaha</label>
+                <input type="text" class="form-control" id="iujk_expired_date" name="iujk[expired_date]" value="{{ DateHelper::datepicker($iujk->expired_date) }}" {{ $readonly }}>
+                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
             </div>
         </div>
     </div>

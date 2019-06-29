@@ -43,6 +43,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/vendor/reset_password', 'VendorController@reset_password');
 		Route::get('/vendor/blacklists', 'VendorController@black_members');
 		Route::post('/vendor/daftarhitam', 'VendorController@black_list');
+		Route::post('/vendor/detail/{vendor_id}', 'VendorController@detail');
 
 		// User Management
 		// Route::post('/daftar/pegawai','RegistrationController@form_pegawai');
@@ -100,11 +101,16 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/upload/procurement', 'AttachmentController@procurement_entity_upload');
 		Route::post('/upload/certificate', 'AttachmentController@certificate_entity_upload');
 
-		// registrasi
+		// registrasi	
 		Route::post('/daftar', 'RegistrationController@form')->name('registration_form');
 		Route::post('/daftar/simpan', 'RegistrationController@save_data')->name('registration_save');
 		Route::get('/get_city/{province_id}', 'RegistrationController@get_city');
 		Route::get('/get_postalcode/{city_name}', 'RegistrationController@get_postalcode');
-
+		Route::get('/daftar/certificate_id', 'RegistrationController@pseudo_certificate_id');
+		Route::post('/daftar/save_experience', 'RegistrationController@save_experience');
+		Route::post('/daftar/save_newpassword', 'RegistrationController@save_reset_password');
+		Route::post('/daftar/save_certification', 'RegistrationController@save_certification');
+		Route::post('/daftar/submit_registrasi', 'RegistrationController@register')->name('registration_submit');
+		Route::post('/daftar/menunggu_verifikasi', 'RegistrationController@menunggu_verifikasi'); // new
 	});
 });
