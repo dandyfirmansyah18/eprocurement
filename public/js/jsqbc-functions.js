@@ -117,7 +117,7 @@ function render_datepicker_format(value) {
 }
 
 function render_upload_box(element_id, url, parameters) {
-    Dropzone.autoDiscover = false;
+    // Dropzone.autoDiscover = false;
     var dropzoned = $('#' + element_id).dropzone({
       url: url,
       paramName: 'files',

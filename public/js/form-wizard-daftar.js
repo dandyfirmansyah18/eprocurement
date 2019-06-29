@@ -4,6 +4,7 @@ $(".validation-wizard").steps({
     bodyTag: "section",
     transitionEffect: "fade",
     titleTemplate: '<span class="step">#index#</span> #title#',
+    enableFinishButton: false,
     labels: {
         finish: "Submit"
     },

@@ -432,7 +432,6 @@ function page_ready() {
     $('#trg_modal_cert').on('click', function(event){
         $('#tambahsertifikat').modal('show');
         // alert('asdasd');
-
         $.get('/daftar/certificate_id', function(result) {
             var new_id = result.id;
             // alert('returnan');
@@ -444,7 +443,7 @@ function page_ready() {
             $('#cert_release_date').val('');
             $('#cert_expired_date').val('');
             $('#cert_author').val('');
-
+            
             var dropzone_content    = '<div class="dz-message btn btn-default"><h3>Pilih file</h3></div>';
             $('#certificate').removeClass().addClass('dropzone tight').html(dropzone_content);
 
@@ -1362,7 +1361,7 @@ function registration(){
         valid = valid && valid_agreement && valid_contact_photo && valid_company_spkmp && valid_company_taxpayer;
     }
 
-    console.log('loop test');
+    // console.log('loop test');
     if(valid == true) {
         var formData = new FormData(form[0]);
         $.ajax({
@@ -1373,11 +1372,13 @@ function registration(){
             contentType: false,
             processData: false,
             success: function(result){
-                document.location = '/terimakasih';
-                page_ready();
+                // document.location = '/terimakasih';
+                // page_ready();
+                $('#terimakasih_pendaftaran').modal({backdrop: 'static', keyboard: false});
             },
             error: function(error){
-                console.log(error);
+                // console.log(error);
+                swal("","Failed. Something went wrong, please try again later.","error");
                 //alert("Failed. Something went wrong, please try again later.");
             }
         });
@@ -1392,6 +1393,10 @@ function registration(){
     // event.preventDefault();
 }
 // });
+
+function terimakasih_pendaftaran_accept(){
+    call('management-master/list/pajak','_content_','Master Pajak Perusahaan')
+}
 
 function remove_file(filepath, token) {
     var user_id_send = $('#company_user_id').val();
@@ -1410,15 +1415,14 @@ function remove_file(filepath, token) {
     });
 }
 
-
 $(document).ready(function(){
     page_ready();
 
     var npwp_val                    = $('#value_npwp').val();
     $("#taxes_taxpayer_number").val(npwp_val);
 
-    /* File Upload Handlers */
-    Dropzone.autoDiscover = false;
+    // /* File Upload Handlers */
+    // Dropzone.autoDiscover = false;
 
     var token_contact_photo         = $('#token_contact_photo').val();
     var token_company_domicile      = $('#token_company_domicile').val();

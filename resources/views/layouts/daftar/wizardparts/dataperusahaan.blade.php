@@ -171,16 +171,12 @@
             <input type="text" class="form-control is_req" id="skdp_document_number" name="skdp[document_number]" value="{{ $skdp->document_number }}" required {{ $readonly }}>
         </div>
     </div>
+    
     <div class="col-sm-4">
         <div class="form-group">
-            <div class="input-group date" id="dtf_skdp_document_data">
-                <div class="input-group-content">
-                    <label>Tanggal Dokumen SKDP *</label>
-                    <input type="text" class="form-control is_req" id="skdp_document_date" name="skdp[document_date]" value="{{ DateHelper::datepicker($skdp->document_date) }}" {{ $readonly }}>
-                    <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
-                </div>
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-            </div>
+            <label>Tanggal Dokumen SKDP *</label>
+            <input type="text" class="form-control is_req" id="skdp_document_date" name="skdp[document_date]" value="{{ DateHelper::datepicker($skdp->document_date) }}" {{ $readonly }}>
+            <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
         </div>
     </div>
     <div class="col-sm-4">

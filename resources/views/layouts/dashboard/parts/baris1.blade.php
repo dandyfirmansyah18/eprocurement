@@ -164,8 +164,7 @@
             </div>
         </div>
     </div>
-    
-                        <div class="card">
+    <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Seluruh Pengadaan Barang dan Jasa</h4>
                                 <div class="table-responsive m-t-40">
