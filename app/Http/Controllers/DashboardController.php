@@ -15,10 +15,30 @@ class DashboardController extends Controller
 
     public function index()
     {
-    	$viewData = array(
-		                '_content_' => $this->view_dashboard()
-	                );                
-        return view('templates.index', $viewData);
+    	$user = Auth::user();
+        if($user->state == 1) {
+            if($user->role_level == 1) {
+                return view('layouts.dashboard.dash');
+            } else {
+                $count_perencanaan      = PreProcurement::where('proposed', false)->count();
+                $count_draft_pengadaan  = PreProcurement::where('proposed', true)->where('listed', false)->count();
+                $count_pengadaan        = PreProcurement::where('proposed', true)->where('worked', false)->count();
+                $count_selesai          = PreProcurement::where('worked', true)->count();
+                $count_vendor_baru      = DataTableHelper::list_vendor_temp()->count();
+                $count_vendor_aktif     = DataTableHelper::list_vendor(true)->count();
+
+                return view('layouts.dashboard.dash', [
+                    'count_perencanaan'     => $count_perencanaan,
+                    'count_pengadaan'       => $count_pengadaan,
+                    'count_selesai'         => $count_selesai,
+                    'count_draft_pengadaan' => $count_draft_pengadaan,
+                    'count_vendor_baru'     => $count_vendor_baru,
+                    'count_vendor_aktif'    => $count_vendor_aktif
+                ]);
+            }
+        }
+
+        return redirect('/daftar');
     }
 
     public function view_dashboard()
