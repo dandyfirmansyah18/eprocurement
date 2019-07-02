@@ -13,52 +13,64 @@
                 <li class="nav-small-cap">--- PERSONAL</li>
                 <li> <a href="javascript:void(0)" aria-expanded="false" onclick="call('<?= url('dashboard'); ?>','_content_','Dashboard')"><i class="icon-speedometer"></i>  <span class="hide-menu">Dashboard </span></a>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">
-                Penyedia</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftar-calon'); ?>','_content_','Penyedia Baru/TIdak Aktif')">Baru/Tidak Aktif</a></li>
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftar'); ?>','_content_','Terverifikasi')">Terverifikasi</a></li>
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftarhitam'); ?>','_content_','Daftar Hitam')">Daftar Hitam</a></li>
-                    </ul>
-                </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-receipt"></i><span class="hide-menu">Perencanaan Pengadaan</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('perencanaan/tambah'); ?>','_content_','Tambah Baru')">Tambah Baru</a></li>
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('perencanaan/daftar-calon'); ?>','_content_','Daftar Pengajuan')">Daftar Pengajuan</a></li>
-                        <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
-                    </ul>
-                </li>
-                
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-shopping-cart-full"></i><span class="hide-menu">Pengadaan Barang / Jasa</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                    @if(Auth::user()->role_level == 3)
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('pengadaan/daftar-calon'); ?>','_content_','Draft')">Draft</a></li>
-                    @endif
-					@if(Auth::user()->role_level == 3 || Auth::user()->role_level == 4 || Auth::user()->role_level == 5 || Auth::user()->role_level == 6 || Auth::user()->role_level == 2 || Auth::user()->role_level == 1)
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('pengadaan/daftar'); ?>','_content_','Daftar Aktif')">Daftar Aktif</a></li>
-                    @endif
-                    </ul>
-                </li>
-                
-                <li> 
-                    <a href="javascript:void(0)" onclick="call('<?= url('/monitor/daftar'); ?>','_content_','Monitoring Pekerjaan')" aria-expanded="false">
-                        <i class="ti-desktop"></i>
-                        <span class="hide-menu">Monitoring Pekerjaan</span>
-                    </a>
-                </li>
-                
-                @if(Auth::user()->role_level == 0)
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Management User</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('user/register'); ?>','_content_','Register User')">Register User</a></li>
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('user/list'); ?>','_content_','List User')">List User</a></li>
-                        <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
-                    </ul>
-                </li>
+                @if(Auth::user()->role_level == 2 || Auth::user()->role_level == 3)
+                    <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">
+                    Penyedia</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                        @if(Auth::user()->role_level == 3)
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftar-calon'); ?>','_content_','Penyedia Baru/TIdak Aktif')">Baru/Tidak Aktif</a></li>
+                        @endif
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftar'); ?>','_content_','Terverifikasi')">Terverifikasi</a></li>
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('vendor/daftarhitam'); ?>','_content_','Daftar Hitam')">Daftar Hitam</a></li>
+                        </ul>
+                    </li>
+                @endif
+                @if(Auth::user()->role_level != 0)
+                    <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-receipt"></i><span class="hide-menu">Perencanaan Pengadaan</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                        @if(Auth::user()->role_level == 2)
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('perencanaan/tambah'); ?>','_content_','Tambah Baru')">Tambah Baru</a></li>
+                        @endif
+                        @if(Auth::user()->role_level == 2 || Auth::user()->role_level == 4 || Auth::user()->role_level == 5 || Auth::user()->role_level == 6 || Auth::user()->role_level == 3)
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('perencanaan/daftar-calon'); ?>','_content_','Daftar Pengajuan')">Daftar Pengajuan</a></li>
+                        @endif
+                            <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
+                        </ul>
+                    </li>
+                    
+                    <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-shopping-cart-full"></i><span class="hide-menu">Pengadaan Barang / Jasa</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                        @if(Auth::user()->role_level == 3)
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('pengadaan/daftar-calon'); ?>','_content_','Draft')">Draft</a></li>
+                        @endif
+                        @if(Auth::user()->role_level == 3 || Auth::user()->role_level == 4 || Auth::user()->role_level == 5 || Auth::user()->role_level == 6 || Auth::user()->role_level == 2 || Auth::user()->role_level == 1)
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('pengadaan/daftar'); ?>','_content_','Daftar Aktif')">Daftar Aktif</a></li>
+                        @endif
+                        </ul>
+                    </li>
+                    
+                    <li> 
+                        <a href="javascript:void(0)" onclick="call('<?= url('/monitor/daftar'); ?>','_content_','Monitoring Pekerjaan')" aria-expanded="false">
+                            <i class="ti-desktop"></i>
+                            <span class="hide-menu">Monitoring Pekerjaan</span>
+                        </a>
+                    </li>
                 @endif
                 
+                @if(Auth::user()->role_level == 0)
+                    <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Management User</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('user/register'); ?>','_content_','Register User')">Register User</a></li>
+                            <li><a href="javascript:void(0)" onclick="call('<?= url('user/list'); ?>','_content_','List User')">List User</a></li>
+                            <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
+                        </ul>
+                    </li>
+                @endif
+                
+                @if(Auth::user()->role_level == 1)
                 <li> <a href="javascript:void(0)" onclick="call('<?= url('daftar'); ?>','_content_','Register User')" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Registrasi Vendor</span></a>
                 </li>
+                @endif
                 <!--<li class="nav-small-cap">--- FORMS, TABLE &amp; WIDGETS</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Forms</span></a>
                     <ul aria-expanded="false" class="collapse">
