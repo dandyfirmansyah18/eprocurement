@@ -1,3 +1,3 @@
 <footer class="footer">
-    © 2019 Eliteadmin by themedesigner.in
+    © 2019 Eproc by Dayana
 </footer>

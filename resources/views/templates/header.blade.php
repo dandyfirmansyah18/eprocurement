@@ -8,16 +8,16 @@
                 <!-- Logo icon --><b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="{{ asset('EliteAdmin/assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
+                    <img src="{{ asset('img/iconeprocflat.png') }}" alt="homepage" class="dark-logo" width="30" height="20"/>
                     <!-- Light Logo icon -->
-                    <img src="{{ asset('EliteAdmin/assets/images/logo-light-icon.png') }}" alt="homepage" class="light-logo" />
+                    <img src="{{ asset('img/iconeprocflat.png') }}" alt="homepage" class="light-logo" width="30" height="20"/>
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
-                 <img src="{{ asset('EliteAdmin/assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
+                 <img src="{{ asset('img/icontexteprocflat.png') }}" alt="homepage" class="dark-logo"  width="100" height="20"/>
                  <!-- Light Logo text -->    
-                 <img src="{{ asset('EliteAdmin/assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span> </a>
+                 <img src="{{ asset('img/icontexteprocflat.png') }}" class="light-logo" alt="homepage"  width="100" height="20"/></span> </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->

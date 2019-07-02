@@ -47,7 +47,7 @@
         <div class="login-box card">
             <div class="card-body">
                 <form class="form-horizontal form-material text-center" id="loginform" action="postlogin" method="POST">
-                    <a href="javascript:void(0)" class="db"><img src="{{ asset('EliteAdmin/assets/images/logo-icon.png') }}" alt="Home" /><br/><img src="{{ asset('EliteAdmin/assets/images/logo-text.png') }}" alt="Home" /></a>
+                    <a href="javascript:void(0)" class="db"><img src="{{ asset('img/logoeproc.png') }}" alt="Home" width="200" height="100"/></a>
                     <div class="form-group m-t-40">
                         <div class="col-xs-12">
                             <input class="form-control" type="text" required="" name="email" placeholder="Email">

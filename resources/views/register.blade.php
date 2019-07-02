@@ -43,12 +43,12 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../EliteAdmin/assets/images/background/login-register.jpg);">
+    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../img/dash.jpg);">
         <div class="login-box card">
             <div class="card-body">
                 <form class="form-horizontal form-material" id="formrequestpin" role="form" action="/register/request_pin" method="POST">
                     <div class="text-center">
-                        <a href="javascript:void(0)" class="db"><img src="{{ asset('EliteAdmin/assets/images/logo-icon.png') }}" alt="Home" /><br/><img src="{{ asset('EliteAdmin/assets/images/logo-text.png') }}" alt="Home" /></a>
+                        <a href="javascript:void(0)" class="db"><img src="{{ asset('img/logoeproc.png') }}" alt="Home" width="200" height="100"/></a>
                     </div>
                     <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account and enjoy</small>
                     <div class="form-group m-t-20">
