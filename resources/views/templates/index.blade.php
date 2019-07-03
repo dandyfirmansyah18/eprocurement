@@ -32,6 +32,8 @@
     <link href="{{ asset('EliteAdmin/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
     <link href="{{ asset('EliteAdmin/assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('EliteAdmin/assets/node_modules/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
+    <!-- -->
+    <link href="{{ asset('EliteAdmin/dist/css/pages/tab-page.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{{ asset('css/libs/dropzone/dropzone-theme.css') }}"  type="text/css"/>
     <link rel="stylesheet" href="{{ asset('css/libs/wizard/wizard.css') }}"  type="text/css"/>
