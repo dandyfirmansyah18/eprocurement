@@ -43,7 +43,7 @@
     <dd>{{ $user->notes }}&nbsp;</dd>
     <dd>
         <a href="#" class="btn btn-xs btn-default-bright" data-toggle="modal" data-target="#catatanpenyedia">
-            <i class="fa fa-edit"></i> Ubah Catatan
+            <span class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Ubah Catatan</span>
         </a>
     </dd>
 
@@ -106,74 +106,70 @@
     <textarea id="summernote" name="chat[message]"></textarea>
 </form>
 <br>
-<a id="trg_chat" class="btn btn-info">Kirim </a>
+<a id="trg_chat" class="btn btn-info"><span style="color:white">Kirim </span></a>
 
-@push('modal')
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="reset_password_label" id="reset_password">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="reset_password_label" id="reset_password">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="reset_password_label">Apakah anda yakin?</h4>
+            </div>
+            <div class="modal-footer">
+                <form id="form_reset_password" class="form floating-label" role="form" novalidate="novalidate" action="/vendor/reset_password" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{ $user->id }}" />
+                    <input type="hidden" name="company_id" value="{{ $company->id }}" />
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                <button id="trg_reset_password" type="button" class="btn btn-primary">Ya</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="statusskrt_label" id="ubahskrt">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <form id="formModalAdministrasi" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="idCompany" value="{{ $company->id }}" /> 
                 <div class="modal-header">
-                    <h4 class="modal-title" id="reset_password_label">Apakah anda yakin?</h4>
+                    <h4 class="modal-title" id="statusskrt_label">Status SKRT</h4>
                 </div>
                 <div class="modal-footer">
-                    <form id="form_reset_password" class="form floating-label" role="form" novalidate="novalidate" action="/vendor/reset_password" method="POST">
+                    <form id="form_ttd_skrt" class="form floating-label" role="form" novalidate="novalidate" action="/penyedia/skrtproccess" method="POST">
                         {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{ $user->id }}" />
-                        <input type="hidden" name="company_id" value="{{ $company->id }}" />
+                        <input type="hidden" name="idCompany" value="{{ $company->id }}" />
                     </form>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                    <button id="trg_reset_password" type="button" class="btn btn-primary">Ya</button>
+                    <form id="form_done_skrt" class="form floating-label" role="form" novalidate="novalidate" action="/penyedia/skrtdone" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="idCompany" value="{{ $company->id }}" />
+                    </form>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="trg_skrtproccess" type="button" class="btn btn-primary">TTD</button>
+                    <button id="trg_skrtdone" type="button" class="btn btn-primary">Ambil</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="statusskrt_label" id="ubahskrt">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <form id="formModalAdministrasi" method="post">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="idCompany" value="{{ $company->id }}" /> 
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="statusskrt_label">Status SKRT</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <form id="form_ttd_skrt" class="form floating-label" role="form" novalidate="novalidate" action="/penyedia/skrtproccess" method="POST">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="idCompany" value="{{ $company->id }}" />
-                        </form>
-                        <form id="form_done_skrt" class="form floating-label" role="form" novalidate="novalidate" action="/penyedia/skrtdone" method="POST">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="idCompany" value="{{ $company->id }}" />
-                        </form>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button id="trg_skrtproccess" type="button" class="btn btn-primary">TTD</button>
-                        <button id="trg_skrtdone" type="button" class="btn btn-primary">Ambil</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-@endpush
+</div>
 
-@push('jspage')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#trg_reset_password').on('click', function(event){
-                submit_form('form_reset_password');
-                event.preventDefault();
-            });
-            $('#trg_skrtproccess').on('click', function(event){
-                $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtproccess') }}");
-                $("#formModalAdministrasi").submit();
-                alert('Pemberitahuan Proses SKRT Sudah Dikirim ke Email Perusahaan.');
-                event.preventDefault();
-            });
-            $('#trg_skrtdone').on('click', function(event){
-                $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtdone') }}");
-                $("#formModalAdministrasi").submit();
-                alert('Pemberitahuan SKRT Selesai Sudah Dikirim ke Email Perusahaan.');
-                event.preventDefault();
-            });
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#trg_reset_password').on('click', function(event){
+            submit_form('form_reset_password');
+            event.preventDefault();
         });
-    </script>
-@endpush
+        $('#trg_skrtproccess').on('click', function(event){
+            $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtproccess') }}");
+            $("#formModalAdministrasi").submit();
+            alert('Pemberitahuan Proses SKRT Sudah Dikirim ke Email Perusahaan.');
+            event.preventDefault();
+        });
+        $('#trg_skrtdone').on('click', function(event){
+            $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtdone') }}");
+            $("#formModalAdministrasi").submit();
+            alert('Pemberitahuan SKRT Selesai Sudah Dikirim ke Email Perusahaan.');
+            event.preventDefault();
+        });
+    });
+</script>

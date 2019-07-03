@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-body p-b-0">
                     <h4 class="card-title">
-                        <span class="">{{ $company->name }}&nbsp;
+                        <span class="">{{ $company->name.' ( '.$company->type.'. )' }}&nbsp;
                             @if($user->verified)
                             <button type="button" class="btn btn-xs ink-reaction btn-floating-action btn-info"  data-toggle="tooltip" data-placement="top" title="Terverifikasi">
                                 <i class="fa fa-check"></i>
@@ -40,6 +40,7 @@
                             @endif
                         </span>
                     </h4>
+                    <br>
                     <h6 class="card-subtitle">
                         @if($user->verified)
                         <h3 class="vrc-text">
@@ -56,7 +57,7 @@
                                 @else
                                     <div class="col-md-6">
                                         <a href="#" class=" btn btn-danger btn-block" data-toggle="modal" data-target="#verification_reject">
-                                            <i class="fa fa-close"></i>&nbsp;&nbsp;Tidak Lolos verifikasi penyedia
+                                            <i class="fa fa-times"></i>&nbsp;&nbsp;Tidak Lolos verifikasi penyedia
                                         </a>
                                     </div>
                                     <div class="col-md-6">
@@ -103,7 +104,9 @@
                         <a class="nav-link" data-toggle="tab" href="#fourth" role="tab">
                             <span class="hidden-sm-up"></span>
                             <span class="hidden-xs-down">
-                                <i class="fa fa-book"></i> &nbsp; Administrasi
+                                <!-- <i class="fa fa-book"></i>  -->
+                                <i class="fa fa-book fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Administrasi"></i>
+                                &nbsp; Administrasi
                             </span>
                         </a> 
                     </li>
@@ -164,8 +167,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="verification_accept_label">Lolos verifikasi penyedia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="form_verification" class="form" role="form" action="/penyedia/verifikasi_terima" method="POST">
@@ -175,12 +178,12 @@
                     <input type="hidden" name="company_id" value="{{ $company->id }}" readonly>
 
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" name="verification[name]" value="{{ Auth::user()->name }}" readonly>
                         <label for="regular2">Nama Petugas Verifikasi</label>
+                        <input type="text" class="form-control" name="verification[name]" value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" name="verification[date]" value="{{ DateHelper::datepicker($now) }}" readonly>
                         <label for="regular2">Tanggal Verifikasi</label>
+                        <input type="text" class="form-control" name="verification[date]" value="{{ DateHelper::datepicker($now) }}" readonly>
                     </div>
                 </form>
             </div>
@@ -196,8 +199,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="verification_reject_label">Tidak Lolos verifikasi penyedia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="form_reject" class="form" role="form" action="/penyedia/verifikasi_tolak" method="POST">
@@ -210,12 +213,12 @@
                     <input type="hidden" name="company_id" value="{{ $company->id }}" readonly>
 
                     <div class="form-group floating-label">
-                        <input type="text" class="form-control" id="regular2" value="{{ Auth::user()->name }}" readonly>
                         <label for="regular2">Nama petugas penolak verifikasi</label>
+                        <input type="text" class="form-control" id="regular2" value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group floating-label">
-                        <textarea name="approval[notes]" id="textarea2" class="form-control" rows="3" placeholder="">{{ $rejection }}</textarea>
                         <label for="textarea2">Alasan penolakan verifikasi</label>
+                        <textarea name="approval[notes]" id="textarea2" class="form-control" rows="3" placeholder="">{{ $rejection }}</textarea>
                     </div>
                 </form>
             </div>
@@ -267,8 +270,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="formModalLabel">Ubah Catatan Penyedia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="form_notes" class="form" role="form" action="/vendor/notes" method="POST">
@@ -276,8 +279,8 @@
                     <input type="hidden" name="user_id" value="{{ $user->id }}" readonly>
 
                     <div class="form-group floating-label">
-                        <textarea type="text" class="form-control" id="mdl_notes" name="notes">{{ $user->notes }}</textarea>
                         <label for="regular2">Catatan</label>
+                        <textarea type="text" class="form-control" id="mdl_notes" name="notes">{{ $user->notes }}</textarea>
                     </div>
                 </form>
             </div>
@@ -293,8 +296,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="formModalLabel">Ubah Status Penyedia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="form_penalty" class="form" role="form" action="/vendor/penalty" method="POST">
@@ -302,16 +305,17 @@
                     <input type="hidden" name="user_id" value="{{ $user->id }}" />
                     {{ csrf_field() }}
                     <div class="form-group col-md-12 floating-label">
-                        <input type="text" class="form-control" value="{{ Auth::user()->name }}" readonly>
                         <label for="regular2">Nama petugas pengubah status</label>
+                        <input type="text" class="form-control" value="{{ Auth::user()->name }}" readonly>
                     </div>
 
                     <div class="form-group col-md-12 floating-label">
-                        <textarea name="notes" class="form-control" rows="3" placeholder=""></textarea>
                         <label for="textarea2">Alasan ubah status</label>
+                        <textarea name="notes" class="form-control" rows="3" placeholder=""></textarea>
                     </div>
 
                     <div class="form-group col-md-12 floating-label">
+                        <label for="select2">Pilih status</label>
                         <select id="up_state" name="action" class="form-control">
                             <option value="">&nbsp;</option>
                             @if($user->state == 5)
@@ -325,7 +329,6 @@
                             <option value="blacklist">Blacklist penyedia</option>
                             @endif
                         </select>
-                        <label for="select2">Pilih status</label>
                     </div>
                     <div class="clear"></div>
 
@@ -344,9 +347,9 @@
                     <div id="penalty_limit" class="form-group col-md-12 floating-label">
                         <div class="input-group date" id="tanggal_pinalti">
                             <div class="input-group-content">
-                                <input type="text" class="form-control is_req" name="penalty_end" value="{{ DateHelper::datepicker($default_penalty) }}">
                                 <label>Tanggal batas pembekuan / blacklist</label>
-                                <p class="help-block">tanggal/bulan/tahun</p>
+                                <input type="text" class="form-control is_req" name="penalty_end" value="{{ DateHelper::datepicker($default_penalty) }}">
+                                <small id="emailHelp" class="form-text text-muted">tanggal/bulan/tahun</small>
                             </div>
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
@@ -482,6 +485,7 @@
 </script>
 
 <script type="text/javascript">
+    var company_id = '{{$company->id}}';
     $(document).ready(function() {
         $("#input-2-xs").rating();
         $('#summernote').summernote({
@@ -510,12 +514,12 @@
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    $('#verification_accept').modal('hide');
                     swal("","Data telah selesai diverifikasi","success");
-                    // document.location = document.location.href;
-                    document.location = get_pure_link();
+                    // document.location = get_pure_link();
+                    call('vendor/daftar','_content_','Terverifikasi');
                 },
                 error: function(error){
-                    console.log(error);
                     swal("","Terjadi kesalahan, harap hubungi pihak terkait.","error");
                 }
             });
@@ -536,10 +540,11 @@
                 success: function(result){
                     swal("","Catatan berhasil disimpan","success");
                     // document.location = document.location.href;
-                    document.location = get_pure_link();
+                    // document.location = get_pure_link();
+                    $('#catatanpenyedia').modal('hide');
+                    call('/vendor/detail/'+company_id,'_content_','Detail Penyedia');
                 },
                 error: function(error){
-                    console.log(error);
                     swal("","Terjadi kesalahan, harap hubungi pihak terkait.","error");
                 }
             });
@@ -548,6 +553,7 @@
 
         $('.trg-assessment').each(function(){
             var $el = $(this);
+            // var company_id = '{{ $company->id }}';
             $el.on('click', function(){
                 var part_raw = $el.attr('name').replace('trg_assessment[', '').replace(']', '');
                 $('#assessment_part').val(part_raw);
@@ -601,10 +607,14 @@
                         @endif
                         if(all_checked) {
                             // document.location = document.location.href;
-                            document.location = link_redirect+"-"+tabs_href;
-                        }else{
-                            document.location = link_redirect+"-"+tabs_href;
+                            // document.location = link_redirect+"-"+tabs_href;
+                            call('/vendor/detail/'+company_id,'_content_','Detail Penyedia');
+                            $('.nav-tabs a[href="#'+tabs_href+'"]').tab('show')
                         }
+                        // else{
+                        //     // document.location = link_redirect+"-"+tabs_href;
+                        //     $('.nav-tabs a[href="#'+tabs_href+'"]').tab('show')
+                        // }
                     },
                     error: function(error){
                         console.log(error);
@@ -626,9 +636,10 @@
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    $('#verification_reject').modal('hide');
                     swal("","Data Penyedia telah ditolak","success");
-                    var link_redirect = get_pure_link();
-                    document.location = '/vendor/daftar-calon';
+                    // document.location = '/vendor/daftar-calon';
+                    call('/vendor/daftar-calon','_content_','Daftar Calon Vendor');
                 },
                 error: function(error){
                     console.log(error);
@@ -650,9 +661,11 @@
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    $('#verification_redo').modal('hide');
                     swal("","Pemberitahuan berhasil disampaikan.","success");
                     // document.location = document.location.href;
-                    document.location = get_pure_link();
+                    // document.location = get_pure_link();
+                    call('/vendor/daftar-calon','_content_','Daftar Calon Vendor');
                 },
                 error: function(error){
                     console.log(error);
@@ -691,10 +704,43 @@
         });
 
         $('#trg_penalty').on('click', function(event){
-            var sure = confirm("Apakah anda yakin?");
-            if(sure == true) {
-                $('form#form_penalty').submit();
-            }
+            // var sure = confirm("Apakah anda yakin?");
+            // if(sure == true) {
+                // $('form#form_penalty').submit();
+            // }
+            swal({
+                title: "",
+                text: "Apakah anda yakin rubah status penyedia ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Ya, Hapus!",
+                closeOnConfirm: false
+            },
+            function(){
+                var form = $('form#form_penalty');
+                var formData = new FormData(form[0]);
+                $.ajax({
+                    type: form.attr("method"),
+                    url: form.attr("action"),
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(result){
+                        $('#ubahstatus').modal('hide');
+                        swal("","Perubahan status penyedia berhasil.","success");
+                        // document.location = document.location.href;
+                        // document.location = get_pure_link();
+                        call('/vendor/detail/'+company_id,'_content_','Detail Penyedia');
+                    },
+                    error: function(error){
+                        console.log(error);
+                        swal("","Perubahan status penyedia gagal.","error");
+                    }
+                });
+            });
             event.preventDefault();
         });
     });

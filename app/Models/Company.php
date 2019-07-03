@@ -292,7 +292,7 @@ class Company extends Model
     {
         $assessment = $this->assessment;
         if($assessment != null && $assessment->company_data && $assessment->contact_data) {
-            return '<i class="fa fa-check-circle-o fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
+            return '<i class="fa fa-check-circle fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
         } else {
             return '<i class="fa fa-ban fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Belum diverifikasi"></i>';
         }
@@ -306,7 +306,7 @@ class Company extends Model
         $deed = $this->deed;
         if ($this->type_id == '4') {
             if($assessment != null && $assessment->tax && $assessment->spkmp) {
-                return '<i class="fa fa-check-circle-o fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
+                return '<i class="fa fa-check-circle fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
             } else {
                 return '<i class="fa fa-ban fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Belum diverifikasi"></i>';
             }
@@ -314,14 +314,14 @@ class Company extends Model
             if ($deed->renewal_number) {
                 if($assessment != null && $assessment->tax && $assessment->permit && $assessment->registration && $assessment->deed_establishment && $assessment->deed_renewal 
                     && $assessment->balance && $assessment->spkmp) {
-                    return '<i class="fa fa-check-circle-o fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
+                    return '<i class="fa fa-check-circle fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
                 } else {
                     return '<i class="fa fa-ban fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Belum diverifikasi"></i>';
                 }
             }else{
                 if($assessment != null && $assessment->tax && $assessment->permit && $assessment->registration && $assessment->deed_establishment && 
                     $assessment->balance && $assessment->spkmp) {
-                    return '<i class="fa fa-check-circle-o fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
+                    return '<i class="fa fa-check-circle fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
                 } else {
                     return '<i class="fa fa-ban fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Belum diverifikasi"></i>';
                 }
@@ -336,7 +336,7 @@ class Company extends Model
     {
         $assessment = $this->assessment;
         if($assessment != null && $assessment->certificates && $assessment->experiences) {
-            return '<i class="fa fa-check-circle-o fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
+            return '<i class="fa fa-check-circle fa-lg text-success" data-toggle="tooltip" data-placement="top" title="Terverifikasi"></i>';
         } else {
             return '<i class="fa fa-ban fa-lg text-danger"  data-toggle="tooltip" data-placement="top" title="Belum diverifikasi"></i>';
         }

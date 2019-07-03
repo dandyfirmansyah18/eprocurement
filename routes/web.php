@@ -45,6 +45,16 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/vendor/daftarhitam', 'VendorController@black_list');
 		Route::post('/vendor/detail/{vendor_id}', 'VendorController@detail');
 
+		// Verifikasi Penyedia
+		Route::get('/penyedia/blacklists', 'VendorController@black_members');
+		Route::post('/pengguna/ubah_password', 'UserController@update_password');
+		Route::get('/penyedia/ubah_lainnya', 'DashboardController@edit_other');
+		Route::post('/penyedia/verifikasi_terima', 'VerificationController@vendor_accept');
+		Route::post('/penyedia/verifikasi_ulang', 'VerificationController@vendor_redo');
+		Route::post('/penyedia/verifikasi_tolak', 'VerificationController@vendor_reject');
+		Route::post('/penyedia/skrtproccess', 'VendorController@skrtproccess');
+		Route::post('/penyedia/skrtdone', 'VendorController@skrtdone');
+
 		// User Management
 		// Route::post('/daftar/pegawai','RegistrationController@form_pegawai');
 		Route::post('/user/list','RegistrationController@user_list');
