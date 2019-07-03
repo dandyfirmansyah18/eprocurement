@@ -3,13 +3,12 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane" id="aanwizing">
-    <h3>
+<div class="tab-pane p-20" id="aanwizing" role="tabpanel">
+    <h4>
         Aanwizing
-        <span class="pcr-date">{{ $schedule->a_aanwizing }}</span>
-    </h3>
-    <div class="judulformtop">Upload BA Aanwizing
-    </div>
+    </h4>
+    <h8>{{ $schedule->a_aanwizing }}</h8>
+    <hr>
     <form id="form_st03" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/jadwal/pengadaan/aanwizing" method="POST">
         <input type="hidden" name="procurement_id" id="procurement_id" value="{{ $procurement->id }}" />
         {{ csrf_field() }}
@@ -22,14 +21,8 @@
             </div>
             <div class="col-md-6">
                 <div class="pull-right">
-                    <div id="st03_file" class="dropzone st-dropzone" url="/upload/procurement">
-                        <div class="dz-message btn btn-default">
-                            <h3>
-                                Pilih file
-                            </h3>
-                        </div>
-                    </div>
                     <p class="help-block st-help-block">Unggah BA Aanwizing baru</p>
+                    <input type="file" class="form-control" name="st03_file">
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
@@ -38,22 +31,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="st03_title" name="item[title]" value="{{ $aanwizing->title }}">
                     <label for="namalengkap">Judul File Aanwizing</label>
+                    <input type="text" class="form-control" id="st03_title" name="item[title]" value="{{ $aanwizing->title }}">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group floating-label">
-                    <textarea type="text" class="form-control" id="st03_description" name="item[description]">{!! $aanwizing->description !!}</textarea>
                     <label for="regular2">Catatan Aanwizing</label>
+                    <textarea type="text" class="form-control" id="st03_description" name="item[description]">{!! $aanwizing->description !!}</textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a id="trg_st03" href="#" class="btn btn-default-bright">Upload</a>
+                <input type="submit" id="submit" class="btn btn-primary mt25" value="Upload"> 
             </div>
         </div>
     </form>

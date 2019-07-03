@@ -12,7 +12,7 @@
     <!-- ============================================================== -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Detail Perencanaan</h4>
+            <h4 class="text-themecolor">Detail Monitoring Pekerjaan</h4>
         </div>
         <div class="col-md-7 align-self-center text-right">
             <div class="d-flex justify-content-end align-items-center">
@@ -32,14 +32,16 @@
     <!-- ============================================================== -->
     <!-- Row -->
     <div class="row">
-    <h3>
-        <span class="">{{ $data['title']}} &nbsp;
-            <button type="button" class="btn btn-xs ink-reaction btn-floating-action btn-warning"  data-toggle="tooltip" data-placement="top" title="Proses Persetujuan">
-                <i class="fa fa-pencil"></i>
-            </button>
-        </span>
-    </h3>
         <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        <a href="#">{{ $data['title']}}</a> &nbsp;
+                            <button type="button" class="btn btn-xs ink-reaction btn-floating-action btn-warning"  data-toggle="tooltip" data-placement="top" title="Proses Persetujuan">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                    </h4>
+                    <div class="col-md-12">
             <div class="card tabs style-default-light">
                 <ul class="card-head nav nav-tabs" data-toggle="tabs">
                     <li class="active">
@@ -54,6 +56,9 @@
                 </div>
             </div><!--end .card-body -->
         </div><!--end .card -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

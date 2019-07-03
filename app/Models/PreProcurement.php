@@ -187,10 +187,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==2){
             if($this->schedule->a_announcement!=null){
@@ -198,10 +198,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==3){
             if($this->schedule->a_download!=null){
@@ -209,10 +209,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==4){
             if($this->schedule->a_aanwizing!=null){
@@ -220,10 +220,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==5){
             if($this->schedule->a_negotiation!=null){
@@ -231,10 +231,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==6){
             if($this->schedule->a_candidate!=null){
@@ -242,10 +242,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==7){
             if($this->schedule->a_winner!=null){
@@ -253,10 +253,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==8){
             if($this->schedule->a_consultation!=null){
@@ -264,10 +264,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }else if($stage_number==9){
             if($this->schedule->a_contract!=null){
@@ -275,10 +275,10 @@ class PreProcurement extends Model
                 if($date_diff > 0){
                     return '<i class="fa fa-circle" style=color:orange></i>&nbsp;';
                 }else{
-                    return '<i class="fa fa-circle-o"></i>&nbsp;';
+                    return '<i class="far fa-circle text-info"></i>&nbsp;';
                 }
             }else{
-                return '<i class="fa fa-circle-o"></i>&nbsp;';
+                return '<i class="far fa-circle text-info"></i>&nbsp;';
             }
         }
     }

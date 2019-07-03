@@ -2,24 +2,24 @@
     use \App\Helpers\FormHelper;
     use \App\Helpers\DateHelper;
 @endphp
-<div class="tab-pane" id="sanggah">
+<div class="tab-pane p-20" id="sanggah" role="tabpanel">
     <div class="pull-left">
-        <h3>
-            Sanggahan
-            <span class="pcr-date">{{ $schedule->a_consultation }}</span>
-        </h3>
+        <h4>
+            <a href="#">Sanggahan</a>
+        </h4>
+        <span class="pcr-date">{{ $schedule->a_consultation }}</span>
     </div>
-    <div class="pull-right">
+    <div class="abs-right">
         <a id="trg_sch_refutal" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_consultation }}" data-back="{{ $schedule->b_consultation }}">Atur Jadwal</a>
     </div>
     <div class="clear"></div>
 
-    <div class="judulformtop">
+    <p>
         Jaminan Sanggahan Penyedia
-    </div>
+    </p>
 
     <div class="table-responsive">
-        <table id="table_assurances" class="table table-bordered order-column hover">
+        <table id="table_assurances" class="table">
             <thead>
                 <tr>
                     <th>No</th>
@@ -61,10 +61,10 @@
             </tbody>
         </table>
     </div><!--end .table-responsive -->
-
-    <div class="judulformtop">
+    
+    <p>
         Upload BA Sanggahan
-    </div>
+    </p>
 
     <div class="row">
         <div class="col-md-6">
@@ -75,23 +75,17 @@
         </div>
         <div class="col-md-6">
             <div class="pull-right">
-                <div id="st08_file" class="dropzone st-dropzone" url="/upload/procurement">
-                    <div class="dz-message btn btn-default">
-                        <h3>
-                            Pilih file
-                        </h3>
-                    </div>
-                </div>
                 <p class="help-block st-help-block">Unggah BA Sanggahan</p>
+                <input type="file" class="form-control" id="st08_file" name="st08_file">
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
         </div>
     </div>
 
-    <div class="judulformtop">
+    <p>
         Evaluasi Sanggahan
-    </div>
+    </p>
     <form id="form_refutal" class="form floating-label form-validation" role="form" action="/pengadaan/atur/sanggahan" method="POST">
         {{ csrf_field() }}
         <input type="hidden" name="procurement_id" value="{{ $procurement->id }}">
@@ -119,6 +113,7 @@
                 <div class="col-sm-6">
                     <div class="form-group floating-label">
                         <input type="hidden" name="new_winner" id="ss_new_winner" value="{{ $refutal->new_winner }}" disabled="disabled">
+                        <label>Pilih Pemenang Baru</label>
                         <select id="ss_new_vendor_picker" class="form-control select2-list" name="item[new_winner]">
                             <option value=""></option>
                             @for ($ii = 0; $ii < count($enrollments); $ii++)
@@ -130,13 +125,12 @@
                                 @endif
                             @endfor
                         </select>
-                        <label>Pilih Pemenang Baru</label>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group floating-label">
-                        <textarea name="item[evaluation]" class="form-control" rows="2">{{ $refutal->evaluation }}</textarea>
                         <label>Penjelasan Hasil Sanggah</label>
+                        <textarea name="item[evaluation]" class="form-control" rows="2">{{ $refutal->evaluation }}</textarea>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -145,9 +139,7 @@
     </form>
     <div class="row">
         <div class="col-md-12">
-            <a id="trg_refutal" href="#" class="btn btn-default-bright">
-                <i class="fa fa-save"></i>&nbsp;Simpan Evaluasi
-            </a>
+           <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Evaluasi">
         </div>
     </div>
     <hr>

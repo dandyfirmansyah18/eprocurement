@@ -2,26 +2,28 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane" id="evalpengumuman">
+<div class="tab-pane p-20" id="evalpengumuman" role="tabpanel">
     <div class="pull-left">
-        <h3>
-            Evaluasi Pemenang dan Pengumuman
-            <span class="pcr-date">{{ $schedule->a_winner }}</span>
-        </h3>
+        <h4>
+            <a href="#">Evaluasi Pemenang dan Pengumuman</a>
+        </h4>
+        <span class="pcr-date">{{ $schedule->a_winner }}</span>
     </div>
-    <div class="pull-right">
+    <hr>
+    <div class="abs-right">
         <a id="trg_sch_winner" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_winner }}" data-back="{{ $schedule->b_winner }}">Atur Jadwal</a>
     </div>
     <div class="clear"></div>
 
-    <div class="judulformtop">
+    <p>
         Pilih Pemenang
-    </div>
+    </p>
     <div class="table-responsive">
         <form id="form_winner" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/pengadaan/pemenang" method="POST">
             <input type="hidden" name="procurement_id" id="procurement_id" value="{{ $procurement->id }}" />
             {{ csrf_field() }}
-            <table id="tabel_candidates" class="table table-bordered order-column hover">
+            <div class="table-responsive">
+            <table id="tabel_candidates" class="table">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -63,6 +65,7 @@
                     @endfor
                 </tbody>
             </table>
+            </div>
         </form>
     </div><!--end .table-responsive -->
     <div class="pull-right">
@@ -71,7 +74,8 @@
         </a>
     </div>
     <div class="clear"></div>
-
+    <hr>
+    <br>
     <div class="judulform">Upload BA Pengumuman Pemenang
     </div>
     <form id="form_st07_01" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/jadwal/pengadaan/pemenang_pengumuman" method="POST">
@@ -86,15 +90,8 @@
             </div>
             <div class="col-md-6">
                 <div class="pull-right">
-                    <input type="hidden" name="upload_token" id="upload_token" value="{{ csrf_token() }}">
-                    <div id="st07_file" class="dropzone st-dropzone" url="/upload/procurement">
-                        <div class="dz-message btn btn-default">
-                            <h3>
-                                Pilih file
-                            </h3>
-                        </div>
-                    </div>
                     <p class="help-block st-help-block">Unggah BA Pengumuman Pemenang baru</p>
+                    <input type="file" name="upload_token" id="upload_token" value="{{ csrf_token() }}">
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
@@ -103,34 +100,34 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="st07_title" name="item[title]" value="{{ $winner->title }}">
                     <label for="namalengkap">Judul File Pengumuman Pemenang</label>
+                    <input type="text" class="form-control" id="st07_title" name="item[title]" value="{{ $winner->title }}">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group floating-label">
-                    <textarea type="text" class="form-control" id="st07_description" name="item[description]">{!! $winner->description !!}</textarea>
                     <label for="regular2">Catatan Pengumuman Pemenang</label>
+                    <textarea type="text" class="form-control" id="st07_description" name="item[description]">{!! $winner->description !!}</textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a id="trg_st07_01" href="#" class="btn btn-default-bright">Upload</a>
+                <input type="submit" id="submit" class="btn btn-primary mt25" value="Upload">
             </div>
         </div>
     </form>
-
-    <div class="judulform">Teks Pengantar Pengumuman Pemenang</div>
+    <hr>
+    <p>Teks Pengantar Pengumuman Pemenang</p>
     <form id="form_st07_02" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/jadwal/pengadaan/pemenang_pengantar" method="POST">
         {{ csrf_field() }}
         <input type="hidden" name="procurement_id" value="{{ $procurement->id }}" />
-        <textarea id="summernote_pemenang" name="item[announcement]">{!! $winner->announcement !!}</textarea>
+        <textarea  type="text" class="form-control" id="summernote_pemenang" name="item[announcement]">{!! $winner->announcement !!}</textarea>
     </form>
     <br>
-    <a id="trg_st07_02" class="btn  btn-default-bright" href="#">Simpan Perubahan Pengumuman </a>
+    <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Perubahan Pengumuman">
     <hr>
     Log Perubahan dokumen ini:
     @for ($ii = 0; $ii < count($log_winners); $ii++)
