@@ -6,10 +6,16 @@
 
 <div class="mt25">
 
-  <label class="radio-inline checkbox-styled">
+  <!-- <label class="radio-inline checkbox-styled">
     <input type="checkbox" name="trg_assessment[certificates]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->certificates) }} {{ $disabled }}><span>Verifikasi Tabel daftar Surat/Sertifikat Pendukung</span>
-  </label>
-
+  </label> -->
+  <dt>
+    <label class="custom-control custom-checkbox m-b-0">
+      <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[certificates]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->certificates) }} {{ $disabled }}>
+      <span class="custom-control-label"><strong>Verifikasi Tabel daftar Surat/Sertifikat Pendukung</strong></span>
+    </label>
+  </dt>
+  <hr>
   <table class="table no-margin">
     <thead>
       <tr>
@@ -46,10 +52,16 @@
     </tbody>
   </table>
   <hr>
-  <label class="radio-inline checkbox-styled">
+  <!-- <label class="radio-inline checkbox-styled">
     <input type="checkbox" name="trg_assessment[experiences]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->experiences) }} {{ $disabled }}><span>Verifikasi Tabel daftar pengalaman</span>
-  </label>
-
+  </label> -->
+  <dt>
+    <label class="custom-control custom-checkbox m-b-0">
+      <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[experiences]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->experiences) }} {{ $disabled }}>
+      <span class="custom-control-label"><strong>Verifikasi Tabel daftar pengalaman</strong></span>
+    </label>
+  </dt>
+  <hr>
   <table class="table no-margin">
     <thead>
       <tr>

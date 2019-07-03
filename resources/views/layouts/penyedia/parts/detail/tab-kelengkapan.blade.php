@@ -4,11 +4,15 @@
 
 <dl class="uhui dl-horizontal mt25">
   <dt>
-    <label class="radio-inline checkbox-styled">
+    <!-- <label class="radio-inline checkbox-styled">
       <input type="checkbox" name="trg_assessment[tax]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->tax) }} {{ $disabled }}><span>Pajak </span>
+    </label> -->
+    <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[tax]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->tax) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Pajak</strong></span>
     </label>
   </dt>
-
+  <hr>
   <dd>
       <b>NPWP </b> : <strong>{{ $tax->taxpayer_number }}</strong> <br />
       Tanggal dikeluarkan: {{ DateHelper::long_format($tax->release_date) }}
@@ -65,11 +69,15 @@
 
   @if($company->type_id != '4')
   <dt>
-    <label class="radio-inline checkbox-styled">
+    <!-- <label class="radio-inline checkbox-styled">
       <input type="checkbox" name="trg_assessment[permit]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->permit) }} {{ $disabled }}><span>Izin Usaha</span>
+    </label> -->
+    <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[permit]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->permit) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Izin Usaha</strong></span>
     </label>
   </dt>
-
+  <hr>
   @if($siup != null && $siup->document_number != null)
       <dd>
           <b>Jenis Izin: SIUP</b>
@@ -145,11 +153,15 @@
 
   @if($company->type_id != '4')
   <dt>
-    <label class="radio-inline checkbox-styled">
+    <!-- <label class="radio-inline checkbox-styled">
       <input type="checkbox" name="trg_assessment[registration]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->registration) }} {{ $disabled }}><span>TDP</span>
+    </label> -->
+    <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[registration]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->registration) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>TDP</strong></span>
     </label>
   </dt>
-
+  <hr>
   <dd>
       Nomor TDP: <strong>{{ $registration->registration_number }}</strong> <br />
       Tanggal Keluar: {{ DateHelper::long_format($registration->release_date) }} <br />
@@ -167,11 +179,15 @@
 
   @if($company->type_id != '4')
     <dt>
-      <label class="radio-inline checkbox-styled">
+      <!-- <label class="radio-inline checkbox-styled">
         <input type="checkbox" name="trg_assessment[deed_establishment]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->deed_establishment) }} {{ $disabled }}><span>  Akta Pendirian </span>
+      </label> -->
+      <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[deed_establishment]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->deed_establishment) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Akta Pendirian</strong></span>
       </label>
     </dt>
-
+    <hr>
     <dd>
         Nomor: <strong>{{ $deed->number }}</strong> <br />
         Notaris: {{ $deed->notary }} <br />
@@ -186,8 +202,12 @@
     <br />
     @if($deed_renewal != null && $deed->renewal_number)
     <dt>
-      <label class="radio-inline checkbox-styled">
+      <!-- <label class="radio-inline checkbox-styled">
         <input type="checkbox" name="trg_assessment[deed_renewal]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->deed_renewal) }} {{ $disabled }}><span>  Akta Perubahan</span>
+      </label> -->
+      <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[deed_renewal]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->deed_renewal) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Akta Perubahan</strong></span>
       </label>
     </dt>
     <dd>
@@ -207,10 +227,15 @@
 
   @if($company->type_id != '4')
   <dt>
-    <label class="radio-inline checkbox-styled">
+    <!-- <label class="radio-inline checkbox-styled">
       <input type="checkbox" name="trg_assessment[balance]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->balance) }} {{ $disabled }}><span>Neraca Keuangan</span>
+    </label> -->
+    <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[balance]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->balance) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Neraca Keuangan</strong></span>
     </label>
   </dt>
+  <hr>
   <dd>
     Kualifikasi perusahaan: {{ $company->qualification }} (neraca 2 tahun terakhir)
   </dd>
@@ -224,10 +249,15 @@
   @endif
 
   <dt>
-    <label class="radio-inline checkbox-styled">
+    <!-- <label class="radio-inline checkbox-styled">
       <input type="checkbox" name="trg_assessment[spkmp]" class="target-checker trg-assessment" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->spkmp) }} {{ $disabled }}><span>Surat Pernyataan</span>
+    </label> -->
+    <label class="custom-control custom-checkbox m-b-0">
+        <input type="checkbox" class="custom-control-input trg-assessment" name="trg_assessment[spkmp]" {{ \App\Helpers\AuxHelper::render_boolean_checked($assessment->spkmp) }} {{ $disabled }}>
+        <span class="custom-control-label"><strong>Surat Pernyataan</strong></span>
     </label>
   </dt>
+  <hr>
   <dd>
     Surat Pernyataan Kesanggupan Memenuhi Pengadaan
   </dd>

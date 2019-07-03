@@ -5,8 +5,11 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        beforeSend: function(){
-            loading();
+        beforeSend: function(jqXHR, Obj){
+            console.log(Obj.url);
+            if (Obj.url != '/vendor/set_assessment') {
+                loading();
+            } 
         },
         complete: function(){
             clearLoading();
