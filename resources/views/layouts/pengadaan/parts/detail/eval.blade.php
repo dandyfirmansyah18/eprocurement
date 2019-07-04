@@ -122,7 +122,7 @@
         @if($candidate_highest > 0)
           <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan"> 
         @else
-          <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan"> 
+          <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan undangan"> 
         @endif
       </div>
   </div>

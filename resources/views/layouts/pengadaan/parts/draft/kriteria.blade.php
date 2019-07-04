@@ -2,12 +2,12 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane" id="third">
+<div class="tab-pane" id="third" role="tabpanel">
     <br />
-    <div class="judulformtop">
-        <i class="fa fa-book"></i> Metode Pengadaan
-    </div>
-
+    <a href="#">
+        <i class="fa fa-book"></i>&nbsp; Metode Pengadaan
+    </a>
+    <hr>
     <form id="form_qualification" action="/draft/qualification_save" method="POST">
         {{ csrf_field() }}
         <input type="hidden" name="procurement_id" value="{{ $item->id }}" />
@@ -15,37 +15,37 @@
             <div class="col-sm-4">
                 <div class="form-group floating-label">
                     <input id="pc_qualification" type="hidden" name="qualification" value="{{ $item->procurement_qualification }}" />
+                    <label class="tight-label dirty">Metode kualifikasi</label>
                     <select id="trg_qualification" class="form-control select2-list" name="qualification" {{ $disabled }}>
                         <option value="2">Kualifikasi</option>
                         <option value="1">Pra-kualifikasi</option>
                     </select>
-                    <label class="tight-label dirty">Metode kualifikasi</label>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group floating-label">
                     <input id="pc_delivery" type="hidden" name="delivery" value="{{ $item->delivery_method }}" />
+                    <label class="tight-label dirty">Metode penyampaian dokumen</label>
                     <select id="trg_delivery" class="form-control select2-list" name="delivery" {{ $disabled }}>
                         <option value="1">Satu Sampul</option>
                         <option value="2">Dua Sampul</option>
                         <option value="3">Dua Tahap</option>
                     </select>
-                    <label class="tight-label dirty">Metode penyampaian dokumen</label>
                 </div>
             </div>
-            <div class="col-md-4">
-                <a id="trg_save_qualification" href="#" class="btn btn-primary btn-block">
-                    <i class="fa fa-save"></i> Simpan Metode Pengadaan
-                </a>
-            </div>
         </div>
-
+        <div class="col-md-4">
+        <a id="trg_save_qualification" href="#" class="btn btn-primary btn-block">
+            <i class="fa fa-save"></i> Simpan Metode Pengadaan
+        </a>
+        </div>
+        <hr>
         <div id="pre_block" class="hidden-block">
             <div class="row tight-floating">
                 <div class="col-sm-4">
                     <div class="form-group floating-label">
-                        <textarea id="trg_pre_notes" class="form-control" name="pre_notes">{{ $item->pre_notes }}</textarea>
                         <label class="tight-label">Keterangan Pra-kualifikasi</label>
+                        <textarea id="trg_pre_notes" class="form-control" name="pre_notes">{{ $item->pre_notes }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -76,9 +76,9 @@
         </div>
     </form>
 
-    <div class="judulform">
-        <i class="fa fa-pencil"></i> Metode Penilaian
-    </div>
+    <a href="#"><i class="ti-pencil"></i> Metode Penilaian</a>
+    <hr>
+    
     <form class="form-horizontal" role="form">
         <input type="hidden" id="scoring_method" value="{{ $measurement->scoring }}">
         <div class="form-group ">
@@ -87,11 +87,13 @@
                     <input id="trg_nonscoring" class="jenis_eval" type="radio" name="inlineRadioOptions" value="2"{{ $disabled }}>
                     <span>Metode <em>Non-Scoring</em></span>
                 </label>
+                <br>
                 <label class="radio-inline radio-styled">
                     <input id="trg_scoring" class="jenis_eval"  type="radio" name="inlineRadioOptions" value="1"{{ $disabled }}>
                     <span>Metode <em>Scoring</em></span>
                 </label>
             </div>
+            <br>
             <div class="col-md-4">
                 <a id="trg_save_measurement" href="#" class="btn btn-primary btn-block">
                     <i class="fa fa-save"></i> Simpan Metode Penilaian

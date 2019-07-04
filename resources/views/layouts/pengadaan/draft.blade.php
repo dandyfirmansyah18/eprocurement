@@ -1,83 +1,91 @@
+@extends('templates.index')
 @push('csspage')
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/dropzone/dropzone-theme.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/bootstrap-datepicker/datepicker3.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/select2/select2.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/wizard/wizard.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/bootstrap-tagsinput/bootstrap-tagsinput.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/typeahead/typeahead.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/summernote/summernote.css') }}"  type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}"  type="text/css"/>
 @endpush
 
 @section('content')
-    <!-- BEGIN content SECTION -->
-    <section class="style-default-bright">
-        <div class="noheader section-header"></div>
-        <div class="section-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-head">
-                            <ul class="nav nav-tabs" data-toggle="tabs">
-                                <li class="active">
-                                    <a href="#first">Detail Pengadaan</a>
-                                </li>
-                                <li>
-                                    <a href="#third">Kriteria Penilaian</a>
-                                </li>
+<!-- BEGIN content SECTION -->
+<div class="container-fluid">
+<!-- ============================================================== -->
+<!-- Bread crumb as and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Detail Pengadaan</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Detail Pengadaan</li>
+            </ol>
+            <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item"> 
+                        <a class="nav-link active" data-toggle="tab" href="#first" role="tab">
+                            <span class="hidden-sm-up">
+                                <i class="ti-file"></i>
+                            </span> 
+                            <span class="hidden-xs-down">Detail Pengadaan</span>
+                        </a> 
+                    </li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" data-toggle="tab" href="#third" role="tab">
+                            <span class="hidden-sm-up">
+                                <i class="ti-file"></i>
+                            </span> 
+                            <span class="hidden-xs-down">Kriteria Penilaian</span>
+                        </a> 
+                    </li>
+                     @if($item->delivery_method != null && $item->delivery_method > 0)
+                    <li class="nav-item"> 
+                        <a class="nav-link" data-toggle="tab" href="#second" role="tab">
+                            <span class="hidden-sm-up">
+                                <i class="ti-file"></i>
+                            </span> 
+                            <span class="hidden-xs-down">Jadwal Pengadaan</span>
+                        </a> 
+                    </li>
+                    @endif
+                </ul>
+                <div class="pt0 card-body tab-content">
+                    @include('layouts.pengadaan.parts.draft.infoutama')
 
-                                @if($item->delivery_method != null && $item->delivery_method > 0)
-                                    <li>
-                                        <a href="#second">Jadwal Pengadaan</a>
-                                    </li>
-                                @endif
-                            </ul>
-                        </div><!--end .card-head -->
+                    @include('layouts.pengadaan.parts.draft.kriteria')
 
-                        <div class="pt0 card-body tab-content">
-                            @include('layouts.pengadaan.parts.draft.infoutama')
-
-                            @include('layouts.pengadaan.parts.draft.kriteria')
-
-                            @if($item->delivery_method != null && $item->delivery_method > 0)
-                                @include('layouts.pengadaan.parts.draft.tanggal')
-                            @endif
-                        </div><!--end .card-body -->
-
-                    </div>
-
-
-                </div>
+                    @if($item->delivery_method != null && $item->delivery_method > 0)
+                        @include('layouts.pengadaan.parts.draft.tanggal')
+                    @endif
+                </div><!--end .card-body -->
             </div>
         </div>
+    </div>
+</div>  
+        
+    
+<div class="hidden-block">
+    <form id="form_start" method="POST" action="/pengadaan/mulai">
+        {{ csrf_field() }}
+        <input type="hidden" id="start_id" name="id" value="{{ $item->id }}" />
+    </form>
+</div>
 
-        <div class="hidden-block">
-            <form id="form_start" method="POST" action="/pengadaan/mulai">
-                {{ csrf_field() }}
-                <input type="hidden" id="start_id" name="id" value="{{ $item->id }}" />
-            </form>
-        </div>
-
-        <div id="active_tab" class="hidden-block">{{ Session::get('tab') }}</div>
-        @php
-        Session::forget('tab');
-        @endphp
-    </section>
+@php
+    Session::forget('tab');
+@endphp
     <!-- END content SECTION -->
 @endsection
 
 
 @push('jspage')
-    <script type="text/javascript" src="{{ URL::asset('js/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/dropzone/dropzone.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/select2/select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/wizard/jquery.bootstrap.wizard.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/wizard/DemoFormWizard.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/typeahead/typeahead.bundle.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/summernote/summernote.min.js') }}"></script>
+    
     <script type="text/javascript" src="{{ URL::asset('js/jsqbc-functions.js') }}"></script>
 
     <script type="text/javascript">

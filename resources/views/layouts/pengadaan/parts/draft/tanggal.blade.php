@@ -2,10 +2,12 @@
     use \App\Helpers\DateHelper;
 @endphp
 
-<div class="tab-pane" id="second">
-    <a id="trg_schedule" class="btn btn-primary mt25" >
+<div class="tab-pane" id="second" role="tabpanel">
+    <div class="col-md-4">
+    <a id="trg_schedule" href="#" class="btn btn-primary btn-block" >
         <i class="fa fa-save"></i> Simpan Jadwal Pengadaan
     </a>
+    </div>
     <hr>
     <form id="form_schedule" class="form" action="/draft/schedule_save" method="POST">
         {{ csrf_field() }}
@@ -18,11 +20,10 @@
                 <div class="form-group">
                     <div class="input-group date" id="tanggal_a_start">
                         <div class="input-group-content">
-                            <input type="text" class="form-control" name="schedule[a_start]" value="{{ DateHelper::datepicker($schedule->a_start) }}">
                             <label>Tanggal kegiatan sebenarnya</label>
-                            <p class="help-block">tanggal/bulan/tahun</p>
+                            <input type="text" class="form-control" name="schedule[a_start]" value="{{ DateHelper::datepicker($schedule->a_start) }}">
+                            
                         </div>
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
             </div>
@@ -32,11 +33,11 @@
                     <div class="form-group">
                         <div class="input-group date" id="tanggal_b_start">
                             <div class="input-group-content">
-                                <input type="text" class="form-control" name="schedule[b_start]" value="{{ DateHelper::datepicker($schedule->b_start) }}">
+                                
                                 <label>Tanggal backdate administrasi</label>
-                                <p class="help-block">tanggal/bulan/tahun</p>
+                                <input type="text" class="form-control" name="schedule[b_start]" value="{{ DateHelper::datepicker($schedule->b_start) }}">
+                                
                             </div>
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
                 </div>
@@ -53,16 +54,17 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[a_p_announcement]" value="{{ $schedule->a_p_announcement }}" />
                         <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                        <input class="form-control daterange" type="text" name="schedule[a_p_announcement]" value="{{ $schedule->a_p_announcement }}" />
                     </div>
                 </div>
 
                 @if($item->with_back_date)
                     <div class="col-md-8 col-md-offset-3">
                         <div class="form-group">
-                            <input class="form-control daterange" type="text" name="schedule[b_p_announcement]" value="{{ $schedule->b_p_announcement }}" />
+                            
                             <label class="tiny-label">Tanggal Backdate</label>
+                            <input class="form-control daterange" type="text" name="schedule[b_p_announcement]" value="{{ $schedule->b_p_announcement }}" />
                         </div>
                     </div>
                 @endif
@@ -77,16 +79,18 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[a_p_download]" value="{{ $schedule->a_p_download }}" />
+                        
                         <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                        <input class="form-control daterange" type="text" name="schedule[a_p_download]" value="{{ $schedule->a_p_download }}" />
                     </div>
                 </div>
 
                 @if($item->with_back_date)
                     <div class="col-md-8 col-md-offset-3">
                         <div class="form-group">
-                            <input class="form-control daterange" type="text" name="schedule[b_p_download]" value="{{ $schedule->b_p_download }}" />
+                            
                             <label class="tiny-label">Tanggal Backdate</label>
+                            <input class="form-control daterange" type="text" name="schedule[b_p_download]" value="{{ $schedule->b_p_download }}" />
                         </div>
                     </div>
                 @endif
@@ -101,16 +105,18 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[a_p_explanation]" value="{{ $schedule->a_p_explanation }}" />
+                        
                         <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                        <input class="form-control daterange" type="text" name="schedule[a_p_explanation]" value="{{ $schedule->a_p_explanation }}" />
                     </div>
                 </div>
 
                 @if($item->with_back_date)
                     <div class="col-md-8 col-md-offset-3">
                         <div class="form-group">
-                            <input class="form-control daterange" type="text" name="schedule[b_p_explanation]" value="{{ $schedule->b_p_explanation }}" />
+                            
                             <label class="tiny-label">Tanggal Backdate</label>
+                            <input class="form-control daterange" type="text" name="schedule[b_p_explanation]" value="{{ $schedule->b_p_explanation }}" />
                         </div>
                     </div>
                 @endif
@@ -126,16 +132,18 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <input class="form-control daterange" type="text" name="schedule[a_announcement]" value="{{ $schedule->a_announcement }}" />
+                    
                     <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                    <input class="form-control daterange" type="text" name="schedule[a_announcement]" value="{{ $schedule->a_announcement }}" />
                 </div>
             </div>
 
             @if($item->with_back_date)
                 <div class="col-md-8 col-md-offset-3">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[b_announcement]" value="{{ $schedule->b_announcement }}" />
+                        
                         <label class="tiny-label">Tanggal Backdate</label>
+                        <input class="form-control daterange" type="text" name="schedule[b_announcement]" value="{{ $schedule->b_announcement }}" />
                     </div>
                 </div>
             @endif
@@ -150,16 +158,18 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <input class="form-control daterange" type="text" name="schedule[a_download]" value="{{ $schedule->a_download }}" />
+                    
                     <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                    <input class="form-control daterange" type="text" name="schedule[a_download]" value="{{ $schedule->a_download }}" />
                 </div>
             </div>
 
             @if($item->with_back_date)
                 <div class="col-md-8 col-md-offset-3">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[b_download]" value="{{ $schedule->b_download }}" />
+                        
                         <label class="tiny-label">Tanggal Backdate</label>
+                        <input class="form-control daterange" type="text" name="schedule[b_download]" value="{{ $schedule->b_download }}" />
                     </div>
                 </div>
             @endif
@@ -174,16 +184,18 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <input class="form-control daterange" type="text" name="schedule[a_aanwizing]" value="{{ $schedule->a_aanwizing }}" />
+                    
                     <label class="tiny-label">Tanggal Kegiatan Sebenarnya</label>
+                    <input class="form-control daterange" type="text" name="schedule[a_aanwizing]" value="{{ $schedule->a_aanwizing }}" />
                 </div>
             </div>
 
             @if($item->with_back_date)
                 <div class="col-md-8 col-md-offset-3">
                     <div class="form-group">
-                        <input class="form-control daterange" type="text" name="schedule[b_aanwizing]" value="{{ $schedule->b_aanwizing }}" />
+                        
                         <label class="tiny-label">Tanggal Backdate</label>
+                        <input class="form-control daterange" type="text" name="schedule[b_aanwizing]" value="{{ $schedule->b_aanwizing }}" />
                     </div>
                 </div>
             @endif
