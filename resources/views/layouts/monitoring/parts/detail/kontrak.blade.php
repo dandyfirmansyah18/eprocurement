@@ -60,7 +60,7 @@
                                 <div class="input-group date" id="tanggal_kontrakdocs">
                                     <div class="input-group-content">
                                         <label>Tanggal Dokumen </label>
-                                        <input type="date" class="form-control" name="monitoring[doc_date]" value="{{ \App\Helpers\AuxHelper::render_date_monitoring($contract->doc_date) }}" />
+                                        <input type="date" class="form-control" name="monitoring[doc_date]" value="{{ \App\Helpers\AuxHelper::render_date($contract->doc_date) }}" />
                                     
                                         <p class="help-block">bulan/tanggal/tahun</p>
                                     </div>
@@ -112,8 +112,8 @@
                             @endif
                         </div>
                     </div>
-                    <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Perubahan">
             </form>
+            <a id="trg_kontrak" href="#" class="btn btn-primary mt25" ><i class="fa fa-save"></i> Simpan Perubahan</a>
         <p></p>
         <div class="judulform">Log Perubahan dokumen ini:</div>
           @for ($ii = 0; $ii < count($contract_logs); $ii++)
@@ -128,29 +128,37 @@
 </div>
 
 
-@push('jspage')
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#tanggal_kontrakdoc').datepicker({
-      autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-    });
-
-    $('#tanggal_kontrakstart').datepicker({
-      autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-    });
-
-    $('#tanggal_kontrakend').datepicker({
-      autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-    });
     
     $('#trg_kontrak').on('click', function(event){
-      $('form#form_mtrkontrak').submit();
+//      $('form#form_mtrkontrak').submit();
+        var form = $('form#form_mtrkontrak');
+        var formData = new FormData(form[0]);
+        $.ajax({
+            type: form.attr("method"),
+            url: form.attr("action"),
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                console.log(result);
+                var proc_id = '{{ $procurements["id"] }}';
+//                $('#verification_reject').modal('hide');
+                swal("","Kontrak Berhasil disimpan","success");
+                // document.location = '/vendor/daftar-calon';
+                call('/monitor/detail/'+proc_id,'_content_','Daftar Calon Vendor');
+            },
+            error: function(error){
+                console.log(error);
+                swal("","Kontrak Gagal disimpan","error");
+            }
+        });
       event.preventDefault();
     });
-
+//ok
     var kind_id = $('#contract_kind_id').val();
     $('#trg_kin_id').val(kind_id);
     $('#trg_kin_id').change();
   });
 </script>
-@endpush
