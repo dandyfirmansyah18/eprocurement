@@ -43,9 +43,16 @@
                     <br>
                     <h6 class="card-subtitle">
                         @if($user->verified)
-                        <h3 class="vrc-text">
-                            Data sudah diverifikasi pada tanggal: {{ DateHelper::long_format($user->verification_time) }} oleh {{ $user->verifier }}
-                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>
+                                    <!-- <strong>Data sudah diverifikasi pada tanggal: {{ DateHelper::long_format($user->verification_time) }} oleh {{ $user->verifier }}</strong> -->
+                                    <span class="label label-success">
+                                        Data sudah diverifikasi pada tanggal: {{ DateHelper::long_format($user->verification_time) }} oleh {{ $user->verifier }}
+                                    </span>
+                                </h5>
+                            </div>
+                        </div>
                         @elseif($user->state == 2)
                         <div class="row">
                                 @if(!$assessed_all)
@@ -685,8 +692,28 @@
             if(message == '' || message == '<p></p>' || message == '<p><br></p>') {
                 swal("","Harap isi pesan","error");
             } else {
-                $('form#form_chat').submit();
-                swal("Terkirim!","Pesan Berhasil di kirim.","success");
+                // $('form#form_chat').submit();
+                var form = $('form#form_chat');
+                var formData = new FormData(form[0]);
+                $.ajax({
+                    type: form.attr("method"),
+                    url: form.attr("action"),
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(result){
+                        swal("Terkirim!","Pesan Berhasil di kirim.","success");
+                        // document.location = document.location.href;
+                        // document.location = get_pure_link();
+                        call('/vendor/detail/'+company_id,'_content_','Detail Penyedia');
+                    },
+                    error: function(error){
+                        console.log(error);
+                        swal("Gagal!","Pesan Gagal di kirim.","error");
+                    }
+                });
             }
             event.preventDefault();
         });

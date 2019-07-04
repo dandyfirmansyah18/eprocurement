@@ -62,10 +62,11 @@
 </dl>
 
 <hr>
-<h5>Log Percakapan</h5>
+<h5><strong>Log Percakapan</strong></h5>
+<table width="100%">
 @for ($ii = 0; $ii < count($chats); $ii++)
-    <div class="vnd-chat-item">
-        <div class="col-sm-2">
+    <tr>
+        <td width="15%">
             <div class="vnd-chat-author">
                 @if($chats[$ii]->sender_id == $user->id)
                     Penyedia
@@ -76,19 +77,39 @@
             <div class="vnd-chat-time">
                 {{ \App\Helpers\AuxHelper::render_date_time($chats[$ii]->created_at) }}
             </div>
-        </div>
-        <div class="col-sm-9 vnd-chat-msg">
-            {!! html_entity_decode($chats[$ii]->message) !!}
+        </td>
+        <td>
+            <div class="vnd-chat-msg">
+                {!! html_entity_decode($chats[$ii]->message) !!}
+            </div>
+        </td>
+    </tr>
+    <!-- <div class="vnd-chat-item">
+        <div class="col-sm-12">
+            <div class="vnd-chat-author">
+                @if($chats[$ii]->sender_id == $user->id)
+                    Penyedia
+                @else
+                    {{ $chats[$ii]->sender->name }}
+                @endif
+            </div>
+            <div class="vnd-chat-time">
+                {{ \App\Helpers\AuxHelper::render_date_time($chats[$ii]->created_at) }}
+            </div>
+            <div class="vnd-chat-msg">
+                {!! html_entity_decode($chats[$ii]->message) !!}
+            </div>
         </div>
         <div class="clear"></div>
-    </div>
+    </div> -->
 @endfor
+</table>
 <div class="clear"></div>
 <hr>
 
 @if($user->state < 5)
 <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#reset_password">
-    <i class="fa fa-refresh"></i>&nbsp; Reset password
+    <i class="fa fa-retweet"></i>&nbsp; Reset password
 </a>
 <!--
 <a class="btn btn-primary" href="#"><i class="fa fa-print"></i>&nbsp; Print/Download Data Penyedia ini</a>
@@ -156,19 +177,88 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#trg_reset_password').on('click', function(event){
-            submit_form('form_reset_password');
+            // submit_form('form_reset_password');
+            var form = $('form#form_reset_password');
+            var formData = new FormData(form[0]);
+            $.ajax({
+                type: form.attr("method"),
+                url: form.attr("action"),
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    var company_id_bro = '{{ $company->id }}';
+                    $('#reset_password').modal('hide');
+                    swal("","Reset Password Berhasil.","success");
+                    // document.location = document.location.href;
+                    // document.location = get_pure_link();
+                    call('/vendor/detail/'+company_id_bro,'_content_','Detail Penyedia');
+                },
+                error: function(error){
+                    console.log(error);
+                    swal("","Reset Password Gagal.","error");
+                }
+            });
             event.preventDefault();
         });
         $('#trg_skrtproccess').on('click', function(event){
-            $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtproccess') }}");
-            $("#formModalAdministrasi").submit();
-            alert('Pemberitahuan Proses SKRT Sudah Dikirim ke Email Perusahaan.');
+            // $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtproccess') }}");
+            // $("#formModalAdministrasi").submit();
+            var form = $('form#formModalAdministrasi');
+            var formData = new FormData(form[0]);
+            $.ajax({
+                type: form.attr("method"),
+                url: '/penyedia/skrtprocess',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    var company_id_bro = '{{ $company->id }}';
+                    $('#ubahskrt').modal('hide');
+                    swal("","Pemberitahuan Proses SKRT Sudah Dikirim ke Email Perusahaan.","success");
+                    // document.location = document.location.href;
+                    // document.location = get_pure_link();
+                    call('/vendor/detail/'+company_id_bro,'_content_','Detail Penyedia');
+                },
+                error: function(error){
+                    console.log(error);
+                    swal("","Pemberitahuan Proses SKRT Gagal Dikirim ke Email Perusahaan.","error");
+                }
+            });
             event.preventDefault();
         });
+
         $('#trg_skrtdone').on('click', function(event){
-            $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtdone') }}");
-            $("#formModalAdministrasi").submit();
-            alert('Pemberitahuan SKRT Selesai Sudah Dikirim ke Email Perusahaan.');
+            // $("#formModalAdministrasi").attr("action", "{{ url('/penyedia/skrtdone') }}");
+            // $("#formModalAdministrasi").submit();
+            var form = $('form#formModalAdministrasi');
+            var formData = new FormData(form[0]);
+            $.ajax({
+                type: form.attr("method"),
+                url: '/penyedia/skrtdone',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    var company_id_bro = '{{ $company->id }}';
+                    $('#ubahskrt').modal('hide');
+                    swal("","Pemberitahuan SKRT Selesai Sudah Dikirim ke Email Perusahaan.","success");
+                    // document.location = document.location.href;
+                    // document.location = get_pure_link();
+                    call('/vendor/detail/'+company_id_bro,'_content_','Detail Penyedia');
+                },
+                error: function(error){
+                    console.log(error);
+                    swal("","Pemberitahuan SKRT Selesai Gagal Dikirim ke Email Perusahaan.","error");
+                }
+            });
+            // alert('Pemberitahuan SKRT Selesai Sudah Dikirim ke Email Perusahaan.');
             event.preventDefault();
         });
     });

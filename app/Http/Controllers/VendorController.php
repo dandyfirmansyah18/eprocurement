@@ -177,7 +177,7 @@ class VendorController extends Controller
         $rating                 = $user->rating;
 
         $disabled = '';
-        if($user->state == 0 || $user->state == 5 || $user->state == 6) {
+        if($user->state == 0 || $user->state == 1 || $user->state == 5 || $user->state == 6) {
             $disabled       = 'disabled';
         }
 
@@ -260,8 +260,8 @@ class VendorController extends Controller
         UserHelper::reset_password($request->id);
 
         $request->session()->put('tab', 'fourth');
-
-        return redirect('/vendor/detail/' . $request->company_id);
+        return 'OK';
+        // return redirect('/vendor/detail/' . $request->company_id);
     }
 
     public function set_assessment(Request $request)
@@ -428,8 +428,9 @@ class VendorController extends Controller
             'action'            => 'skrtproccess',
         ];
 
-        $kirim_email = MailHelper::queue($user_email_data);
-        return redirect('/vendor/detail/' . $request->idCompany);
+        // $kirim_email = MailHelper::queue($user_email_data);
+        $kirim_email = MailHelper::sendEmail($user_email_data);
+        // return redirect('/vendor/detail/' . $request->idCompany);
         return response()->json([
             'status' => 'OK'            
         ]);
@@ -450,8 +451,9 @@ class VendorController extends Controller
             'action'            => 'skrtdone',
         ];
 
-        $kirim_email = MailHelper::queue($user_email_data);
-        return redirect('/vendor/detail/' . $request->idCompany);
+        // $kirim_email = MailHelper::queue($user_email_data);
+        $kirim_email = MailHelper::sendEmail($user_email_data);
+        // return redirect('/vendor/detail/' . $request->idCompany);
         return response()->json([
             'status' => 'OK'
         ]);

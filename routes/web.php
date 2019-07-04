@@ -52,7 +52,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/penyedia/verifikasi_terima', 'VerificationController@vendor_accept');
 		Route::post('/penyedia/verifikasi_ulang', 'VerificationController@vendor_redo');
 		Route::post('/penyedia/verifikasi_tolak', 'VerificationController@vendor_reject');
-		Route::post('/penyedia/skrtproccess', 'VendorController@skrtproccess');
+		Route::post('/penyedia/skrtprocess', 'VendorController@skrtproccess');
 		Route::post('/penyedia/skrtdone', 'VendorController@skrtdone');
 
 		// User Management
@@ -122,5 +122,23 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/daftar/save_certification', 'RegistrationController@save_certification');
 		Route::post('/daftar/submit_registrasi', 'RegistrationController@register')->name('registration_submit');
 		Route::post('/daftar/menunggu_verifikasi', 'RegistrationController@menunggu_verifikasi'); // new
+
+		// My Profile
+		Route::get('/my_profile', 'DashboardController@profile');
+		Route::get('/my_profile/ubah', 'DashboardController@update_data');
+		Route::post('/my_profile/simpan', 'DashboardController@save_data')->name('registration_save_update');
+		Route::post('/my_profile/save_job', 'DashboardController@save_job');
+		Route::post('/my_profile/save_experience', 'DashboardController@save_experience');
+		Route::post('/my_profile/save_certification', 'DashboardController@save_certification');
+		Route::post('/my_profile/save_person', 'DashboardController@save_person');
+		Route::post('/my_profile/save_stakeholder', 'DashboardController@save_stakeholder');
+		Route::post('/my_profile/save_manager', 'DashboardController@save_manager');
+		Route::post('/my_profile/delete_job', 'DashboardController@delete_job');
+		Route::post('/my_profile/delete_experience', 'DashboardController@delete_experience');
+		Route::post('/my_profile/delete_certification', 'DashboardController@delete_certification');
+		Route::post('/my_profile/delete_person', 'DashboardController@delete_person');
+		Route::post('/my_profile/delete_stakeholder', 'DashboardController@delete_stakeholder');
+		Route::post('/my_profile/delete_manager', 'DashboardController@delete_manager');
+
 	});
 });
