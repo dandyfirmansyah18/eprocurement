@@ -1,10 +1,3 @@
-@extends('templates.index')
-@section('title','Detail Monitoring Pekerjaan')
-@push('csspage')
-
-@endpush
-
-@section('content')
 <!-- BEGIN content SECTION -->
 <div class="container-fluid">
 <!-- ============================================================== -->
@@ -92,8 +85,3 @@
 @php    
 Session::forget('tab');
 @endphp
-<!-- END content SECTION -->
-@endsection
-
-@push('jspage')
-@endpush
