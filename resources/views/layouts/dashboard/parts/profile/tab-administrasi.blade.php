@@ -48,10 +48,10 @@
 
 <hr>
 <h5>Log Percakapan</h5>
-
+<table width="100%">
 @for ($ii = 0; $ii < count($chats); $ii++)
-    <div class="vnd-chat-item">
-        <div class="col-sm-2">
+    <tr>
+        <td width="15%">
             <div class="vnd-chat-author">
                 @if($chats[$ii]->sender_id == $user->id)
                     Penyedia
@@ -62,14 +62,15 @@
             <div class="vnd-chat-time">
                 {{ \App\Helpers\AuxHelper::render_date_time($chats[$ii]->created_at) }}
             </div>
-        </div>
-        <div class="col-sm-9 vnd-chat-msg">
-            {!! html_entity_decode($chats[$ii]->message) !!}
-        </div>
-        <div class="clear"></div>
-    </div>
+        </td>
+        <td>
+            <div class="vnd-chat-msg">
+                {!! html_entity_decode($chats[$ii]->message) !!}
+            </div>
+        </td>
+    </tr>
 @endfor
-
+</table>
 <div class="clear"></div>
 <hr>
 
@@ -93,4 +94,4 @@ Kirim pesan ke Admin
 <textarea id="summernote" name="chat[message]"></textarea>
 </form>
 <br>
-<a id="trg_chat" class="btn  btn-default-bright" href="#">Kirim </a>
+<a id="trg_chat" class="btn btn-info" href="#">Kirim </a>

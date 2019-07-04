@@ -48,7 +48,7 @@ Route::middleware(['log'])->group(function(){
 		// Verifikasi Penyedia
 		Route::get('/penyedia/blacklists', 'VendorController@black_members');
 		Route::post('/pengguna/ubah_password', 'UserController@update_password');
-		Route::get('/penyedia/ubah_lainnya', 'DashboardController@edit_other');
+		Route::post('/penyedia/ubah_lainnya', 'DashboardController@edit_other');
 		Route::post('/penyedia/verifikasi_terima', 'VerificationController@vendor_accept');
 		Route::post('/penyedia/verifikasi_ulang', 'VerificationController@vendor_redo');
 		Route::post('/penyedia/verifikasi_tolak', 'VerificationController@vendor_reject');
@@ -150,7 +150,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/daftar/menunggu_verifikasi', 'RegistrationController@menunggu_verifikasi'); // new
 
 		// My Profile
-		Route::get('/my_profile', 'DashboardController@profile');
+		Route::post('/my_profile', 'DashboardController@profile');
 		Route::get('/my_profile/ubah', 'DashboardController@update_data');
 		Route::post('/my_profile/simpan', 'DashboardController@save_data')->name('registration_save_update');
 		Route::post('/my_profile/save_job', 'DashboardController@save_job');
@@ -165,5 +165,13 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/my_profile/delete_person', 'DashboardController@delete_person');
 		Route::post('/my_profile/delete_stakeholder', 'DashboardController@delete_stakeholder');
 		Route::post('/my_profile/delete_manager', 'DashboardController@delete_manager');
+		Route::get('/dashboard/procurements', 'DashboardController@procurements');
+		Route::get('/dashboard/my_procurements', 'DashboardController@my_procurements');
+		Route::post('/dashboard/chat', 'DashboardController@chat');
+		Route::get('/dashboard/reqpin','DashboardController@form_requestpin');
+
+		// Dashboard
+		Route::get('/public/vendors', 'StaticController@vendors');
+		Route::get('/public/procurements', 'StaticController@procurements');
 	});
 });

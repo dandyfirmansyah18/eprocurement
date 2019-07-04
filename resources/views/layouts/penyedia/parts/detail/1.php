@@ -11,14 +11,17 @@
       <dt>Waktu pengiriman data</dt>
       <dd>{{ \App\Helpers\AuxHelper::render_date($user->registration_time) }}</dd>
       <br />
-      <dt>
-        <h4><label><strong>Data Perusahaan</strong></label></h4>
-      </dt>
+
+      <h3>
+        <label class="radio-inline checkbox-styled">
+          <span>Data Perusahaan</span>
+        </label>
+      </h3>
       <hr>
       <dt>Jenis Perusahaan</dt>
       <dd>{{ $company->type }}</dd>
       <dt>Tempat / Tanggal Berdiri</dt>
-      <dd>{{ \App\Helpers\AuxHelper::render_date_long($deed->released) }}</dd>
+      <dd>{{ \App\Helpers\AuxHelper::render_date($deed->released) }}</dd>
       <dt>Alamat Domisili</dt>
       <dd>
         @if($company->province_id != null)
@@ -36,12 +39,25 @@
         @endif
         &nbsp;
       </dd>
+      <dd>{{ $company->address }}&nbsp;</dd>
       @if($company->type_id != '4')
       <dd>
         <b>Surat Keterangan Domisili Perusahaan (SKDP)</b>
         <br>
-        Nomor : {{ $skdp->document_number }} <br>
-        Tanggal : {{ DateHelper::long_format($skdp->document_date) }} <br>
+        Nomor : 
+        @if($skdp != null)
+          {{ $skdp->document_number }} 
+        @else
+          -
+        @endif
+        <br>
+        Tanggal : 
+        @if($skdp != null)
+          {{ DateHelper::long_format($skdp->document_date) }}
+        @else
+          -
+        @endif
+        <br>
         <label class="radio-inline checkbox-styled">
           @if($company_domicile != null)
             File Surat Keterangan Domisili Perusahaan : 
@@ -78,7 +94,8 @@
       <dt>Kualifikasi</dt>
       <dd>{{ $company->qualification }}</dd>
       <dt>Bidang Usaha</dt>
-      <dd>{{ $company->business }}</dd>
+      <dd>{{ $company->business_text }}</dd>
+      <br />
       <dt>Company Profile</dt>
       <dd>
         <label class="radio-inline checkbox-styled">
@@ -98,9 +115,12 @@
       </dd>
       @endif
       <br />
-      <dt>
-        <h4><label><strong>Data Penanggung Jawab</strong></label></h4>
-      </dt>
+
+      <h3>
+        <label class="radio-inline checkbox-styled">
+          <span>Data Penanggung Jawab</span>
+        </label>
+      </h3>
       <hr>
       <!-- Data Penanggung Jawab -->
       <dt>Penanggung Jawab</dt>
