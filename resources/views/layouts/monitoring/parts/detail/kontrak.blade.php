@@ -156,7 +156,7 @@
         });
       event.preventDefault();
     });
-//ok
+//oks
     var kind_id = $('#contract_kind_id').val();
     $('#trg_kin_id').val(kind_id);
     $('#trg_kin_id').change();
