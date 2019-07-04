@@ -1,10 +1,8 @@
-<div class="tab-pane" id="buka">
+<div class="tab-pane p-20" id="buka" role="tabpanel">
     &nbsp;
-    <div class="panel-group" id="tab_tender">
-        @include('pengadaan.parts.detail.tender.main')
+        @include('layouts.pengadaan.parts.detail.tender.main')
 
         @if($procurement->delivery_method > 1)
-            @include('pengadaan.parts.detail.tender.addition')
+            @include('layouts.pengadaan.parts.detail.tender.addition')
         @endif
-    </div><!--end .panel-group -->
 </div>

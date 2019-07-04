@@ -3,8 +3,6 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="card panel collapsed">
-    <div class="card-head card-head-sm collapsed" data-toggle="collapse" data-parent="#tab_tender" data-target="#stend_addition">
       <header class="teksutama">
           Pembukaan dan Pembuktian Penawaran 2
           <br>
@@ -133,8 +131,6 @@
                 </form>
             </div>
         </div>
-    </div>
-</div><!--end .panel -->
 
 @push('jspage')
     <script>

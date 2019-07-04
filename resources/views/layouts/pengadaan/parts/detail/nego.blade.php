@@ -3,23 +3,24 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane" id="nego">
+<div class="tab-pane p-20" id="nego" role="tabpanel">
     <div class="pull-left">
-        <h3>
-            Negosiasi
-            <span class="pcr-date">{{ $schedule->a_negotiation }}</span>
-        </h3>
+        <h4>
+            <a href="#">Negosiasi</a>
+        </h4>
+        <span class="pcr-date">{{ $schedule->a_negotiation }}</span>
     </div>
-    <div class="pull-right">
+    <hr>
+    <div class="abs-right">
         <a id="trg_sch_negotiation" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_negotiation }}" data-back="{{ $schedule->b_negotiation }}">Atur Jadwal</a>
     </div>
     <div class="clear"></div>
 
-    <div class="judulformtop">
+    <p>
         Upload BA Negosiasi {{ $candidate_highest }}
-    </div>
-    <div class"table-responsive">
-        <table class="table no-margin">
+    </p>
+    <div class="table-responsive">
+        <table class="table">
             <thead>
                 <tr>
                     <th>#</th>
@@ -29,17 +30,19 @@
                 </tr>
             </thead>
             <tbody>
-                @for ($ii = 0; $ii < count($mmr_negotiations); $ii++)
-                    @php
-                        $doc = $mmr_negotiations[$ii]->doc()
-                    @endphp
-                    <tr>
-                        <td>{{ $ii + 1 }}</td>
-                        <td>{{ DateHelper::long_format($mmr_negotiations[$ii]->created_at) }}</td>
-                        <td>{!! FormHelper::file_tag($doc->filepath, $doc->filename) !!}</td>
-                        <td>{{ $mmr_negotiations[$ii]->notes }}</td>
-                    </tr>
-                @endfor
+                 @if($mmr_negotiations)
+                    @for ($ii = 0; $ii < count($mmr_negotiations); $ii++)
+                        @php
+                            $doc = $mmr_negotiations[$ii]->doc()
+                        @endphp
+                        <tr>
+                            <td>{{ $ii + 1 }}</td>
+                            <td>{{ DateHelper::long_format($mmr_negotiations[$ii]->created_at) }}</td>
+                            <td>{!! FormHelper::file_tag($doc->filepath, $doc->filename) !!}</td>
+                            <td>{{ $mmr_negotiations[$ii]->notes }}</td>
+                        </tr>
+                    @endfor
+                @endif
             </tbody>
         </table>
     </div>
@@ -57,14 +60,14 @@
     </div>
     <div class="clear"></div>
     <hr>
-    <h4>Daftar peserta yang sudah dikirimkan undangan negosiasi</h4>
+    <p>Daftar peserta yang sudah dikirimkan undangan negosiasi</p>
     <ol>
         @for ($ii = 0; $ii < count($negotiations); $ii++)
             <li>{{ $negotiations[$ii]['name'] }}</li>
         @endfor
     </ol>
     <br>
-    <h4>Peserta yang saat ini dinegosiasi</h4>
+    <p>Peserta yang saat ini dinegosiasi</p>
     <ol>
         {{ $negotiating_name }}
     </ol>

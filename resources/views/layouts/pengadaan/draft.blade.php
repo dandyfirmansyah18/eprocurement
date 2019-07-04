@@ -1,7 +1,3 @@
-@extends('layouts.main')
-
-@section('title', 'Draft Pengadaan Baru')
-
 @push('csspage')
     <link rel="stylesheet" href="{{ URL::asset('css/libs/dropzone/dropzone-theme.css') }}"  type="text/css"/>
     <link rel="stylesheet" href="{{ URL::asset('css/libs/bootstrap-datepicker/datepicker3.css') }}"  type="text/css"/>
@@ -39,12 +35,12 @@
                         </div><!--end .card-head -->
 
                         <div class="pt0 card-body tab-content">
-                            @include('pengadaan.parts.draft.infoutama')
+                            @include('layouts.pengadaan.parts.draft.infoutama')
 
-                            @include('pengadaan.parts.draft.kriteria')
+                            @include('layouts.pengadaan.parts.draft.kriteria')
 
                             @if($item->delivery_method != null && $item->delivery_method > 0)
-                                @include('pengadaan.parts.draft.tanggal')
+                                @include('layouts.pengadaan.parts.draft.tanggal')
                             @endif
                         </div><!--end .card-body -->
 

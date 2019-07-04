@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('templates.index')
 @section('title', 'Dashboard Aplikasi')
 @push('csspage')
 <link rel="stylesheet" href="{{ URL::asset('js/libs/DataTables/datatables.min.css') }}"  type="text/css"/>
@@ -10,7 +10,7 @@
     <section>
         <div class="section-body">
             <div class="row"><!-- baris 2 tabel -->
-                @include('dashboard.parts.baris-user')
+                @include('layouts.dashboard.parts.baris-user')
             </div><!--end .row -->
         </div>
     </section>

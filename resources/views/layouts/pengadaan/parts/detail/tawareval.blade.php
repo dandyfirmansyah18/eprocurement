@@ -1,10 +1,14 @@
-<div class="tab-pane" id="tawareval">
-    &nbsp;
-    <div class="panel-group" id="tab_submission">
-        @include('pengadaan.parts.detail.submission.main')
+@php
+    use \App\Helpers\DateHelper;
+@endphp
 
-        @if($procurement->delivery_method > 1)
-            @include('pengadaan.parts.detail.submission.addition')
-        @endif
-    </div><!--end .panel-group -->
+<div class="tab-pane p-20" id="tawareval" role="tabpanel">
+    @include('layouts.pengadaan.parts.detail.submission.main')
+    <br>
+    <hr>
+    
+    @if($procurement->delivery_method > 1)
+        @include('layouts.pengadaan.parts.detail.submission.addition')
+    @endif
 </div>
+

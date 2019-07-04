@@ -2,54 +2,41 @@
     use \App\Helpers\DateHelper;
 @endphp
 
-<div class="card panel expanded">
-    <div class="card-head card-head-sm collapsed" data-toggle="collapse" data-parent="#tab_submission" data-target="#subm_main">
-      <header class="teksutama">
-          Pemasukan Penawaran
-          <br>
-          @if($schedule->a_submission != null)
-            <span class="pcr-date">
-                {{ $schedule->a_submission }}
-            </span>
-          @endif
-      </header>
-      <div class="tools">
-        <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
-      </div>
+    <h4>Pemasukan Penawaran</h4>
+    @if($schedule->a_submission != null)
+    <span class="pcr-date">
+        {{ $schedule->a_submission }}
+    </span>
+    @endif
+    <hr>
+    
+    <h5><a href="#">Daftar penawaran masuk</a></h5>
+    <hr>
+    <div class="abs-right">
+        <a id="trg_sch_submission" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_submission }}" data-back="{{ $schedule->b_submission }}">Atur Jadwal</a>
     </div>
-    <div id="subm_main" class="collapse in">
-        <div class="card-body acccardbody">
-            <br />
-            <div class="judulformtop">
-                Daftar penawaran masuk
-            </div>
-            <div class="abs-right">
-                <a id="trg_sch_submission" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_submission }}" data-back="{{ $schedule->b_submission }}">Atur Jadwal</a>
-            </div>
 
-            <h4>Daftar peserta yang <strong>belum</strong> mengupload dokumen penawaran </h4>
-            <ol>
-                @for ($ii = 0; $ii < count($unoffereds); $ii++)
-                    <li>{{ $unoffereds[$ii]->vendor->name }}</li>
-                @endfor
-            </ol>
-            <br />
-            <h4>Daftar peserta yang <strong>sudah</strong> mengupload dokumen penawaran </h4>
-            <ol>
-                @for ($ii = 0; $ii < count($offereds); $ii++)
-                    @php
-                        $offering = $offereds[$ii]->offering();
-                    @endphp
-                    <li>{{ $offereds[$ii]->vendor->name }}&nbsp;({{ DateHelper::time_format($offering->created_at) }})</li>
-                @endfor
-            </ol>
-            <br />
-            <hr>
-
-            <div class="judulformtop">
-                Undangan Pembuktian Dokumen Penawaran
-            </div>
-            <p>Undangan ini akan dikirimkan otomatis saat periode upload dokumen penawaran berakhir</p>
+    <p>Daftar peserta yang <strong>belum</strong> mengupload dokumen penawaran </p>
+    <ol>
+        @for ($ii = 0; $ii < count($unoffereds); $ii++)
+            <li>{{ $unoffereds[$ii]->vendor->name }}</li>
+        @endfor
+    </ol>
+    <br />
+    <p>Daftar peserta yang <strong>sudah</strong> mengupload dokumen penawaran </p>
+    <ol>
+        @for ($ii = 0; $ii < count($offereds); $ii++)
+        @php
+            $offering = $offereds[$ii]->offering();
+        @endphp
+        <li>{{ $offereds[$ii]->vendor->name }}&nbsp;({{ DateHelper::time_format($offering->created_at) }})</li>
+        @endfor
+    </ol>
+    <br />
+    <hr>
+    <h5><a href="#">Undangan Pembuktian Dokumen Penawaran</a></h5>    
+    <hr>
+    <p>Undangan ini akan dikirimkan otomatis saat periode upload dokumen penawaran berakhir</p>
             <form id="form_ssub_invitation" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/pengadaan/atur/undangan" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="procurement_id" value="{{ $procurement->id }}" />
@@ -64,8 +51,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" class="form-control" name="invitation_doc">
                             <p class="help-block">Upload Undangan baru</p>
+                            <input type="file" class="form-control" name="invitation_doc">
                         </div>
                     </div>
                 </div>
@@ -74,29 +61,29 @@
                         <div class="form-group">
                             <div class="input-group date" id="inv_submission_block">
                                 <div class="input-group-content">
-                                    <input type="text" class="form-control" id="inv_submission" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_submission->activity_date) }}">
                                     <label>Tanggal kegiatan</label>
-                                    <p class="help-block">tanggal/bulan/tahun</p>
+                                    <input type="text" class="form-control" id="inv_submission" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_submission->activity_date) }}">
+                                    <p class="help-block"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>tanggal/bulan/tahun</p>
                                 </div>
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="item[location]" value="{{ $inv_submission->location }}">
                             <label>Lokasi Kegiatan</label>
+                            <input type="text" class="form-control" name="item[location]" value="{{ $inv_submission->location }}">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group floating-label">
-                            <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_submission->foreword }}</textarea>
                             <label>Kata Pengantar Undangan</label>
+                            <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_submission->foreword }}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <a id="trg_ssub_invitation" href="#" class="btn btn-default-bright">
-                            <i class="fa fa-save"></i>&nbsp;Simpan Undangan
+                            <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan">   
                         </a>
                     </div>
                 </div>
@@ -118,9 +105,12 @@
                 <i class="fa fa-circle"></i> Belum dikirim. Harap mengatur jadwal kegiatan terlebih dahulu.
             @endif
             <hr>
-        </div>
-    </div>
-</div><!--end .panel -->
+
+            @if($procurement->delivery_method > 1)
+                @include('pengadaan.parts.detail.submission.addition')
+            @endif
+    
+
 
 @push('jspage')
     <script>
@@ -166,3 +156,4 @@
         });
     </script>
 @endpush
+

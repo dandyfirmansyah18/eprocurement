@@ -1,11 +1,12 @@
-<div class="tab-pane" id="kontrak">
+<div class="tab-pane p-20" id="kontrak" role="tabpanel">
     <div class="pull-left">
-        <h3>
-            Kontrak
-            <span class="pcr-date">{{ $schedule->a_contract }}</span>
-        </h3>
+        <h4>
+            <a href="#">Kontrak</a>
+        </h4>
+        <span class="pcr-date">{{ $schedule->a_contract }}</span>
     </div>
-    <div class="pull-right">
+    <hr>
+    <div class="abs-right">
         <a id="trg_sch_contract" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_contract }}" data-back="{{ $schedule->b_contract }}">Atur Jadwal</a>
         @if($procurement->stage == 9)
             <a id="trg_work" href="#" class="btn btn-primary mt20">Pengadaan Selesai</a>
@@ -14,7 +15,7 @@
         @endif
     </div>
     <div class="clear"></div>
-    <div class="judulformtop">Upload Surat keputusan Penetapan Pemenang</div>
+    <p>Upload Surat keputusan Penetapan Pemenang</p>
     <div class="clear"></div>
     <form id="form_contract" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/jadwal/pengadaan/kontrak" method="POST">
         <input type="hidden" name="procurement_id" id="procurement_id" value="{{ $procurement->id }}" />
@@ -28,14 +29,9 @@
             </div>
             <div class="col-md-6">
                 <div class="pull-right">
-                    <div id="st09_file" class="dropzone st-dropzone" url="/upload/procurement">
-                        <div class="dz-message btn btn-default">
-                            <h3>
-                                Pilih file
-                            </h3>
-                        </div>
-                    </div>
                     <p class="help-block st-help-block">Unggah Kontrak baru</p>
+                    <input type="file" class="form-control" id="st09_file" name="st09_file">
+                    
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
@@ -44,22 +40,23 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="st09_title" name="item[title]" value="{{ $contract->title }}">
                     <label for="namalengkap">Judul File</label>
+                    <input type="text" class="form-control" id="st09_title" name="item[title]" value="{{ $contract->title }}">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group floating-label">
-                    <textarea type="text" class="form-control" id="st09_description" name="item[description]">{!! $contract->description !!}</textarea>
+                    
                     <label for="regular2">Catatan</label>
+                    <textarea type="text" class="form-control" id="st09_description" name="item[description]">{!! $contract->description !!}</textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a id="trg_contract" href="#" class="btn btn-default-bright">Upload</a>
+           <input type="submit" id="submit" class="btn btn-primary mt25" value="Upload">
             </div>
         </div>
     </form>

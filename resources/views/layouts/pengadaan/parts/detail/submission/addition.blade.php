@@ -2,39 +2,28 @@
     use \App\Helpers\DateHelper;
 @endphp
 
-<div class="card panel collapsed">
-    <div class="card-head card-head-sm collapsed" data-toggle="collapse" data-parent="#tab_submission" data-target="#subm_addition">
-        <header class="teksutama">
-            Pemasukan Penawaran Tahap 2
-            <br>
-            @if($schedule->a_submission2 != null)
-                <span class="pcr-date">
-                    {{ $schedule->a_submission2 }}
-                </span>
-            @endif
-        </header>
-        <div class="tools">
-          <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
-        </div>
-    </div>
-    <div id="subm_addition" class="collapse">
-        <div class="card-body acccardbody">
-            <br />
-            <div class="judulformtop">
-                Daftar penawaran masuk
-            </div>
+
+    <h4>Pemasukan Penawaran Tahap 2</h4>
+        @if($schedule->a_submission2 != null)
+            <span class="pcr-date">
+                {{ $schedule->a_submission2 }}
+            </span>
+        @endif
+    <br>    
+    <div class="card-body acccardbody">
+            <h5><a href="#">Daftar penawaran masuk</a></h5>
             <div class="abs-right">
                 <a id="trg_sch_submission2" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_submission2 }}" data-back="{{ $schedule->b_submission2 }}">Atur Jadwal</a>
             </div>
 
-            <h4>Daftar peserta yang <strong>belum</strong> mengupload dokumen penawaran tahap 2 </h4>
+            <p>Daftar peserta yang <strong>belum</strong> mengupload dokumen penawaran tahap 2 </p>
             <ol>
                 @for ($ii = 0; $ii < count($unoffered_mores); $ii++)
                     <li>{{ $unoffered_mores[$ii]->vendor->name }}</li>
                 @endfor
             </ol>
             <br />
-            <h4>Daftar peserta yang <strong>sudah</strong> mengupload dokumen penawaran tahap 2 </h4>
+            <p>Daftar peserta yang <strong>sudah</strong> mengupload dokumen penawaran tahap 2 </p>
             <ol>
                 @for ($ii = 0; $ii < count($offered_mores); $ii++)
                     @php
@@ -46,9 +35,7 @@
             <br />
             <hr>
 
-            <div class="judulformtop">
-                Undangan Pembuktian Dokumen Penawaran Tahap 2
-            </div>
+            <h5><a href="#">Undangan Pembuktian Dokumen Penawaran Tahap 2</a></h5>
             <p>Undangan ini akan dikirimkan otomatis saat periode upload dokumen penawaran berakhir</p>
             <form id="form_ssub2_invitation" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/pengadaan/atur/undangan" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -64,8 +51,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" class="form-control" name="invitation_doc">
                             <p class="help-block">Upload Undangan baru</p>
+                            <input type="file" class="form-control" name="invitation_doc">
                         </div>
                     </div>
                 </div>
@@ -74,30 +61,29 @@
                         <div class="form-group">
                             <div class="input-group date" id="inv_submission2_block">
                                 <div class="input-group-content">
-                                    <input type="text" class="form-control" id="inv_submission2" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_submission2->activity_date) }}">
                                     <label>Tanggal kegiatan</label>
-                                    <p class="help-block">tanggal/bulan/tahun</p>
+                                    <input type="text" class="form-control" id="inv_submission2" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_submission2->activity_date) }}">
+                                    <p class="help-block">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>&nbsp;tanggal/bulan/tahun</p>
                                 </div>
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="item[location]" value="{{ $inv_submission2->location }}">
                             <label>Lokasi Kegiatan</label>
+                            <input type="text" class="form-control" name="item[location]" value="{{ $inv_submission2->location }}">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group floating-label">
-                            <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_submission2->foreword }}</textarea>
+                            
                             <label>Kata Pengantar Undangan</label>
+                            <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_submission2->foreword }}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <a id="trg_ssub2_invitation" href="#" class="btn btn-default-bright">
-                            <i class="fa fa-save"></i>&nbsp;Simpan Undangan
-                        </a>
+                        <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan">  
                     </div>
                 </div>
             </form>
@@ -119,8 +105,6 @@
             @endif
             <hr>
         </div>
-    </div>
-</div><!--end .panel -->
 
 @push('jspage')
     <script>

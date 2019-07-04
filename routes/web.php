@@ -92,6 +92,32 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/pemenang', 'ProcurementController@state_winner');
 		Route::post('/pengadaan/mulai', 'ProcurementController@start_list');
 		Route::post('/pengadaan/selesai', 'ProcurementController@finish');
+
+		// Draft Routes
+		Route::get('/pengadaan/draft/{id}', 'DraftController@detail');
+		Route::post('/draft/criterion_save', 'DraftController@criterion_save');
+		Route::post('/draft/criterion_delete', 'DraftController@criterion_delete');
+		Route::post('/draft/measurement_save', 'DraftController@measurement_save');
+		Route::post('/draft/qualification_save', 'DraftController@qualification_save');
+		Route::post('/draft/schedule_save', 'DraftController@schedule_save');
+
+		Route::post('/pengadaan/atur/jadwal', 'ProcurementStageController@save_schedule');
+		Route::post('/pengadaan/atur/pengumuman', 'ProcurementStageController@save_announcement');
+		Route::post('/pengadaan/atur/dokumen', 'ProcurementStageController@save_download');
+		Route::post('/pengadaan/atur/undangan', 'ProcurementStageController@save_invitation');
+		Route::post('/pengadaan/atur/memoranda', 'ProcurementStageController@save_memorandum');
+		Route::post('/pengadaan/atur/pembukaan', 'ProcurementStageController@open_tender');
+		Route::post('/pengadaan/atur/pra_pembukaan', 'ProcurementStageController@open_pre_tender');
+		Route::post('/pengadaan/atur/pra_evaluasi', 'ProcurementStageController@save_pre_evaluation');
+		Route::post('/pengadaan/atur/pra_lolos', 'ProcurementStageController@save_pre_winners');
+		Route::post('/pengadaan/atur/tender', 'ProcurementStageController@save_tender');
+		Route::post('/pengadaan/atur/negosiasi', 'ProcurementStageController@save_negotiation');
+		Route::post('/jadwal/pengadaan/aanwizing', 'ProcurementStageController@save_aanwizing');
+		Route::post('/jadwal/pengadaan/kandidat', 'ProcurementStageController@save_candidate');
+		Route::post('/jadwal/pengadaan/pemenang_pengumuman', 'ProcurementStageController@save_winner_announcement');
+		Route::post('/jadwal/pengadaan/pemenang_pengantar', 'ProcurementStageController@save_winner_preambule');
+		Route::post('/pengadaan/atur/sanggahan', 'ProcurementStageController@save_refutal');
+		Route::post('/jadwal/pengadaan/kontrak', 'ProcurementStageController@save_contract');
         
         // Monitoring Pekerjaan
         Route::post('/monitor/daftar', 'MonitoringController@main_list');
@@ -139,6 +165,5 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/my_profile/delete_person', 'DashboardController@delete_person');
 		Route::post('/my_profile/delete_stakeholder', 'DashboardController@delete_stakeholder');
 		Route::post('/my_profile/delete_manager', 'DashboardController@delete_manager');
-
 	});
 });

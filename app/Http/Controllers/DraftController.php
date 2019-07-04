@@ -67,7 +67,7 @@ class DraftController extends Controller
                 $disabled       = 'disabled';
             }
 
-            return view('pengadaan.draft', [
+            return view('layouts.pengadaan.draft', [
                 'item'              => $item,
                 'item_user'         => $item_user,
                 'user'              => $user,

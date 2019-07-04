@@ -3,12 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Auth, DB;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use App\Models\PreProcurement;
+use App\Models\Assessment;
+use App\Models\Attachment;
+use App\Models\Chat;
+use App\Models\User;
+use App\Models\Company;
+use App\Models\CompanyContact;
+use App\Models\CompanyTax;
+use App\Models\Enrollment;
+use App\Models\CompanyPermit;
+use App\Models\CompanyRegistration;
+use App\Models\CompanyDeed;
+use App\Models\CompanyEmployee;
+use App\Models\MasterProvince;
+use App\Models\MasterCity;
+use App\Models\Option;
+
+use App\Models\PermitSIUP;
+use App\Models\PermitIUJK;
+use App\Models\PermitSIUI;
+use App\Models\PermitSKKemenkumham;
+use App\Models\PermitSKDP;
+use App\Models\MasterBusinessSIUP;
+use App\Models\MasterBusinessIUJK;
 
 use App\Helpers\DataTableHelper;
+use App\Helpers\ApprovalHelper;
+use App\Helpers\CompanyHelper;
+use App\Helpers\ChatHelper;
+use App\Helpers\MailHelper;
+use App\Helpers\CompanyContactHelper;
+use App\Helpers\CompanyTaxHelper;
+use App\Helpers\CompanyPermitHelper;
+use App\Helpers\CompanyRegistrationHelper;
+use App\Helpers\CompanyDeedHelper;
+use App\Helpers\CompanyProjectHelper;
+use App\Helpers\CompanyExperienceHelper;
+use App\Helpers\CompanyPersonnelHelper;
+use App\Helpers\CompanyStackholderHelper;
+use App\Helpers\CompanyEmployeeHelper;
+use App\Helpers\CompanyCertificateHelper;
+
+use Yajra\Datatables\Facades\Datatables;
+
+use App\Jobs\UserRegistrationWorker;
 
 class DashboardController extends Controller
 {
@@ -22,10 +64,10 @@ class DashboardController extends Controller
     	$user = Auth::user();
         if($user->state == 1) {
             if($user->role_level == 1) {
-                return view('layouts.dashboard.dash');
+                return view('layouts.dashboard.user');
             } else {
                 $count_perencanaan      = PreProcurement::where('proposed', false)->count();
-                $count_draft_pengadaan  = PreProcurement::where('proposed', true)->where('listed', false)->count();
+                $count_draft_pengadaan  = 12;
                 $count_pengadaan        = PreProcurement::where('proposed', true)->where('worked', false)->count();
                 $count_selesai          = PreProcurement::where('worked', true)->count();
                 $count_vendor_baru      = DataTableHelper::list_vendor_temp()->count();
@@ -35,7 +77,7 @@ class DashboardController extends Controller
                     'count_perencanaan'     => $count_perencanaan,
                     'count_pengadaan'       => $count_pengadaan,
                     'count_selesai'         => $count_selesai,
-                    'count_draft_pengadaan' => $count_draft_pengadaan,
+                    'count_draft_pengadaan' => 12,
                     'count_vendor_baru'     => $count_vendor_baru,
                     'count_vendor_aktif'    => $count_vendor_aktif
                 ]);
@@ -45,6 +87,22 @@ class DashboardController extends Controller
         return redirect('/daftar');
     }
 
+    public function procurements()
+    {
+        $items = DataTableHelper::list_all_procurement();
+        return Datatables::of($items)->make(true);
+    }
+
+    public function my_procurements()
+    {
+        $user = Auth::user();
+        $items = array();
+        if($user->company != null) {
+            $items = DataTableHelper::list_my_procurement($user->company->id);
+        }
+        return Datatables::of($items)->make(true);
+    }
+    
     public function view_dashboard()
     {
         // if (Auth::user()->USER_ROLE_ID == '3') {

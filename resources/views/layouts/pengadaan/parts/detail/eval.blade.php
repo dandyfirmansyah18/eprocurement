@@ -3,23 +3,23 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane " id="eval">
+<div class="tab-pane p-20" id="eval" role="tabpanel">
   <div class="pull-left">
-      <h3>
-          Evaluasi Pengadaan
-          <span class="pcr-date">{{ $schedule->a_evaluation }}</span>
-      </h3>
+      <h4>
+          <a href="#">Evaluasi Pengadaan</a>
+      </h4>
+      <span class="pcr-date">{{ $schedule->a_evaluation }}</span>
   </div>
-  <div class="pull-right">
+  <hr>      
+  <div class="abs-right">
       <a id="trg_sch_evaluation" href="#" class="btn btn-info mt20" data-actual="{{ $schedule->a_evaluation }}" data-back="{{ $schedule->b_evaluation }}">Atur Jadwal</a>
   </div>
-  <div class="clear"></div>
 
   <div class="judulformtop">
     Daftar Peserta untuk Dievaluasi
   </div>
-
-  <table class="table table-bordered order-column hover mt10">
+  <div class="table-responsive">
+    <table class="table">
     <thead>
       <td>Nama Perusahaan</td>
       <td>waktu upload</td>
@@ -70,7 +70,7 @@
     @endfor
     </tbody>
   </table>
-
+  </div>
   <div class="judulform">Undangan Negosiasi
   </div>
   <form id="form_sev_invitation" class="form floating-label form-validation" role="form" novalidate="novalidate" action="/pengadaan/atur/undangan" method="POST" enctype="multipart/form-data">
@@ -88,8 +88,8 @@
       </div>
       <div class="col-md-6">
           <div class="form-group">
-              <input type="file" class="form-control" name="invitation_doc">
               <p class="help-block">Upload Undangan baru</p>
+              <input type="file" class="form-control" name="invitation_doc">
           </div>
       </div>
   </div>
@@ -98,35 +98,31 @@
           <div class="form-group">
               <div class="input-group date" id="inv_evaluation_block">
                   <div class="input-group-content">
-                      <input type="text" class="form-control" id="inv_evaluation" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_evaluation->activity_date) }}">
                       <label>Tanggal kegiatan</label>
-                      <p class="help-block">tanggal/bulan/tahun</p>
+                      <input type="text" class="form-control" id="inv_evaluation" name="item[activity_date]" value="{{ DateHelper::datepicker($inv_evaluation->activity_date) }}">
+                      <p class="help-block"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>&nbsp;tanggal/bulan/tahun</p>
                   </div>
-                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  
               </div>
           </div>
       </div>
       <div class="col-md-6">
           <div class="form-group">
-              <input type="text" class="form-control" name="item[location]" value="{{ $inv_evaluation->location }}">
               <label>Lokasi Kegiatan</label>
+              <input type="text" class="form-control" name="item[location]" value="{{ $inv_evaluation->location }}">
           </div>
       </div>
       <div class="col-md-12">
           <div class="form-group floating-label">
-              <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_evaluation->foreword }}</textarea>
               <label>Kata Pengantar Undangan</label>
+              <textarea type="text" class="form-control" name="item[foreword]">{{ $inv_evaluation->foreword }}</textarea>
           </div>
       </div>
       <div class="col-md-6">
         @if($candidate_highest > 0)
-          <a id="trg_sev_invitation" href="#" class="btn btn-default-bright">
-              <i class="fa fa-save"></i>&nbsp;Simpan Undangan
-          </a>
+          <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan"> 
         @else
-          <a href="#" class="btn btn-default-bright" disabled>
-              <i class="fa fa-save"></i>&nbsp;Simpan Undangan
-          </a>
+          <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan Undangan"> 
         @endif
       </div>
   </div>
