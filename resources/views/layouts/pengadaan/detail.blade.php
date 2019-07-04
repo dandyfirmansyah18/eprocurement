@@ -1,10 +1,3 @@
-@extends('templates.index')
-@section('title','Detail Monitoring Pekerjaan')
-@push('csspage')
-
-@endpush
-
-@section('content')
 <div class="container-fluid">
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
@@ -260,9 +253,7 @@
     @php
         Session::forget('tab');
     @endphp
-@endpush
-@endsection
-@push('jspage')
+
 <script type="text/javascript">
 $(document).ready(function() {
     $("#input-2-xs").rating();
@@ -810,4 +801,4 @@ $(document).ready(function() {
 });
 </script>
 <script type="text/javascript" src="{{ URL::asset('js/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-@endpush
+
