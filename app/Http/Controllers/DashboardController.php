@@ -93,6 +93,7 @@ class DashboardController extends Controller
     	$viewData = array(
             '_content_' => $this->view_dashboard()
         );
+        // dd($viewData);
         return view('templates.index', $viewData);
     }
 
@@ -120,13 +121,13 @@ class DashboardController extends Controller
             if($user->role_level == 1) {
                 return view('layouts.dashboard.user');
             } else {
+                // return view('layouts.dashboard.user');
                 $count_perencanaan      = PreProcurement::where('proposed', false)->count();
                 $count_draft_pengadaan  = 12;
                 $count_pengadaan        = PreProcurement::where('proposed', true)->where('worked', false)->count();
                 $count_selesai          = PreProcurement::where('worked', true)->count();
                 $count_vendor_baru      = DataTableHelper::list_vendor_temp()->count();
                 $count_vendor_aktif     = DataTableHelper::list_vendor(true)->count();
-
                 return view('layouts.dashboard.dash', [
                     'count_perencanaan'     => $count_perencanaan,
                     'count_pengadaan'       => $count_pengadaan,

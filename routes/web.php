@@ -78,6 +78,7 @@ Route::middleware(['log'])->group(function(){
 		Route::get('/perencanaan/upload', 'PlanningController@upload');
 
 		// Pengadaan
+		Route::post('/pengadaan/daftarmyproc', 'ProcurementController@myproc_list');
 		Route::post('/pengadaan/daftar', 'ProcurementController@main_list');
 		Route::post('/pengadaan/daftar-calon', 'ProcurementController@draft_list');
 		/*Route::get('/pengadaan/tambah/{id}', 'ProcurementController@add_new');*/
