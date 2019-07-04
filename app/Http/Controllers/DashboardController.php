@@ -475,7 +475,7 @@ class DashboardController extends Controller
             }
 
 
-            return view('penyedia.ubah', [
+            return view('layouts.penyedia.ubah', [
                             'user'                  => $user,
                             'company'               => $company,
                             'contact'               => $contact,

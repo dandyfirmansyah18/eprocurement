@@ -86,6 +86,7 @@ Route::middleware(['log'])->group(function(){
 		Route::get('/pengadaan/detail/{id}', 'ProcurementController@detail');
 		Route::get('/pengadaan/drafts', 'ProcurementController@proposed_list');
 		Route::get('/pengadaan/listed', 'ProcurementController@listed_list');
+		Route::get('/pengadaan/listedvendor', 'ProcurementController@listed_list_vendor');
 		Route::post('/pengadaan/evaluasi_scoring', 'ProcurementController@eval_scoring');
 		Route::post('/pengadaan/ubahrks/{id}', 'ProcurementController@ubahrks');
 		Route::post('/pengadaan/ubahrksadmin/{id}', 'ProcurementController@ubahrksadmin');
@@ -152,7 +153,7 @@ Route::middleware(['log'])->group(function(){
 
 		// My Profile
 		Route::post('/my_profile', 'DashboardController@profile');
-		Route::get('/my_profile/ubah', 'DashboardController@update_data');
+		Route::post('/my_profile/ubah', 'DashboardController@update_data');
 		Route::post('/my_profile/simpan', 'DashboardController@save_data')->name('registration_save_update');
 		Route::post('/my_profile/save_job', 'DashboardController@save_job');
 		Route::post('/my_profile/save_experience', 'DashboardController@save_experience');

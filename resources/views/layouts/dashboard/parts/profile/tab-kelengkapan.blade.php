@@ -178,9 +178,7 @@
     <br />
     @if($deed_renewal != null && $deed->renewal_number)
     <dt>
-      <label class="custom-control custom-checkbox m-b-0">
-        <span class="custom-control-label"><strong>Akta Perubahan</strong></span>
-      </label>
+      <h4><label><strong>Akta Perubahan</strong></label></h4>
     </dt>
     <dd>
         Nomor: <strong>{{ $deed->renewal_number }}</strong> <br />
