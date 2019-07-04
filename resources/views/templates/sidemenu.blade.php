@@ -93,14 +93,6 @@
                 <li> 
                     <a href="javascript:void(0)" aria-expanded="false" onclick="call('<?= url('daftar/reset_pass'); ?>','_content_','Reset Password')"><i class="icon-lock-open"></i>  <span class="hide-menu">Reset Password </span></a>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Management User</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('user/register'); ?>','_content_','Register User')">Register User</a></li>
-                        <li><a href="javascript:void(0)" onclick="call('<?= url('user/list'); ?>','_content_','List User')">List User</a></li>
-                        <!-- <li><a href="app-compose.html">Compose Mail</a></li> -->
-                    </ul>
-                </li>
-
                 
                 @if(Auth::user()->role_level == 1 && Auth::user()->state == '0')
                 <li> <a href="javascript:void(0)" onclick="call('<?= url('daftar'); ?>','_content_','Register User')" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Registrasi Vendor</span></a>
