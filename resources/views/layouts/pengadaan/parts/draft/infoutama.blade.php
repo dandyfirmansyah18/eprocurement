@@ -3,28 +3,27 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane active" id="first">
-    <dl class="mt25 uhui dl-horizontal wide-dl">
+<div class="tab-pane active" id="first" role="tabpanel">
         @if($measurement != null && $measurement->schedule == true && $measurement->evaluation == true)
         <a id="trg_start" href="#" class="btn btn-primary" {{ $disabled }}><i class="fa fa-play"></i> Mulai Pengadaan</a>
         @else
         <a href="#" class="btn btn-primary disabled" ><i class="fa fa-play"></i> Mulai Pengadaan</a>
         @endif
-        <br><em>tombol pengadaan aktif setelah proses drafting lengkap</em>
+        <br><p>tombol pengadaan aktif setelah proses drafting lengkap</p>
         <hr>
         <dt>Proses <em>Drafting</em></dt>
         <dd>
             @if($measurement != null && $measurement->evaluation == true)
-            <i class="fa fa-lg fa-check-square-o text-success"></i>&nbsp; Kriteria Penilaian
+            <i class="ti-check-box"></i>&nbsp; Kriteria Penilaian
             @else
-            <i class="fa fa-lg fa-square-o"></i>&nbsp; Kriteria Penilaian
+            <i class="ti-control-stop"></i>&nbsp; Kriteria Penilaian
             @endif
         </dd>
         <dd>
             @if($measurement != null && $measurement->schedule == true)
-            <i class="fa fa-lg fa-check-square-o text-success"></i>&nbsp; Jadwal Pengadaan
+            <i class="ti-check-box"></i>&nbsp; Jadwal Pengadaan
             @else
-            <i class="fa fa-lg fa-square-o"></i>&nbsp; Jadwal Pengadaan
+            <i class="ti-control-stop"></i>&nbsp; Jadwal Pengadaan
             @endif
         </dd>
         <hr>
@@ -89,7 +88,6 @@
         <dd>
             {{ $item->notes }}
         </dd>
-    </dl>
     <!-- <hr>
     Log Pengajuan ini:
 
