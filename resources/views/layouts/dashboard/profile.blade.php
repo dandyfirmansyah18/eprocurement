@@ -153,8 +153,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="formModalLabel">Permintaan Ubah Data</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Kegiatan ubah data akan merubah data seperti Data Penanggung Jawab, Data Perusahaan, Data Pendirian.</p>
@@ -162,7 +162,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <a href="/my_profile/ubah" class="btn btn-primary ink-reaction"  >
+                <a onclick="$('#ubahdata').modal('hide');call('<?= url('/my_profile/ubah'); ?>','_content_','My Profile');" href="javascript:void(0)" class="btn btn-primary ink-reaction"  >
                     <i class="fa fa-check"></i> Lanjutkan Ubah Data
                 </a>
             </div>
