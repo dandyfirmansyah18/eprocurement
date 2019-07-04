@@ -45,7 +45,7 @@
                             <tr>
                                 <td>{{ $ii + 1 }}</td>
                                 <td>
-                                    <a href="<?php echo url('monitor/detail/'.$procurements[$ii]->id.''); ?>">{{ $procurements[$ii]->title }}</a>
+                                    <a href="javascript:void(0)" onclick="call('<?php echo url('monitor/detail/'.$procurements[$ii]->id.''); ?>','_content_','Detail Monitoring')">{{ $procurements[$ii]->title }}</a>
                                 </td>
                                 <td>
                                     {{ $procurements[$ii]->user->unit->name }}

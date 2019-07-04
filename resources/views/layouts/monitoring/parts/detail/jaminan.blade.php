@@ -1,7 +1,8 @@
 <div class="tab-pane" id="jaminan" role="tabpanel">
+<div class="container-fluid">
   <br>
   <div class="table-responsive">
-    <table id="table_assurances" class="table table-bordered order-column hover">
+    <table id="table_assurances" class="table">
       <thead>
           <tr>
               <th>No</th>
@@ -108,9 +109,12 @@
         </div>
       </div>
     </div>
-      
-    <input type="submit" id="submit" class="btn btn-primary mt25" value="Tambah Jaminan">   
   </form>
+    <a id="trg_jaminan" href="#" class="btn btn-primary mt25" ><i class="fa fa-save"></i> Tambah Jaminan</a>
+    <br>
+<br>
+<br>
+</div>
 </div>
 
 @push('jspage')
@@ -125,9 +129,33 @@
     });
 
     $('#trg_jaminan').on('click', function(event){
-      $('form#form_mtrjaminan').submit();
+//      $('form#form_mtrkontrak').submit();
+        var form = $('form#form_mtrjaminan');
+        var formData = new FormData(form[0]);
+        $.ajax({
+            type: form.attr("method"),
+            url: form.attr("action"),
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                console.log(result);
+                var proc_id = '{{ $procurements["id"] }}';
+//                $('#verification_reject').modal('hide');
+                swal("","Jaminan Berhasil disimpan","success");
+                // document.location = '/vendor/daftar-calon';
+                call('/monitor/detail/'+proc_id,'_content_','Daftar Calon Vendor');
+            },
+            error: function(error){
+                console.log(error);
+                swal("","Jaminan Gagal disimpan","error");
+            }
+        });
       event.preventDefault();
     });
+  
+      
+      
   });
 </script>
 @endpush
