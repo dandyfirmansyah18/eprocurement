@@ -86,7 +86,7 @@
                     </div> -->
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            Don't have an account? <a href="{{ url('/signup') }}" class="text-primary m-l-5"><b>Sign Up</b></a>
+                            Bersedia Menjadi Penyedia? <a href="{{ url('/signup') }}" class="text-info m-l-5"><b>Bergabung</b></a>
                         </div>
                     </div>
                 </form>

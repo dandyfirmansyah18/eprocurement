@@ -50,10 +50,10 @@
                     <div class="text-center">
                         <a href="javascript:void(0)" class="db"><img src="{{ asset('img/logoeproc.png') }}" alt="Home" width="200" height="100"/></a>
                     </div>
-                    <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account and enjoy</small>
+                    <h3 class="box-title m-t-40 m-b-0">Register Sekarang</h3><small></small>
                     <div class="form-group m-t-20">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="name" placeholder="Name">
+                            <input class="form-control" type="text" required="" name="name" placeholder="Nama">
                         </div>
                     </div>
                     <div class="form-group ">
@@ -76,12 +76,12 @@
                     </div>
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <a href="#" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" id="send_request_pin">Sign Up</a>
+                            <a href="#" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" id="send_request_pin">Registrasi</a>
                         </div>
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            <p>Already have an account? <a href="{{ url('/signin') }}" class="text-info m-l-5"><b>Sign In</b></a></p>
+                            <p>Sudah Menjadi Penyedia? <a href="{{ url('/signin') }}" class="text-info m-l-5"><b>Masuk</b></a></p>
                         </div>
                     </div>
                 </form>

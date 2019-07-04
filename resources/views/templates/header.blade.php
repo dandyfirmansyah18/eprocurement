@@ -15,9 +15,10 @@
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
-                 <img src="{{ asset('img/icontexteprocflat.png') }}" alt="homepage" class="dark-logo"  width="100" height="20"/>
+                 <!-- <img src="{{ asset('img/icontexteprocflat.png') }}" alt="homepage" class="dark-logo"  width="100" height="20"/> -->
                  <!-- Light Logo text -->    
-                 <img src="{{ asset('img/icontexteprocflat.png') }}" class="light-logo" alt="homepage"  width="100" height="20"/></span> </a>
+                 <!-- <img src="{{ asset('img/icontexteprocflat.png') }}" class="light-logo" alt="homepage"  width="100" height="20"/></span>  -->
+                 </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
