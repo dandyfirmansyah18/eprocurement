@@ -1,4 +1,4 @@
-<div class="tab-pane active" id="first1">
+<div class="tab-pane active" id="first1" role="tabpanel">
 <dl class="mt25 uhui dl-horizontal">
 
   <dt>Unit Kerja</dt>

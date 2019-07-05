@@ -3,7 +3,7 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane " id="dok">
+<div class="tab-pane" id="dok" role="tabpanel">
     <h3>
         Download Dokumen Lelang
         <span class="pcr-date">{{ $schedule->a_download }}</span>

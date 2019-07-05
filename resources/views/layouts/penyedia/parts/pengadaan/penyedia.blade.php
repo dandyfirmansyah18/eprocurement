@@ -1,4 +1,4 @@
-<div class="tab-pane active" id="first2" role="tabpanel">
+<div class="tab-pane" id="first2" role="tabpanel">
     <h3>Daftar Peserta Pengadaan</h3>
 
     <div class="table-responsive">
