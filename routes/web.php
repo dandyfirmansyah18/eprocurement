@@ -83,7 +83,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/daftar-calon', 'ProcurementController@draft_list');
 		/*Route::get('/pengadaan/tambah/{id}', 'ProcurementController@add_new');*/
 		Route::post('/pengadaan/tambah', 'ProcurementController@add_new')->name('procurement_save');
-		Route::get('/pengadaan/detail/{id}', 'ProcurementController@detail');
+		Route::post('/pengadaan/detail/{id}', 'ProcurementController@detail');
 		Route::get('/pengadaan/drafts', 'ProcurementController@proposed_list');
 		Route::get('/pengadaan/listed', 'ProcurementController@listed_list');
 		Route::get('/pengadaan/listedvendor', 'ProcurementController@listed_list_vendor');
@@ -123,7 +123,7 @@ Route::middleware(['log'])->group(function(){
         
         // Monitoring Pekerjaan
         Route::post('/monitor/daftar', 'MonitoringController@main_list');
-        Route::get('/monitor/detail/{id}', 'MonitoringController@detail');
+        Route::post('/monitor/detail/{id}', 'MonitoringController@detail');
         Route::get('/monitor/list', 'MonitoringController@worked_list');
         Route::post('/monitor/kontrak', 'MonitoringController@contract_monitoring');
         Route::post('/monitor/jaminan', 'MonitoringController@warranty_monitoring');

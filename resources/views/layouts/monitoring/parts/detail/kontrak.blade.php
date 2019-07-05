@@ -124,7 +124,7 @@
             @endif
           @endfor
           <hr>
-        </div>
+    </div>
 </div>
 
 
@@ -142,7 +142,6 @@
             contentType: false,
             processData: false,
             success: function(result){
-                console.log(result);
                 var proc_id = '{{ $procurements["id"] }}';
 //                $('#verification_reject').modal('hide');
                 swal("","Kontrak Berhasil disimpan","success");

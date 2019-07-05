@@ -73,4 +73,7 @@
 <!-- ============================================================== -->
 </div>
 <script type="text/javascript" src="{{ asset('js/jsqbc-functions.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jsqb-tabel-monitoring-pekerjaan.js') }}"></script>
+<script>
+    $('#tabelmonitoringpekerjaan').DataTable();
+</script>
+<!-- <script type="text/javascript" src="{{ asset('js/jsqb-tabel-monitoring-pekerjaan.js') }}"></script> -->

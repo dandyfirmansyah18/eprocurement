@@ -39,13 +39,20 @@ class MonitoringController extends Controller
 
     public function main_list()
     {
-        $user = Auth::user();
-        $procurements = PreProcurement::where('worked', true)->get();
+        $data['procurements'] = Preprocurement::where('pre_procurements.worked', true)->get();
+        return view('layouts.monitoring.daftar', $data);
+    }
 
-        return view('layouts.monitoring.daftar', [
-            'procurements'  => $procurements,
-            'user'          => $user
-        ]);
+    public function worked_list()
+    {
+        // $items = PreProcurement::select('')
+        //                         ->leftjoin('users','users.id','=','pre_procurements.user_id')
+        //                         ->leftjoin('user_units','user_units.id','=','users.unit_id')
+        //                         ->leftjoin('monitoring_contracts','monitoring_contracts.procurement_id','=','pre_procurement.id')
+        //                         ->where('pre_procurements.worked', true)
+        //                         ->get();
+        $items = Preprocurement::where('pre_procurements.worked', true)->get();
+        return Datatables::of($items)->make(true);
     }
 
     public function detail($id)
@@ -144,8 +151,8 @@ class MonitoringController extends Controller
         }
 
         $request->session()->put('tab', 'laporankerja');
-
-        return redirect('/monitor/detail/' . $procurement_id);
+        return 'OK';
+        // return redirect('/monitor/detail/' . $procurement_id);
     }
 
     public function payment_monitoring(Request $request)
@@ -176,8 +183,8 @@ class MonitoringController extends Controller
         }
 
         $request->session()->put('tab', 'laporanbayar');
-
-        return redirect('/monitor/detail/' . $procurement_id);
+        return 'OK';
+        // return redirect('/monitor/detail/' . $procurement_id);
     }
 
     public function warranty_monitoring(Request $request)
@@ -209,8 +216,8 @@ class MonitoringController extends Controller
         }
 
         $request->session()->put('tab', 'jaminan');
-
-        return redirect('/monitor/detail/' . $procurement_id);
+        return 'OK';
+        // return redirect('/monitor/detail/' . $procurement_id);
     }
 
     public function contract_monitoring(Request $request)
@@ -260,8 +267,8 @@ class MonitoringController extends Controller
         }
 
         $request->session()->put('tab', 'kontrak');
-
-        return redirect('/monitor/detail/' . $procurement_id);
+        return 'OK';
+        // return redirect('/monitor/detail/' . $procurement_id);
     }
 
     public function rating(Request $request)
@@ -274,7 +281,7 @@ class MonitoringController extends Controller
         $updated_id             = UserHelper::set_rating($user_id);
 
         $request->session()->put('tab', 'evaluasi');
-
-        return redirect('/monitor/detail/' . $procurement_id);
+        return 'OK';
+        // return redirect('/monitor/detail/' . $procurement_id);
     }
 }

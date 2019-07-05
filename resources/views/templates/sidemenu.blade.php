@@ -105,7 +105,7 @@
                     </li>
                 @endif
                 <li class="nav-small-cap">--- SUPPORT</li>
-                <li> <a class="waves-effect waves-dark" href="http://eliteadmin.themedesigner.in/demos/bt4/documentation/documentation.html" aria-expanded="false"><i class="far fa-circle text-danger"></i><span class="hide-menu">User Manual</span></a></li>
+                <li> <a class="waves-effect waves-dark" target="_blank" href="{{ asset('img/User Manual(Penyedia).docx') }}" aria-expanded="false"><i class="far fa-circle text-danger"></i><span class="hide-menu">User Manual</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

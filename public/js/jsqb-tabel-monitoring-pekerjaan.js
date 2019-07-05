@@ -19,7 +19,7 @@ $('#tabelmonitoringpekerjaan').DataTable( {
     //processing: true,
     serverSide: true,
     responsive: true,
-    ajax: '/monitor/daftar',
+    ajax: '/monitor/list',
     columns: [
         {
             data: 'id',
@@ -28,9 +28,12 @@ $('#tabelmonitoringpekerjaan').DataTable( {
             }
         },
         {
-            data: 'name', name: 'name',
+            data: 'title', name: 'title',
             render: function (data, type, row, meta) {
-                return "<a href='/vendor/detail/" + row.id + "'>" + data + "</a>";
+                var urlbro = "/monitor/detail/" + row.id;
+                var content = "_content_";
+                var send_title = "Detail Monitoring";
+                return '<a href="javascript:void(0)" onclick="call(\''+urlbro+'\',\''+content+'\',\''+send_title+'\')">' + data + '</a>';
             }
         },
         {

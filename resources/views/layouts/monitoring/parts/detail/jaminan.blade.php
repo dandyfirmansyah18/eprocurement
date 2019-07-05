@@ -117,16 +117,15 @@
 </div>
 </div>
 
-@push('jspage')
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#tanggal_jaminanstart').datepicker({
-      autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-    });
+    // $('#tanggal_jaminanstart').datepicker({
+    //   autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
+    // });
 
-    $('#tanggal_jaminanend').datepicker({
-      autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-    });
+    // $('#tanggal_jaminanend').datepicker({
+    //   autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
+    // });
 
     $('#trg_jaminan').on('click', function(event){
 //      $('form#form_mtrkontrak').submit();
@@ -139,9 +138,8 @@
             contentType: false,
             processData: false,
             success: function(result){
-                console.log(result);
+                // console.log(result);
                 var proc_id = '{{ $procurements["id"] }}';
-//                $('#verification_reject').modal('hide');
                 swal("","Jaminan Berhasil disimpan","success");
                 // document.location = '/vendor/daftar-calon';
                 call('/monitor/detail/'+proc_id,'_content_','Daftar Calon Vendor');
@@ -153,9 +151,5 @@
         });
       event.preventDefault();
     });
-  
-      
-      
   });
 </script>
-@endpush

@@ -3,9 +3,13 @@
 	<br>
     <div class="row">
 		<div class="col-md-3">
-			<article class="margin-bottom-xxl">
-				<a href="#" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#tambahlaporankerja"><i class="fa fa-plus"></i> Tambah Laporan Pekerjaan</a>
-			</article>
+			<div class="card">
+				<div class="card-body">
+					<article class="margin-bottom-xxl">
+						<a href="#" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#tambahlaporankerja"><i class="fa fa-plus"></i> Tambah Laporan Pekerjaan</a>
+					</article>
+				</div>
+			</div>
 		</div><!--end .col -->
 		<div class="col-md-12">
 			<div class="card">
@@ -46,9 +50,9 @@
 							@endfor
 						</tbody>
 					</table>
+					<em class="text-caption">Tabel laporan pekerjaan</em>
 				</div><!--end .card-body -->
 			</div><!--end .card -->
-			<em class="text-caption">tabel laporan pekerjaan</em>
 		</div><!--end .col -->
 	</div><!--end .row -->
 	<!-- END DEFAULT TABLE -->
@@ -92,24 +96,39 @@
 						<label for="regular2">Prosentase Pekerjaan Selesai (%)</label>
 						<input type="text" class="form-control" name="monitoring[percentage]" />
 					</div>
-                    <input type="submit" id="submit" class="btn btn-primary mt25" value="Simpan">   
 				</form>
 			</div>
 			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+				<button id="trg_laporanpekerjaan" type="button" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div>
 </div>
 
-@push('jspage')
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#tanggal_laporankerja').datepicker("setDate", new Date());
-    
     $('#trg_laporanpekerjaan').on('click', function(event){
-      $('form#form_mtrlaporankerja').submit();
+	//   $('form#form_mtrlaporankerja').submit();
+        var form = $('form#form_mtrlaporankerja');
+        var formData = new FormData(form[0]);
+        $.ajax({
+            type: form.attr("method"),
+            url: form.attr("action"),
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                var proc_id = '{{ $procurements["id"] }}';
+                swal("","Kontrak Berhasil disimpan","success");
+                call('/monitor/detail/'+proc_id,'_content_','Daftar Calon Vendor');
+            },
+            error: function(error){
+                console.log(error);
+                swal("","Kontrak Gagal disimpan","error");
+            }
+        });
       event.preventDefault();
     });
   });
 </script>
-@endpush
