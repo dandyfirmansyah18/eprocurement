@@ -1,144 +1,151 @@
-  <!-- BEGIN content SECTION -->
-  <section class="style-default-bright">
-    <div class="section-header">
-      <div class="pull-left">
-        <h3>
-          <span class="">{{ ucwords($procurement['title'])}} &nbsp;</span>
-        </h3>
-      </div>
-      <div class="pull-right">
-        @if($enrolled == 0)
-          <a id="trg_enrollment" href="#" class="btn btn-primary" @if($user->state != 1) disabled @endif>Ikuti Pengadaan Ini</a>
-        @else
-          <a href="#" class="btn btn-primary" disabled>Sudah terdaftar</a>
-        @endif
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="section-body mt0">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card tabs-left style-default-light">
-                <ul class="card-head nav nav-tabs" data-toggle="tabs">
-                  <li class="active">
-                    <a href="#first1">
-                      <i class="fa fa-file-text"></i> &nbsp; Detail Pengadaan &nbsp;
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#first2">
-                      <i class="fa fa-users"></i> &nbsp; Daftar Peserta &nbsp;
-                    </a>
-                  </li>
-                  @if($procurement->procurement_qualification == 1)
-                    <li>
-                      <a href="#pra">
-                        <i class="fa fa-clock-o"></i> &nbsp; Prakualifikasi &nbsp;
-                      </a>
-                    </li>
-                  @endif
-                  <li>
-                    <a href="#start">
-                      1. Pengumuman/Undangan
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#dok">
-                      2. Download Dokumen
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#aanwizing">
-                      3. Aanwizing
-                    </a>
-                  </li>
-                  <li>
-                      <a href="#tawareval">
-                          4. Upload Penawaran
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#buka">
-                          5. Pembukaan Penawaran
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#eval">
-                          6. Evaluasi Penawaran
-                      </a>
-                  </li>
-                  <li>
-                    <a href="#nego">
-                      7. Negosiasi
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#calonpem">
-                      8. Pengusulan Calon Pemenang
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#evalpengumuman">
-                      9. Evaluasi dan Pengumuman Pemenang
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#sanggah">
-                      10. Sanggahan
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#kontrak">
-                      11. SK Penetapan Pemenang
-                    </a>
-                  </li>
-
-                </ul>
-                <div class="pt0 card-body tab-content style-default-bright vnd-card">
-                  @include('layouts.penyedia.parts.pengadaan.infoutama')
-
-                  @include('layouts.penyedia.parts.pengadaan.penyedia')
-
-                  @if($procurement->procurement_qualification == 1)
-                      @include('layouts.penyedia.parts.pengadaan.pra')
-                  @endif
-
-                  @include('layouts.penyedia.parts.pengadaan.start')
-
-                  @include('layouts.penyedia.parts.pengadaan.dok')
-
-                  @include('layouts.penyedia.parts.pengadaan.aanwizing')
-
-                  @include('layouts.penyedia.parts.pengadaan.tawareval')
-
-                  @include('layouts.penyedia.parts.pengadaan.buka')
-
-                  @include('layouts.penyedia.parts.pengadaan.eval')
-
-                  @include('layouts.penyedia.parts.pengadaan.nego')
-
-                  @include('layouts.penyedia.parts.pengadaan.calonpem')
-
-                  @include('layouts.penyedia.parts.pengadaan.evalpengumuman')
-
-                  @include('layouts.penyedia.parts.pengadaan.sanggah')
-
-                  @include('layouts.penyedia.parts.pengadaan.kontrak')
-                </div><!--end .card-body -->
-              </div><!--end .card -->
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Halaman Detail Pengadaan</h4>
         </div>
-      </div>
-    </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Detail Pengadaan</li>
+                </ol>
+                <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
+            </div>
+        </div>
+    </div>  
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="abs-right">
+                        <br>
+                        @if($enrolled == 0)
+                          <a id="trg_enrollment" href="#" class="btn btn-primary" @if($user->state != 1) disabled @endif>Ikuti Pengadaan Ini</a>
+                        @else
+                          <a href="#" class="btn btn-primary" disabled>Sudah terdaftar</a>
+                        @endif
+                    </div>
+                <div class="card-body">
+                    <h4><a href="#"><b>{{ ucwords($procurement['title'])}}&nbsp;</b></a></h4>
+                    <hr>
+                    <div class="vtabs">
+                        <ul class="nav nav-tabs tabs-vertical" role="tablist" style="width:500px;">
+                            <li class="nav-item"> 
+                                <a class="nav-link active" data-toggle="tab" href="#first1" role="tab">
+                                    <span class="hidden-sm-up">
+                                        <i class="ti-file"></i>
+                                    </span> 
+                                    <span class="hidden-xs-down">Detail Pengadaan</span> 
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#first2" role="tab">
+                                    <span class="hidden-sm-up"><i class="ti-user"></i></span> 
+                                    <span class="hidden-xs-down">Daftar Peserta</span>
+                                </a> 
+                            </li>
+                            
+                            @if($procurement->procurement_qualification == 1)
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#pra" role="tab">
+                                    <span class="hidden-xs-down">Prakualifikasi</span>
+                                </a> 
+                            </li>
+                            @endif
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#start" role="tab">
+                                    <span class="hidden-xs-down">1. Pengumuman/Undangan</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#dok" role="tab">
+                                    <span class="hidden-xs-down">2. Download Dokumen</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#aanwizing" role="tab">
+                                    <span class="hidden-xs-down">3. Aanwijzing</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#tawareval" role="tab">
+                                    <span class="hidden-xs-down">4. Upload Penawaran</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#buka" role="tab">
+                                    <span class="hidden-xs-down">5. Pembukaan Penawaran</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#eval" role="tab">
+                                    <span class="hidden-xs-down">6. Evaluasi Penawaran</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#nego" role="tab">
+                                    <span class="hidden-xs-down">7. Negosiasi</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#calonpem" role="tab">
+                                    <span class="hidden-xs-down">8. Pengusulan Calon Pemenang</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#evalpengumuman" role="tab">
+                                    <span class="hidden-xs-down">9. Penetapan dan Pengumuman Pemenang</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#sanggah" role="tab">
+                                    <span class="hidden-xs-down">10. Sanggahan</span>
+                                </a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-toggle="tab" href="#kontrak" role="tab">
+                                    <span class="hidden-xs-down">11. SK Penetapan Pemenang/Penunjukan</span>
+                                </a> 
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content" style="width:1200px;">
+                              @include('layouts.penyedia.parts.pengadaan.infoutama')
 
-    <div class="hidden-block">
-      <form id="form_enrollment" method="POST" action="/enrollment/register">
-        {{ csrf_field() }}
-        <input type="hidden" name="procurement_id" value="{{ $procurement->id }}" />
-        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
-      </form>
+                              @include('layouts.penyedia.parts.pengadaan.penyedia')
+
+                              @if($procurement->procurement_qualification == 1)
+                                  @include('layouts.penyedia.parts.pengadaan.pra')
+                              @endif
+
+                              @include('layouts.penyedia.parts.pengadaan.start')
+
+                              @include('layouts.penyedia.parts.pengadaan.dok')
+
+                              @include('layouts.penyedia.parts.pengadaan.aanwizing')
+
+                              @include('layouts.penyedia.parts.pengadaan.tawareval')
+
+                              @include('layouts.penyedia.parts.pengadaan.buka')
+
+                              @include('layouts.penyedia.parts.pengadaan.eval')
+
+                              @include('layouts.penyedia.parts.pengadaan.nego')
+
+                              @include('layouts.penyedia.parts.pengadaan.calonpem')
+
+                              @include('layouts.penyedia.parts.pengadaan.evalpengumuman')
+
+                              @include('layouts.penyedia.parts.pengadaan.sanggah')
+
+                              @include('layouts.penyedia.parts.pengadaan.kontrak')
+
+                        </div><!--end .card-body -->
+                    </div>
+                </div>
+            </div><!--end .card -->
+        </div>
     </div>
-  </section>
-  <!-- END content SECTION -->
 
   <div id="active_tab" class="hidden-block">{{ Session::get('tab') }}</div>
   @php
