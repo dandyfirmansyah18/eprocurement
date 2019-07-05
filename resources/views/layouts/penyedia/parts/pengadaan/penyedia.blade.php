@@ -1,8 +1,8 @@
-<div class="tab-pane" id="first2">
+<div class="tab-pane active" id="first2" role="tabpanel">
     <h3>Daftar Peserta Pengadaan</h3>
 
     <div class="table-responsive">
-        <table id="tabelvendor" class="table table-bordered order-column hover">
+        <table id="tabelvendor" class="table">
             <thead>
                 <tr>
                     <th>No</th>
