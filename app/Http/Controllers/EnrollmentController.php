@@ -344,7 +344,7 @@ class EnrollmentController extends Controller
             $ba_p_result   = new Memorandum;
         }
         
-        return view('penyedia.pengadaan', [
+        return view('layouts.penyedia.pengadaan', [
                         'now'                   => $now,
                         'procurement'           => $item,
                         'enrollments'           => $enrollments,

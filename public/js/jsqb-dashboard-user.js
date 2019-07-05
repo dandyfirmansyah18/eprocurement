@@ -72,7 +72,10 @@ $('#tabelpengadaan').DataTable( {
           data: 'title',
           name: 'title',
           render: function(data, type, row) {
-              return "<a href='/penyedia/pengadaan/"+ row.id +"''>"+ data +"</a>";
+            var urlbro = "/penyedia/pengadaan/" + row.id;
+            var content = "_content_";
+            var send_title = "Vendor Detail";
+            return '<a href="javascript:void(0)" onclick="call(\''+urlbro+'\',\''+content+'\',\''+send_title+'\')">' + data + '</a>';
           }
       },
       {

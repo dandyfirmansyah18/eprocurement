@@ -175,5 +175,13 @@ Route::middleware(['log'])->group(function(){
 		// Dashboard
 		Route::get('/public/vendors', 'StaticController@vendors');
 		Route::get('/public/procurements', 'StaticController@procurements');
+		Route::post('/penyedia/pengadaan/{id}', 'EnrollmentController@detail');
+		Route::post('/enrollment/register', 'EnrollmentController@register');
+		Route::post('/enrollment/pre_upload', 'EnrollmentController@pre_offering');
+		Route::post('/enrollment/upload', 'EnrollmentController@offering');
+		Route::post('/enrollment/upload2', 'EnrollmentController@offering_second');
+		Route::post('/enrollment/jaminan/upload', 'EnrollmentController@warranty_offering');
+		Route::post('/enrollment/jaminan/sanggah', 'EnrollmentController@warranty_refutal');
+
 	});
 });
