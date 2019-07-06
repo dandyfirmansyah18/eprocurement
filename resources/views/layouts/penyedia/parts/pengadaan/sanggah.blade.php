@@ -61,11 +61,12 @@
                 <div class="form-group">
                     <div class="input-group date" id="tanggal_sanggahanstart">
                         <div class="input-group-content">
-                            <input type="text" class="form-control" name="assurance[start_date]" value="{{ \App\Helpers\AuxHelper::render_date($sanggahan->start_date) }}" />
+                            
                             <label>Tanggal Mulai Jaminan</label>
-                            <p class="help-block">tanggal/bulan/tahun</p>
+                            <input type="text" class="form-control" name="assurance[start_date]" value="{{ \App\Helpers\AuxHelper::render_date($sanggahan->start_date) }}" />
+                            <p class="help-block">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>tanggal/bulan/tahun</p>
                         </div>
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
             </div>
@@ -74,11 +75,11 @@
                 <div class="form-group">
                     <div class="input-group date" id="tanggal_sanggahanend">
                         <div class="input-group-content">
-                            <input type="text" class="form-control" name="assurance[end_date]" value="{{ \App\Helpers\AuxHelper::render_date($sanggahan->end_date) }}" />
                             <label>Tanggal Selesai Jaminan</label>
-                            <p class="help-block">tanggal/bulan/tahun</p>
+                            <input type="text" class="form-control" name="assurance[end_date]" value="{{ \App\Helpers\AuxHelper::render_date($sanggahan->end_date) }}" />
+                            <p class="help-block">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>tanggal/bulan/tahun</p>
                         </div>
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
             </div>

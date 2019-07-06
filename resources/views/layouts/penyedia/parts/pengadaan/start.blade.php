@@ -3,7 +3,7 @@
     use \App\Helpers\FormHelper;
 @endphp
 
-<div class="tab-pane " id="start">
+<div class="tab-pane" id="start" role="tabpanel">
     <h3>
         Pengumuman dan Undangan Aanwizing
         <span class="pcr-date">{{ $schedule->a_announcement }}</span>
