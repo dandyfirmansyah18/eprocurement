@@ -208,42 +208,38 @@
 </div>
 
 
-@push('csspage')
-    <link rel="stylesheet" href="{{ URL::asset('css/libs/daterange/daterangepicker.css') }}"  type="text/css"/>
-@endpush
+<link rel="stylesheet" href="{{ asset('css/libs/daterange/daterangepicker.css') }}"  type="text/css"/>
 
-@push('jspage')
-    <script type="text/javascript" src="{{ URL::asset('js/libs/moment/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/moment/moment-id.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/libs/daterange/daterangepicker.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Format: 09/10/2017 12:00 - 15/10/2017 11:59
-            //moment.locale('id');
-            $('.daterange').daterangepicker({
-                daysOfWeekDisabled: [0,6],
-                timePicker: true,
-                timePicker24Hour: true,
-                timePickerIncrement: 10,
-                locale: {
-                    format: 'LLLL'
-                }
-            });
+<script type="text/javascript" src="{{ asset('js/libs/moment/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/libs/moment/moment-id.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/libs/daterange/daterangepicker.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Format: 09/10/2017 12:00 - 15/10/2017 11:59
+        //moment.locale('id');
+        $('.daterange').daterangepicker({
+            daysOfWeekDisabled: [0,6],
+            timePicker: true,
+            timePicker24Hour: true,
+            timePickerIncrement: 10,
+            locale: {
+                format: 'LLLL'
+            }
+        });
 
-            $('#tanggal_a_start').datepicker({
+        $('#tanggal_a_start').datepicker({
+            autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
+        });
+
+        if ($('#tanggal_b_start').length > 0) {
+            $('#tanggal_b_start').datepicker({
                 autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
             });
+        }
 
-            if ($('#tanggal_b_start').length > 0) {
-                $('#tanggal_b_start').datepicker({
-                    autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"
-                });
-            }
-
-            $('#trg_schedule').on('click', function(event){
-                submit_form('form_schedule');
-                event.preventDefault();
-            });
+        $('#trg_schedule').on('click', function(event){
+            submit_form('form_schedule');
+            event.preventDefault();
         });
-    </script>
-@endpush
+    });
+</script>

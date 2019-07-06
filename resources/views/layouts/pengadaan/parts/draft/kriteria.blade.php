@@ -174,7 +174,6 @@
 
 </div>
 
-@push('modal')
     <div class="modal fade" id="modal_criterion" tabindex="-1" role="dialog" aria-labelledby="criterion_label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -216,9 +215,7 @@
         <input type="hidden" id="del_criterion_id" name="id" value="" />
       </form>
     </div>
-@endpush
 
-@push('jspage')
     <script type="text/javascript">
         $(document).ready(function() {
             $('.jenis_eval').click(function() {
@@ -227,7 +224,7 @@
                 $('#pilihan' + test).show();
             });
 
-            $("#spinner-decimal").spinner({step: 0.01, numberFormat: "n", min:0.7 , max: 0.9});
+            // $("#spinner-decimal").spinner({step: 0.01, numberFormat: "n", min:0.7 , max: 0.9});
 
             $('#trg_scoring').on('click', function(){
                 $('#chk_method').val('scoring');
@@ -294,16 +291,16 @@
                 }
             });
 
-            $("#spinner-decimal").on("spinstop", function(){
-                var technical_value = $(this).spinner('value');
-                var value           = 1 - technical_value;
-                var opp_value       = Math.round( value * 100 ) / 100;
-                $('#bobotbiaya').val(opp_value);
-                $('#money_value').val(opp_value);
+            // $("#spinner-decimal").on("spinstop", function(){
+            //     var technical_value = $(this).spinner('value');
+            //     var value           = 1 - technical_value;
+            //     var opp_value       = Math.round( value * 100 ) / 100;
+            //     $('#bobotbiaya').val(opp_value);
+            //     $('#money_value').val(opp_value);
 
-                $('#criterion_technical').val($(this).val());
-                $('#criterion_money').val(opp_value);
-            });
+            //     $('#criterion_technical').val($(this).val());
+            //     $('#criterion_money').val(opp_value);
+            // });
 
             render_checkbox_value('trg_scoring', 'trg_nonscoring', 'scoring_method');
             render_combobox_value('trg_qualification', 'pc_qualification');
@@ -364,4 +361,3 @@
             // End Pre Schedule
         });
     </script>
-@endpush

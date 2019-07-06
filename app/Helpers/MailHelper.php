@@ -90,57 +90,57 @@ class MailHelper
     {
         if ($data['type'] == 'user') {
             if ($data['action'] == 'pin-request') {
-                $data['subject']  = 'Konfirmasi PIN - PT. EDI Indonesia';
+                $data['subject']  = 'Konfirmasi PIN - PT. XXX';
                 $data['template'] = 'emails.user.pin-request';
             } else if ($data['action'] == 'registration') {
-                $data['subject']  = 'Konfirmasi Pendaftaran Penyedia - PT. EDI Indonesia';
+                $data['subject']  = 'Konfirmasi Pendaftaran Penyedia - PT. XXX';
                 $data['template'] = 'emails.user.registration';
             } else if ($data['action'] == 'verification') {
-                $data['subject']  = 'Verifikasi Penyedia - PT. EDI Indonesia';
+                $data['subject']  = 'Verifikasi Penyedia - PT. XXX';
                 $data['template'] = 'emails.user.verification';
             } else if ($data['action'] == 'redo_verification') {
-                $data['subject']  = 'Verifikasi Penyedia - PT. EDI Indonesia';
+                $data['subject']  = 'Verifikasi Penyedia - PT. XXX';
                 $data['template'] = 'emails.user.redo_verification';
             } else if ($data['action'] == 'rejection') {
-                $data['subject']  = 'Verifikasi Penyedia - PT. EDI Indonesia';
+                $data['subject']  = 'Verifikasi Penyedia - PT. XXX';
                 $data['template'] = 'emails.user.rejection';
             } else if ($data['action'] == 'reset-password') {
-                $data['subject']  = 'Reset Password - PT. EDI Indonesia';
+                $data['subject']  = 'Reset Password - PT. XXX';
                 $data['template'] = 'emails.user.reset-password';
             } else if ($data['action'] == 'change-password') {
-                $data['subject']  = 'Ubah Password - PT. EDI Indonesia';
+                $data['subject']  = 'Ubah Password - PT. XXX';
                 $data['template'] = 'emails.user.change-password';
             }else if ($data['action'] == 'skrtproccess') {
-                $data['subject']  = 'SKRT Proses TTD - PT. EDI Indonesia';
+                $data['subject']  = 'SKRT Proses TTD - PT. XXX';
                 $data['template'] = 'emails.user.skrtproccess';
             }else if ($data['action'] == 'skrtdone') {
-                $data['subject']  = 'SKRT Selesai - PT. EDI Indonesia';
+                $data['subject']  = 'SKRT Selesai - PT. XXX';
                 $data['template'] = 'emails.user.skrtdone';
             }else if ($data['action'] == 'undangan') {
-                $data['subject']  = 'Undangan - PT. EDI Indonesia';
+                $data['subject']  = 'Undangan - PT. XXX';
                 $data['template'] = 'emails.user.undangan';
             }else if ($data['action'] == 'reminder') {
-                $data['subject']  = 'Reminder Upload - PT. EDI Indonesia';
+                $data['subject']  = 'Reminder Upload - PT. XXX';
                 $data['template'] = 'emails.user.reminder_upload';
             }else if ($data['action'] == 'pembukaan') {
-                $data['subject']  = 'Pembukaan Penawaran - PT. EDI Indonesia';
+                $data['subject']  = 'Pembukaan Penawaran - PT. XXX';
                 $data['template'] = 'emails.user.pembukaan';
             }else if ($data['action'] == 'evaluasi') {
-                $data['subject']  = 'Evaluasi Penawaran - PT. EDI Indonesia';
+                $data['subject']  = 'Evaluasi Penawaran - PT. XXX';
                 $data['template'] = 'emails.user.evaluasi';
             }else if ($data['action'] == 'negotiation') {
-                $data['subject']  = 'Negoisasi - PT. EDI Indonesia';
+                $data['subject']  = 'Negoisasi - PT. XXX';
                 $data['template'] = 'emails.user.negotiation';
             }else if ($data['action'] == 'pemenang') {
-                $data['subject']  = 'Pemenang - PT. EDI Indonesia';
+                $data['subject']  = 'Pemenang - PT. XXX';
                 $data['template'] = 'emails.user.pemenang';
             }else if ($data['action'] == 'url-register') {
-                $data['subject']  = 'Link Registrasi e-Procurement PT. EDI Indonesia';
+                $data['subject']  = 'Link Registrasi e-Procurement PT. XXX';
                 $data['template'] = 'emails.user.link_registrasi';
             }
         } else if ($data['type'] == 'admin') {
             if ($data['action'] == 'registration') {
-                $data['subject']  = 'Konfirmasi Pendaftaran Penyedia - PT. EDI Indonesia';
+                $data['subject']  = 'Konfirmasi Pendaftaran Penyedia - PT. XXX';
                 $data['template'] = 'emails.admin.registration';
             }
         }
@@ -148,13 +148,13 @@ class MailHelper
         if(array_key_exists('attachment', $data) && $data['attachment'] != null) {
             \Mail::send($data['template'], $data['data'], function ($m) use ($data) {
                 $attachment = storage_path() . '/app/public/' . $data['attachment'];
-                $m->from('procurement@edi-indonesia.co.id', 'PT. EDI Indonesia');
+                $m->from('procurement@eproc-mercu.co.id', 'PT. XXX');
                 $m->to($data['email'])->subject($data['subject']);
                 $m->attach($attachment);
             });
         } else {
             \Mail::send($data['template'], $data['data'], function ($m) use ($data) {
-                $m->from('procurement@edi-indonesia.co.id', 'PT. EDI Indonesia');
+                $m->from('procurement@eproc-mercu.co.id', 'PT. XXX');
                 $m->to($data['email'])->subject($data['subject']);
             });
         }
@@ -239,8 +239,8 @@ class MailHelper
 
             \Mail::send('emails.user.registration', $user_email_data['data'], function ($m) use ($user_email_data) {
                 $attachment = storage_path() . '/app/public/' . $user_email_data['attachment'];
-                $m->from('eproc.edi-indonesia@gmail.com', 'EDI Indonesia');
-                $m->to($user_email_data['email'], $user_email_data['name'])->subject('Konfirmasi Pendaftaran Penyedia - PT. EDI Indonesia');
+                $m->from('procurement@eproc-mercu.com', 'EDI Indonesia');
+                $m->to($user_email_data['email'], $user_email_data['name'])->subject('Konfirmasi Pendaftaran Penyedia - PT. XXX');
                 // $m->attach($attachment, ['as' => 'Berkas Pendaftaran']);
             });
 
@@ -254,14 +254,14 @@ class MailHelper
             ];
             
             \Mail::send('emails.admin.registration', $admin_email_data['data'], function ($m) use ($admin_email_data) {
-                $m->from('eproc.edi-indonesia@gmail.com', 'EDI Indonesia');
+                $m->from('procurement@eproc-mercu.com', 'EDI Indonesia');
                 // $m->to('wulan@multiterminal.co.id', $admin_email_data['name']);
                 // $m->to('andry@multiterminal.co.id', $admin_email_data['name']);
                 // $m->to('diaz@multiterminal.co.id', $admin_email_data['name']);
                 // $m->to('yaumil@multiterminal.co.id', $admin_email_data['name']);
                 // $m->cc($admin_email_data['email'], $admin_email_data['name']);
                 $m->to('dandygantengkok@gmail.com', $admin_email_data['name']);
-                $m->subject('Konfirmasi Pendaftaran Penyedia - PT. EDI Indonesia');
+                $m->subject('Konfirmasi Pendaftaran Penyedia - PT. XXX');
             });
         } catch(\Exception $e) {
             \Log::error(print_r($e->getMessage(), true));

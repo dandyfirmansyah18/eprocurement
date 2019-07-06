@@ -288,7 +288,7 @@
                                 <input type="hidden" id="pseudo_id" name="pseudo_id" value="{{ $pseudo_id }}" >
                             @endif
 
-                            <button class="btn btn-primary ink-reaction simpan-data" onclick="save_perencanaan(this.form.id);return false;">
+                            <button class="btn btn-primary ink-reaction simpan-data" onclick="save_perencanaan('form_perencanaan');return false;">
                                 <i class="fa fa-plus"></i>&nbsp;Buat Perencanaan Pengadaan
                             </button>
                         </div>

@@ -139,6 +139,9 @@ class LoginController extends Controller
         {
             return 'MSG#ERR#Registrasi Gagal. Email sudah terdaftar.';
         }else{
+
+            
+
             $pin = substr(str_shuffle('0123456789'), 0, 4);
             $hash_pin = Hash::make($pin);
             $save = User::create([

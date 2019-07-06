@@ -4,7 +4,7 @@
 <!-- ============================================================== -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Daftar User</h4>
+        <h4 class="text-themecolor">Daftar Pengajuan Perencanaan</h4>
     </div>
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
@@ -26,7 +26,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Daftar User</h4>
+                <h4 class="card-title">Daftar Pengajuan Perencanaan</h4>
                 <!-- <h6 class="card-subtitle"></h6> -->
                 <div class="table-responsive m-t-40">
                     <table id="tabelperencanaan" class="table table-bordered table-striped">

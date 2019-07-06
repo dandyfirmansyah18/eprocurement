@@ -576,8 +576,9 @@ class ProcurementController extends Controller
     public function start_list(Request $request)
     {
         $procurement_id = PreProcurementHelper::set_listed($request->id);
-
-        return redirect('/pengadaan/daftar/');
+        $caption = 'Mulai Pengadaan';
+        return 'MSG#OK#Simpan '.$caption.' berhasil.#/pengadaan/daftar/';
+        // return redirect('/pengadaan/daftar/');
     }
 
     public function listed_list()

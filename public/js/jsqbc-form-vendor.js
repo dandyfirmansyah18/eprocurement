@@ -1374,6 +1374,7 @@ function registration(){
             success: function(result){
                 // document.location = '/terimakasih';
                 // page_ready();
+                $('#registration_loading').modal('hide');
                 $('#terimakasih_pendaftaran').modal({backdrop: 'static', keyboard: false});
             },
             error: function(error){
@@ -1395,7 +1396,8 @@ function registration(){
 // });
 
 function terimakasih_pendaftaran_accept(){
-    call('management-master/list/pajak','_content_','Master Pajak Perusahaan')
+    $('#terimakasih_pendaftaran').modal('hide');
+    call('/dashboard','_content_','Dashboard');
 }
 
 function remove_file(filepath, token) {

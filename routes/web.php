@@ -96,7 +96,7 @@ Route::middleware(['log'])->group(function(){
 		Route::post('/pengadaan/selesai', 'ProcurementController@finish');
 
 		// Draft Routes
-		Route::get('/pengadaan/draft/{id}', 'DraftController@detail');
+		Route::post('/pengadaan/draft/{id}', 'DraftController@detail');
 		Route::post('/draft/criterion_save', 'DraftController@criterion_save');
 		Route::post('/draft/criterion_delete', 'DraftController@criterion_delete');
 		Route::post('/draft/measurement_save', 'DraftController@measurement_save');

@@ -269,7 +269,6 @@ class PlanningController extends Controller
 
     public function save_data(Request $request)
     {
-        dd('asdasdasd');
         $user                   = Auth::user();
         $request->user_id       = $user->id;
         $preprocurement_id      = PreProcurementHelper::save_data($request);
@@ -291,6 +290,7 @@ class PlanningController extends Controller
         }
 
         // return redirect('/perencanaan/daftar-calon');
+        $caption = "Perencanaan";
         return 'MSG#OK#Simpan '.$caption.' berhasil.#perencanaan/daftar-calon';
     }
 
@@ -342,7 +342,8 @@ class PlanningController extends Controller
             $attachment_memo        = AttachmentHelper::update_id($data);
         }
 
-        return redirect('/perencanaan/detail/'.$preprocurement_id);
+        return 'OK';
+        // return redirect('/perencanaan/detail/'.$preprocurement_id);
     }
 
     public function approval(Request $request)
@@ -511,8 +512,8 @@ class PlanningController extends Controller
         $request['message']         = $request->message;
 
         $chat       = ChatHelper::save_data($request);
-
-        return redirect('/perencanaan/detail/'.$request->id.'');
+        return 'OK';
+        // return redirect('/perencanaan/detail/'.$request->id.'');
     }
 
     public function get_stage($status)

@@ -65,7 +65,7 @@ function submit_form(element_id) {
                 isiMsg = arrdata[2];
                 url_next = arrdata[3]; 
                 swal("", isiMsg, "success");
-                document.getElementById(formid).reset();
+                // document.getElementById(form).reset();
                 call(url_next,'_content_','Regulation List')
             } else {
                 isiMsg = arrdata[2];

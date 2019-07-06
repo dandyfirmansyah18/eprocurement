@@ -129,8 +129,9 @@ class DraftController extends Controller
         }
 
         $request->session()->put('tab', 'third');
-
-        return redirect('/pengadaan/draft/' . $request->procurement_id);
+        $caption = "Metode Pengadaan";
+        return 'MSG#OK#Simpan '.$caption.' berhasil.#pengadaan/draft/'.$request->procurement_id;
+        // return redirect('/pengadaan/draft/' . $request->procurement_id);
     }
 
     public function measurement_save(Request $request)
@@ -145,8 +146,9 @@ class DraftController extends Controller
         $measurement_id     = MeasurementHelper::save($request->procurement_id, $data);
 
         $request->session()->put('tab', 'third');
-
-        return redirect('/pengadaan/draft/' . $request->procurement_id);
+        $caption = "Metode Penilaian";
+        return 'MSG#OK#Simpan '.$caption.' berhasil.#pengadaan/draft/'.$request->procurement_id;
+        // return redirect('/pengadaan/draft/' . $request->procurement_id);
     }
 
     public function schedule_save(Request $request)
@@ -155,7 +157,8 @@ class DraftController extends Controller
         $measurement_id = MeasurementHelper::schedule_touch($request->procurement_id, Auth::user()->id);
 
         $request->session()->put('tab', 'second');
-
-        return redirect('/pengadaan/draft/' . $request->procurement_id);
+        $caption = "Jadwal Pengadaan";
+        return 'MSG#OK#Simpan '.$caption.' berhasil.#pengadaan/draft/'.$request->procurement_id;
+        // return redirect('/pengadaan/draft/' . $request->procurement_id);
     }
 }

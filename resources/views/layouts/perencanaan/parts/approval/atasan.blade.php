@@ -3,28 +3,28 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title" id="formModalLabel">Verifikasi Pengadaan Terhadap Kelengkapan Pengajuan Pengadaan</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
-          <form class="form" role="form" action="/perencanaan/verify/{{ $data['id']}}" method="POST">
+          <form class="form" id="form_verifikasi" role="form" action="/perencanaan/verify/{{ $data['id']}}" method="POST">
             <div class="form-group floating-label">
-              <input type="text" class="form-control" id="regular2" value="{{ $user['name']}}" readonly="readonly">
               <label for="regular2">Nama verifikator</label>
+              <input type="text" class="form-control" id="regular2" value="{{ $user['name']}}" readonly="readonly">
             </div>
 
             <div class="form-group">
               <div class="input-group date" id="tanggalverifikasi">
                 <div class="input-group-content">
-                  <input type="text" class="form-control" name="verification_date" readonly="readonly">
                   <label>Tanggal verifikasi</label>
+                  <input type="text" class="form-control" name="verification_date" readonly="readonly">
                 </div>
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
             <div class="form-group floating-label">
-              <textarea type="text" class="form-control" id="regular2" name="verification_note"></textarea>
               <label for="regular2">(opsional) Catatan </label>
+              <textarea type="text" class="form-control" id="regular2" name="verification_note"></textarea>
             </div>
             <div class="form-group">
               
@@ -52,7 +52,7 @@
               {{ csrf_field() }}
               <input type="hidden" name="id" value="{{ $data['id'] }}">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Verifikasi</button>
+              <button id="trg_verifikasi_bro" class="btn btn-primary"><i class="fa fa-check"></i> Verifikasi</button>
             </div>
           </form>
         </div>
@@ -145,7 +145,7 @@
 </div>
 
 
-<div class="tab-pane" id="second5">
+<!-- <div class="tab-pane" id="second5">
   <h3>
     @if (array_key_exists(0, $approval))
 
@@ -175,7 +175,6 @@
   Komunikasi proses persetujuan
   <form class="form" role="form" action="/perencanaan/chats" method="POST" >
     <textarea id="summernote2" name="message">
-
     </textarea>
     <input type="hidden" name="id" value="{{ $data['id'] }}">
     {{ csrf_field() }}
@@ -250,4 +249,4 @@
     <button type="submit" class="btn btn-default-bright">Kirim </button>
   </form>
   <hr>
-</div>
+</div> -->

@@ -226,11 +226,11 @@
 
     komunikasi proses persetujuan
 
-    <form class="form" role="form" action="/perencanaan/chats" method="POST" >
+    <form class="form" role="form" id="form_komunikasi" action="/perencanaan/chats" method="POST" >
         <textarea id="summernote" name="message"></textarea>
         <input type="hidden" name="id" value="{{ $data['id'] }}">
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-default-bright">Kirim </button>
+        <button id="trg_komunikasi" class="btn btn-info">Kirim </button>
     </form>
     <hr>
 

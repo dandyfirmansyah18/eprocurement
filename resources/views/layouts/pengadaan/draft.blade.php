@@ -1,8 +1,3 @@
-@extends('templates.index')
-@push('csspage')
-@endpush
-
-@section('content')
 <!-- BEGIN content SECTION -->
 <div class="container-fluid">
 <!-- ============================================================== -->
@@ -80,25 +75,28 @@
 @php
     Session::forget('tab');
 @endphp
-    <!-- END content SECTION -->
-@endsection
+<script type="text/javascript" src="{{ asset('js/jsqbc-functions.js') }}"></script>
 
-
-@push('jspage')
-    
-    <script type="text/javascript" src="{{ URL::asset('js/jsqbc-functions.js') }}"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-        enable_session_tab();
-
-        $('#trg_start').on('click', function(event){
-            var confirmation = confirm("Apakah anda yakin?");
-            if (confirmation == true) {
-                submit_form('form_start');
-            }
-            event.preventDefault();
+<script type="text/javascript">
+$(document).ready(function() {
+    enable_session_tab();
+    $('#trg_start').on('click', function(event){
+        swal({
+            title: "",
+            text: "Apakah anda yakin akan menghapus data ini?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Ya, Hapus!",
+            closeOnConfirm: false
+        },
+        function(){
+            submit_form('form_start');
         });
+        // var confirmation = confirm("Apakah anda yakin?");
+        // if (confirmation == true) {
+        // }
+        event.preventDefault();
     });
-    </script>
-@endpush
+});
+</script>

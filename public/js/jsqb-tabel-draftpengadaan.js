@@ -56,7 +56,10 @@ $('#tabeldraftpengadaan').DataTable( {
             data: 'title',
             name: 'title',
             render: function(data, type, row) {
-                return "<a href='/pengadaan/draft/" + row.id + "'>" + data + "</a>";
+                var urlbro = "/pengadaan/draft/" + row.id;
+                var content = "_content_";
+                var send_title = "Vendor Detail";
+                return '<a href="javascript:void(0)" onclick="call(\''+urlbro+'\',\''+content+'\',\''+send_title+'\')">' + data + '</a>';
                 // return "<a href=\"\\javascript:void(0)\"\\ onclick=\"\\call('<?= url('pengadaan/draft/"+ row.id +"'); ?>\"\\,'_content_','Daftar Draft Pengadaan')\"\\>"+ data +"</a>";
             }
         },
